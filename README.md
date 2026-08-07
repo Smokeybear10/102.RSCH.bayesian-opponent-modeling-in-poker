@@ -1,4 +1,4 @@
-# R1VER | Poker Intelligence
+# River | Poker Intelligence
 
 **Live demo: [river-002.vercel.app](https://river-002.vercel.app)**
 
@@ -27,9 +27,9 @@ Trains a game-theoretic poker solver from scratch. Collapses the ~10¹⁶⁰-nod
 
 ## Architecture
 
-![R1VER Architecture](docs/architecture/r1ver-architecture.png)
+![River Architecture](docs/architecture/r1ver-architecture.png)
 
-The four streets of R1VER: **Abstract** → **Solve** → **Publish** → **Serve**. Full interactive doc at [`docs/architecture/index.html`](docs/architecture/index.html).
+The four streets of River: **Abstract** → **Solve** → **Publish** → **Serve**. Full interactive doc at [`docs/architecture/index.html`](docs/architecture/index.html).
 
 ## Tech Stack
 
