@@ -1,7 +1,5 @@
 # River | Card Abstraction and Regret Minimization
 
-**Live demo: [river-002.vercel.app](https://river-002.vercel.app)**
-
 A Rust research implementation of card abstraction and Monte Carlo counterfactual regret minimization (MCCFR) for heads-up No-Limit Texas Hold'em. It groups card situations and samples game trees to make strategy training smaller than the full game.
 
 The website presents the project. Its explorer and strategy pages need a running solver API; the repository also includes the Next.js frontend for local use.
