@@ -99,19 +99,19 @@ fn solving_cfr_rps(c: &mut criterion::Criterion) {
     });
 }
 
-use r1ver::cards::evaluator::Evaluator;
-use r1ver::cards::hand::Hand;
-use r1ver::cards::isomorphism::Isomorphism;
-use r1ver::cards::observation::Observation;
-use r1ver::cards::observations::ObservationIterator;
-use r1ver::cards::street::Street;
-use r1ver::cards::strength::Strength;
-use r1ver::clustering::emd::EMD;
-use r1ver::clustering::equity::Equity;
-use r1ver::clustering::heuristic::Heuristic;
-use r1ver::clustering::histogram::Histogram;
-use r1ver::clustering::sinkhorn::Sinkhorn;
-use r1ver::mccfr::rps::RPS;
-use r1ver::mccfr::traits::Blueprint;
-use r1ver::transport::coupling::Coupling;
-use r1ver::Arbitrary;
+use bayesian_opponent_modeling_in_poker::cards::evaluator::Evaluator;
+use bayesian_opponent_modeling_in_poker::cards::hand::Hand;
+use bayesian_opponent_modeling_in_poker::cards::isomorphism::Isomorphism;
+use bayesian_opponent_modeling_in_poker::cards::observation::Observation;
+use bayesian_opponent_modeling_in_poker::cards::observations::ObservationIterator;
+use bayesian_opponent_modeling_in_poker::cards::street::Street;
+use bayesian_opponent_modeling_in_poker::cards::strength::Strength;
+use bayesian_opponent_modeling_in_poker::clustering::emd::EMD;
+use bayesian_opponent_modeling_in_poker::clustering::equity::Equity;
+use bayesian_opponent_modeling_in_poker::clustering::heuristic::Heuristic;
+use bayesian_opponent_modeling_in_poker::clustering::histogram::Histogram;
+use bayesian_opponent_modeling_in_poker::clustering::sinkhorn::Sinkhorn;
+use bayesian_opponent_modeling_in_poker::mccfr::rps::RPS;
+use bayesian_opponent_modeling_in_poker::mccfr::traits::Blueprint;
+use bayesian_opponent_modeling_in_poker::transport::coupling::Coupling;
+use bayesian_opponent_modeling_in_poker::Arbitrary;

@@ -1,5 +1,5 @@
 [project]
-name = "river-poker"
+name = "bayesian-opponent-modeling-in-poker"
 version = "0.4.0"
 description = "Heads-up poker research, tournament policies and competition preparation"
 readme = "README.md"

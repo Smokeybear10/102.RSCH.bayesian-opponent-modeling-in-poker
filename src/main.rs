@@ -1,6 +1,6 @@
-//! R1VER - A No-Limit Texas Hold'em Poker AI Implementation
+//! Bayesian Opponent Modeling in Poker - A No-Limit Texas Hold'em Poker AI Implementation
 
-use r1ver::*;
+use bayesian_opponent_modeling_in_poker::*;
 
 #[tokio::main]
 async fn main() {

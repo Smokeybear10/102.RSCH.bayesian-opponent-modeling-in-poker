@@ -1,12 +1,12 @@
-# River | Architecture
+# Bayesian Opponent Modeling in Poker | Architecture
 
 ## System overview
 
-River contains a Rust solver and two Python packages. The Rust solver under `src/` builds card abstractions, trains an MCCFR blueprint, and serves stored strategy queries. The Python engine under `headsup/` plays complete heads-up Hold'em hands, evaluates heuristic policies, and connects separate clients to a private play-money table. The `competition/` package adds multi-player tournaments and event integration. Both Python policies run independently of the Rust blueprint. PokerKit owns Python game transitions and gross settlement; the heads-up engine applies declared simulated rake once. Policies receive observations containing their own cards and public information. Full replay decks remain in local host storage.
+Bayesian Opponent Modeling in Poker contains a Rust solver and two Python packages. The Rust solver under `src/` builds card abstractions, trains an MCCFR blueprint, and serves stored strategy queries. The Python engine under `headsup/` plays complete heads-up Hold'em hands, evaluates heuristic policies, and connects separate clients to a private play-money table. The `competition/` package adds multi-player tournaments and event integration. Both Python policies run independently of the Rust blueprint. PokerKit owns Python game transitions and gross settlement; the heads-up engine applies declared simulated rake once. Policies receive observations containing their own cards and public information. Full replay decks remain in local host storage.
 
 ## Competition integration
 
-The competition package was imported from Shove commit `6ecc87d` into River on November 7, 2026. River is the active source repository for both modes. The modules and recorded results were preserved; this consolidation does not claim a new strategy result.
+The competition package was imported from Shove commit `6ecc87d` into River (now Bayesian Opponent Modeling in Poker) on November 7, 2026. Bayesian Opponent Modeling in Poker is the active source repository for both modes. The modules and recorded results were preserved; this consolidation does not claim a new strategy result.
 
 ```text
 uv sync --locked
@@ -126,7 +126,7 @@ Install with `uv sync --locked`. From this project directory, run `uv run python
 | Complete pairs as statistical units | Preserve the dependence between seat-swapped hands | Treating every hand as independent | 2026-11-05 |
 | Direct net-return vectors | Rake breaks the zero-sum payoff identity | Half the difference between player returns | 2026-11-05 |
 | Standard-library regression suites | Durable checks for the requested public research release without another test dependency | Saved one-off checks only | 2026-11-07 |
-| Combined public repository and Python environment | User approved publishing Shove inside River; distinct rule engines and policies remain separate | Separate active repositories or a rewritten common game engine | 2026-11-07 |
+| Combined public repository and Python environment | User approved publishing Shove inside River (now Bayesian Opponent Modeling in Poker); distinct rule engines and policies remain separate | Separate active repositories or a rewritten common game engine | 2026-11-07 |
 
 ## Out of scope
 

@@ -1,8 +1,8 @@
-# River | Poker Research and Competition
+# Bayesian Opponent Modeling in Poker
 
 Heads-up Hold'em research, multi-player tournament bots, and competition preparation, alongside a Rust Monte Carlo counterfactual regret minimization (MCCFR) solver.
 
-River now includes the competition toolkit previously maintained as Shove. Both Python packages use the same pinned environment; their game rules, policies, and opponent state stay separate. The Rust solver trains an abstract strategy blueprint and is independent of both Python bots.
+Bayesian Opponent Modeling in Poker includes the competition toolkit previously maintained as Shove. Both Python packages use the same pinned environment; their game rules, policies, and opponent state stay separate. The Rust solver trains an abstract strategy blueprint and is independent of both Python bots.
 
 | Mode | Entry point | Guide |
 | --- | --- | --- |
@@ -15,8 +15,8 @@ River now includes the competition toolkit previously maintained as Shove. Both 
 Requires [uv](https://docs.astral.sh/uv/getting-started/installation/). Python 3.12.14 and dependencies are pinned. Linux and macOS are supported.
 
 ```sh
-git clone https://github.com/Smokeybear10/103.RSCH.river.git
-cd 103.RSCH.river
+git clone https://github.com/Smokeybear10/bayesian-opponent-modeling-in-poker.git
+cd bayesian-opponent-modeling-in-poker
 uv sync --locked
 uv run --locked python -m headsup benchmark --pairs 16 --samples 128 --output runs/first-benchmark
 ```
@@ -106,8 +106,8 @@ Clustering must finish before training. Even `demo` enumerates card observations
 With PostgreSQL running, publish a trained dataset to a fresh database:
 
 ```sh
-createdb river_demo
-export DB_URL='postgresql://localhost/river_demo'
+createdb bayesian_poker_demo
+export DB_URL='postgresql://localhost/bayesian_poker_demo'
 cargo run --release --locked --features "publish demo shortdeck"
 cargo run --release --locked --features "analyze demo shortdeck"
 ```
@@ -139,6 +139,6 @@ docs/competition.md   # Tournament and event preparation commands
 2. [Potential-Aware Imperfect-Recall Abstraction with Earth Mover's Distance](https://www.cs.cmu.edu/~sandholm/potential-aware_imperfect-recall.aaai14.pdf).
 3. [Solving Imperfect-Information Games via Discounted Regret Minimization](https://arxiv.org/abs/1809.04040).
 
-These describe related methods, not measured results for River.
+These describe related methods, not measured results for Bayesian Opponent Modeling in Poker.
 
 Maintained by Thomas Ou

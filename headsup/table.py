@@ -358,7 +358,7 @@ class _CommandBodyLimit:
 def create_app(store: TableStore) -> FastAPI:
     from .web import PAGE
 
-    app = FastAPI(title="River private table", docs_url=None,
+    app = FastAPI(title="Bayesian Opponent Modeling in Poker | Private table", docs_url=None,
                   redoc_url=None, openapi_url=None)
     app.add_middleware(_CommandBodyLimit)
 

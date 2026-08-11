@@ -1,6 +1,6 @@
-# River | Competition Toolkit
+# Bayesian Opponent Modeling in Poker | Competition Toolkit
 
-This is the competition mode of River, imported from Shove. Run it from the River repository root with the same environment as the heads-up package:
+This is the competition mode of Bayesian Opponent Modeling in Poker, imported from Shove. Run it from the Bayesian Opponent Modeling in Poker repository root with the same environment as the heads-up package:
 
 ```sh
 uv sync --locked
@@ -23,7 +23,7 @@ instructions. Preparing this toolkit does not establish that permission.
 
 ## Start with the released kit
 
-Run these commands from the repository root using River's pinned Python 3.12
+Run these commands from the repository root using Bayesian Opponent Modeling in Poker's pinned Python 3.12
 environment. The dependency-free session and SDK tools also support Python
 3.10–3.12 when used separately.
 

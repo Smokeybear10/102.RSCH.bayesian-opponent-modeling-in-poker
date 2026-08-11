@@ -1,9 +1,9 @@
 [package]
-name        = "r1ver"
+name        = "bayesian-opponent-modeling-in-poker"
 version     = "0.1.1"
 description = "Implementations of No-Limit Texas Hold-Em solution."
-homepage    = "https://github.com/Smokeybear10/103.RSCH.river"
-repository  = "https://github.com/Smokeybear10/103.RSCH.river"
+homepage    = "https://github.com/Smokeybear10/bayesian-opponent-modeling-in-poker"
+repository  = "https://github.com/Smokeybear10/bayesian-opponent-modeling-in-poker"
 readme      = "README.md"
 keywords    = ["poker", "cards", "cfr", "mcts", "holdem"]
 edition     = "2021"
@@ -36,7 +36,7 @@ console_error_panic_hook = { optional = true, version = "0.1.7" }
 crate-type = ["cdylib", "rlib"]
 
 [[bin]]
-name = "r1ver"
+name = "bayesian-opponent-modeling-in-poker"
 path = "src/main.rs"
 required-features = ["native"]
 

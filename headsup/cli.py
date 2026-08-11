@@ -89,7 +89,7 @@ def play(output: Path, config: GameConfig, bot_name: str, hands: int, seed: int,
     write_json(output / "manifest.json", {"schema_version": 1, "mode": "human_local_play",
                "config": asdict(config), "bot": bot_name, "hands": hands, "seed": seed,
                "samples": samples, "environment": environment()})
-    print("River | local play-money simulation")
+    print("Bayesian Opponent Modeling in Poker | local play-money simulation")
     print(f"Fresh {config.stack_bb} BB stacks each hand. Positions alternate. Amounts are chips.")
     print("raise_to means your TOTAL bet on this street, not additional chips.")
     print(f"Completed hands save to {output / 'hands.jsonl'}")

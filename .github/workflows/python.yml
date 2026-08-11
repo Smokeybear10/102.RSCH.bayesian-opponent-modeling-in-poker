@@ -85,7 +85,7 @@ jobs:
           uv venv --python 3.12.14 "$package_test_dir/venv"
           package_python="$package_test_dir/venv/bin/python"
           uv pip sync --python "$package_python" "$package_test_dir/requirements.txt"
-          uv pip install --python "$package_python" --no-deps dist/river_poker-*.whl
+          uv pip install --python "$package_python" --no-deps dist/bayesian_opponent_modeling_in_poker-*.whl
           cd "$package_test_dir"
           "$package_python" -I -m headsup --help
           "$package_python" -I -m competition --help
@@ -95,7 +95,7 @@ jobs:
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: matrix.os == 'ubuntu-latest'
         with:
-          name: river-python-distributions
+          name: bayesian-opponent-modeling-in-poker-python-distributions
           path: dist/*
           if-no-files-found: error
 
