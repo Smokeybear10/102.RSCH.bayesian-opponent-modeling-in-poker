@@ -1,0 +1,534 @@
+{
+  "practice_only": true,
+  "variant": "No-Limit Texas Hold'em",
+  "parameters": {
+    "equity_only": {
+      "open_scale": 1.0,
+      "call_edge": 0.025,
+      "value_edge": 0.14,
+      "bet_fraction": 0.6,
+      "bluff_frequency": 0.08,
+      "samples": 40,
+      "equity_budget_us": 400,
+      "use_icm": false,
+      "adapt": false,
+      "learn_continuation": true
+    },
+    "fixed_call_model": {
+      "open_scale": 1.0,
+      "call_edge": 0.025,
+      "value_edge": 0.14,
+      "bet_fraction": 0.6,
+      "bluff_frequency": 0.08,
+      "samples": 40,
+      "equity_budget_us": 400,
+      "use_icm": true,
+      "adapt": true,
+      "learn_continuation": false
+    },
+    "tournament": {
+      "open_scale": 1.0,
+      "call_edge": 0.025,
+      "value_edge": 0.14,
+      "bet_fraction": 0.6,
+      "bluff_frequency": 0.08,
+      "samples": 40,
+      "equity_budget_us": 400,
+      "use_icm": true,
+      "adapt": true,
+      "learn_continuation": true
+    }
+  },
+  "configuration": {
+    "stacks": [
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000
+    ],
+    "payouts": [
+      50,
+      30,
+      20,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "blinds": [
+      20,
+      40,
+      80,
+      160,
+      320,
+      640,
+      1280,
+      2560
+    ],
+    "hands_per_level": 25,
+    "max_hands": 200,
+    "enforce_deadline": true
+  },
+  "seed": 96261101,
+  "paired_design": "Shared per-hand deck seeds and rotating hero seats; differing actions and eliminations can change subsequent card assignments. Table-level paired intervals are descriptive and do not establish performance against actual entrants.",
+  "fields": {
+    "mixed": {
+      "equity_only": {
+        "tables": 128,
+        "mean_points": 21.796875,
+        "95pct_interval": [
+          17.899162015729484,
+          25.694587984270516
+        ],
+        "decisions": 13624,
+        "overruns": 191,
+        "latency_us": {
+          "p50": 282.042,
+          "p95": 489.167,
+          "p99": 1374.375,
+          "max": 9379.291
+        },
+        "mean_hands": 121.578125
+      },
+      "fixed_call_model": {
+        "tables": 128,
+        "mean_points": 33.515625,
+        "95pct_interval": [
+          30.192924460547644,
+          36.838325539452356
+        ],
+        "decisions": 19801,
+        "overruns": 320,
+        "latency_us": {
+          "p50": 233.208,
+          "p95": 478.417,
+          "p99": 1542.417,
+          "max": 53564.208
+        },
+        "mean_hands": 128.171875,
+        "paired_delta_vs_equity_only": {
+          "mean": 11.71875,
+          "95pct_interval": [
+            7.457944816179869,
+            15.979555183820132
+          ]
+        }
+      },
+      "tournament": {
+        "tables": 128,
+        "mean_points": 31.953125,
+        "95pct_interval": [
+          28.460729764607546,
+          35.44552023539246
+        ],
+        "decisions": 19670,
+        "overruns": 50,
+        "latency_us": {
+          "p50": 219.834,
+          "p95": 420.458,
+          "p99": 515.0,
+          "max": 21291.708
+        },
+        "mean_hands": 127.1015625,
+        "paired_delta_vs_equity_only": {
+          "mean": 10.15625,
+          "95pct_interval": [
+            4.925094310298003,
+            15.387405689701996
+          ]
+        },
+        "paired_delta_vs_fixed_call_model": {
+          "mean": -1.5625,
+          "95pct_interval": [
+            -6.302855807229438,
+            3.177855807229438
+          ]
+        }
+      }
+    },
+    "calling": {
+      "equity_only": {
+        "tables": 128,
+        "mean_points": 40.3125,
+        "95pct_interval": [
+          36.93794567684542,
+          43.68705432315458
+        ],
+        "decisions": 14996,
+        "overruns": 182,
+        "latency_us": {
+          "p50": 269.75,
+          "p95": 453.083,
+          "p99": 1206.375,
+          "max": 45020.542
+        },
+        "mean_hands": 72.46875
+      },
+      "fixed_call_model": {
+        "tables": 128,
+        "mean_points": 40.234375,
+        "95pct_interval": [
+          36.870149445789735,
+          43.598600554210265
+        ],
+        "decisions": 14464,
+        "overruns": 2,
+        "latency_us": {
+          "p50": 179.25,
+          "p95": 415.958,
+          "p99": 421.042,
+          "max": 1641.792
+        },
+        "mean_hands": 73.6328125,
+        "paired_delta_vs_equity_only": {
+          "mean": -0.078125,
+          "95pct_interval": [
+            -2.762811528035252,
+            2.606561528035252
+          ]
+        }
+      },
+      "tournament": {
+        "tables": 128,
+        "mean_points": 39.609375,
+        "95pct_interval": [
+          36.18294338545858,
+          43.03580661454142
+        ],
+        "decisions": 14282,
+        "overruns": 8,
+        "latency_us": {
+          "p50": 199.583,
+          "p95": 417.0,
+          "p99": 425.542,
+          "max": 4287.459
+        },
+        "mean_hands": 74.328125,
+        "paired_delta_vs_equity_only": {
+          "mean": -0.703125,
+          "95pct_interval": [
+            -3.4460464861903226,
+            2.0397964861903226
+          ]
+        },
+        "paired_delta_vs_fixed_call_model": {
+          "mean": -0.625,
+          "95pct_interval": [
+            -2.892142700321717,
+            1.6421427003217168
+          ]
+        }
+      }
+    },
+    "tight": {
+      "equity_only": {
+        "tables": 128,
+        "mean_points": 8.359375,
+        "95pct_interval": [
+          5.180707788260589,
+          11.53804221173941
+        ],
+        "decisions": 8807,
+        "overruns": 41,
+        "latency_us": {
+          "p50": 12.25,
+          "p95": 417.083,
+          "p99": 493.791,
+          "max": 25072.583
+        },
+        "mean_hands": 186.6015625
+      },
+      "fixed_call_model": {
+        "tables": 128,
+        "mean_points": 32.615625,
+        "95pct_interval": [
+          28.56791567456377,
+          36.66333432543623
+        ],
+        "decisions": 17491,
+        "overruns": 31,
+        "latency_us": {
+          "p50": 11.916,
+          "p95": 417.0,
+          "p99": 478.541,
+          "max": 5836.291
+        },
+        "mean_hands": 171.8515625,
+        "paired_delta_vs_equity_only": {
+          "mean": 24.25625,
+          "95pct_interval": [
+            19.09133706974206,
+            29.421162930257942
+          ]
+        }
+      },
+      "tournament": {
+        "tables": 128,
+        "mean_points": 34.3561328125,
+        "95pct_interval": [
+          30.484944704824393,
+          38.22732092017561
+        ],
+        "decisions": 17703,
+        "overruns": 31,
+        "latency_us": {
+          "p50": 9.791,
+          "p95": 411.666,
+          "p99": 432.875,
+          "max": 12209.291
+        },
+        "mean_hands": 169.984375,
+        "paired_delta_vs_equity_only": {
+          "mean": 25.9967578125,
+          "95pct_interval": [
+            20.970757990839758,
+            31.022757634160243
+          ]
+        },
+        "paired_delta_vs_fixed_call_model": {
+          "mean": 1.7405078125,
+          "95pct_interval": [
+            -2.1177324641749014,
+            5.598748089174901
+          ]
+        }
+      }
+    },
+    "maniac": {
+      "equity_only": {
+        "tables": 128,
+        "mean_points": 30.825892857142858,
+        "95pct_interval": [
+          27.95027518057012,
+          33.70151053371559
+        ],
+        "decisions": 4464,
+        "overruns": 59,
+        "latency_us": {
+          "p50": 279.833,
+          "p95": 431.416,
+          "p99": 1429.125,
+          "max": 14382.542
+        },
+        "mean_hands": 13.4921875
+      },
+      "fixed_call_model": {
+        "tables": 128,
+        "mean_points": 35.48363095238095,
+        "95pct_interval": [
+          33.084710575873274,
+          37.882551328888624
+        ],
+        "decisions": 9074,
+        "overruns": 17,
+        "latency_us": {
+          "p50": 244.208,
+          "p95": 417.542,
+          "p99": 490.542,
+          "max": 8698.75
+        },
+        "mean_hands": 28.0703125,
+        "paired_delta_vs_equity_only": {
+          "mean": 4.657738095238095,
+          "95pct_interval": [
+            1.2975298537963513,
+            8.017946336679838
+          ]
+        }
+      },
+      "tournament": {
+        "tables": 128,
+        "mean_points": 36.52157738095238,
+        "95pct_interval": [
+          34.16326323604572,
+          38.87989152585904
+        ],
+        "decisions": 8367,
+        "overruns": 0,
+        "latency_us": {
+          "p50": 217.875,
+          "p95": 376.583,
+          "p99": 416.875,
+          "max": 546.375
+        },
+        "mean_hands": 24.96875,
+        "paired_delta_vs_equity_only": {
+          "mean": 5.695684523809524,
+          "95pct_interval": [
+            2.5112638156092317,
+            8.880105232009816
+          ]
+        },
+        "paired_delta_vs_fixed_call_model": {
+          "mean": 1.0379464285714286,
+          "95pct_interval": [
+            -1.2798431207148584,
+            3.355735977857716
+          ]
+        }
+      }
+    },
+    "random": {
+      "equity_only": {
+        "tables": 128,
+        "mean_points": 33.4375,
+        "95pct_interval": [
+          29.503553659611622,
+          37.37144634038838
+        ],
+        "decisions": 16495,
+        "overruns": 82,
+        "latency_us": {
+          "p50": 248.333,
+          "p95": 422.541,
+          "p99": 593.167,
+          "max": 13616.0
+        },
+        "mean_hands": 95.1484375
+      },
+      "fixed_call_model": {
+        "tables": 128,
+        "mean_points": 38.046875,
+        "95pct_interval": [
+          34.82918373472654,
+          41.26456626527346
+        ],
+        "decisions": 22576,
+        "overruns": 5,
+        "latency_us": {
+          "p50": 200.959,
+          "p95": 414.667,
+          "p99": 421.625,
+          "max": 4192.542
+        },
+        "mean_hands": 110.6640625,
+        "paired_delta_vs_equity_only": {
+          "mean": 4.609375,
+          "95pct_interval": [
+            -0.022378480275295765,
+            9.241128480275297
+          ]
+        }
+      },
+      "tournament": {
+        "tables": 128,
+        "mean_points": 34.21875,
+        "95pct_interval": [
+          30.662314917011997,
+          37.775185082988
+        ],
+        "decisions": 21619,
+        "overruns": 75,
+        "latency_us": {
+          "p50": 195.875,
+          "p95": 418.333,
+          "p99": 523.041,
+          "max": 13448.667
+        },
+        "mean_hands": 115.734375,
+        "paired_delta_vs_equity_only": {
+          "mean": 0.78125,
+          "95pct_interval": [
+            -4.338606953462404,
+            5.901106953462404
+          ]
+        },
+        "paired_delta_vs_fixed_call_model": {
+          "mean": -3.828125,
+          "95pct_interval": [
+            -8.182260842949017,
+            0.5260108429490158
+          ]
+        }
+      }
+    },
+    "selfplay": {
+      "equity_only": {
+        "tables": 128,
+        "mean_points": 4.140625,
+        "95pct_interval": [
+          2.026926929242072,
+          6.254323070757928
+        ],
+        "decisions": 9333,
+        "overruns": 49,
+        "latency_us": {
+          "p50": 268.833,
+          "p95": 420.25,
+          "p99": 550.958,
+          "max": 15758.875
+        },
+        "mean_hands": 133.375
+      },
+      "fixed_call_model": {
+        "tables": 128,
+        "mean_points": 10.390625,
+        "95pct_interval": [
+          7.552692864451419,
+          13.22855713554858
+        ],
+        "decisions": 16513,
+        "overruns": 54,
+        "latency_us": {
+          "p50": 219.792,
+          "p95": 419.333,
+          "p99": 520.167,
+          "max": 23875.625
+        },
+        "mean_hands": 136.5703125,
+        "paired_delta_vs_equity_only": {
+          "mean": 6.25,
+          "95pct_interval": [
+            2.819448863176326,
+            9.680551136823674
+          ]
+        }
+      },
+      "tournament": {
+        "tables": 128,
+        "mean_points": 14.609375,
+        "95pct_interval": [
+          11.363576603430031,
+          17.855173396569967
+        ],
+        "decisions": 17478,
+        "overruns": 13,
+        "latency_us": {
+          "p50": 196.708,
+          "p95": 414.125,
+          "p99": 431.667,
+          "max": 6172.125
+        },
+        "mean_hands": 137.46875,
+        "paired_delta_vs_equity_only": {
+          "mean": 10.46875,
+          "95pct_interval": [
+            6.666636105541155,
+            14.270863894458845
+          ]
+        },
+        "paired_delta_vs_fixed_call_model": {
+          "mean": 4.21875,
+          "95pct_interval": [
+            0.07320379543858646,
+            8.364296204561413
+          ]
+        }
+      }
+    }
+  },
+  "elapsed_seconds": 165.51602716604248,
+  "limitations": [
+    "The event variant, Agent interface, runtime, dependency availability, and permission to bring prewritten code remain unresolved.",
+    "The policy is a heuristic, not a solved or trained equilibrium strategy.",
+    "Equity uses bounded Monte Carlo and approximate opponent ranges; nonterminal decisions omit future betting and use a realization discount.",
+    "ICM is applied directly only to heads-up terminal all-in calls; other decisions use chip-value heuristics.",
+    "Local timing includes act() but excludes simulator-to-observation conversion; host scheduling and multiprocessing affect tail latency.",
+    "PokerKit and eval7 are preparation dependencies, not confirmed event dependencies."
+  ]
+}

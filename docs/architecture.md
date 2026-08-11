@@ -2,7 +2,23 @@
 
 ## System overview
 
-River contains two runtimes. The Rust solver under `src/` builds card abstractions, trains an MCCFR blueprint, and serves stored strategy queries. The Python engine under `headsup/` plays complete heads-up Hold'em hands, evaluates heuristic policies, and connects separate clients to a private play-money table. The Python policy currently runs independently of the Rust blueprint. PokerKit owns Python game transitions and gross settlement; the engine applies declared simulated rake once. Policies receive frozen observations containing their own cards and public information. Full decks remain in private host storage for offline replay.
+River contains a Rust solver and two Python packages. The Rust solver under `src/` builds card abstractions, trains an MCCFR blueprint, and serves stored strategy queries. The Python engine under `headsup/` plays complete heads-up Hold'em hands, evaluates heuristic policies, and connects separate clients to a private play-money table. The `competition/` package adds multi-player tournaments and event integration. Both Python policies run independently of the Rust blueprint. PokerKit owns Python game transitions and gross settlement; the heads-up engine applies declared simulated rake once. Policies receive observations containing their own cards and public information. Full replay decks remain in local host storage.
+
+## Competition integration
+
+The competition package was imported from Shove commit `6ecc87d` into River on November 7, 2026. River is the active source repository for both modes. The modules and recorded results were preserved; this consolidation does not claim a new strategy result.
+
+```text
+uv sync --locked
+  ├── headsup       → two seats, cash-game settlement, persistent opponent memory
+  └── competition   → multiple seats, side pots, tournament payouts, SDK packaging
+
+cargo               → independent Rust abstraction and MCCFR research
+```
+
+The Python packages share their pinned PokerKit and eval7 dependencies and installation, but not action schemas or opponent databases. Heads-up observations use string card codes and two-element stack vectors. Competition observations use integer cards, variable seat lists, and payout vectors. Tournament side pots, elimination, and ICM cannot be implemented by widening the heads-up tuples. No implicit conversion or cross-mode memory pooling occurs.
+
+The [competition guide](competition.md) is the current entry point for event work. Imported `reports/`, `eventday-kit.json`, and `artifacts/event-day-kit.zip` retain their original bytes as historical evidence. Their source hashes and private-repository references describe the earlier Shove checkout. New runs use the installed `competition` package, with outputs in ignored `day/` directories. Existing heads-up research fingerprints remain historical; source/environment checks still reject incompatible replay or checkpoint resumes.
 
 ```mermaid
 graph TD
@@ -90,8 +106,10 @@ Policy replay additionally recreates the recorded policies and RNG seeds and com
 ```mermaid
 graph LR
   Terminal[Local terminal] --> Python[Python 3.12 environment]
-  Python --> Package[Independent headsup package]
-  Package --> Disk[Local run files]
+  Python --> Headsup[headsup package]
+  Python --> Competition[competition package]
+  Headsup --> Disk[Local run files]
+  Competition --> Candidate[Local event sessions and candidate archives]
 ```
 
 Install with `uv sync --locked`. From this project directory, run `uv run python -m headsup play`, `uv run python -m headsup benchmark --pairs 50`, or `uv run python -m headsup replay runs/<run>/hands.jsonl --hand 1`. Local simulation needs no account or network after dependency installation. GitHub Actions checks Python and JavaScript tests, research artifacts and package builds on Linux and macOS. Publishing source does not deploy a poker service.
@@ -100,7 +118,7 @@ Install with `uv sync --locked`. From this project directory, run `uv run python
 
 | Decision | Reason | Alternatives considered | Date |
 |---|---|---|---|
-| Independent source and environment | User explicitly separated this from the competition bot | Shared tournament code | 2026-11-05 |
+| Independent source and environment (superseded) | User initially separated this from the competition bot; superseded by the combined repository below | Shared tournament code | 2026-11-05 |
 | Terminal-first | User approved the fastest usable arena | Browser interface | 2026-11-05 |
 | PokerKit rules, explicit cards | Avoid reimplementing betting rules; keep paired deals reproducible | Custom poker engine | 2026-11-05 |
 | Canonical street-total raises | Eliminate additional-chip/raise-to ambiguity | Multiple action dialects | 2026-11-05 |
@@ -108,6 +126,7 @@ Install with `uv sync --locked`. From this project directory, run `uv run python
 | Complete pairs as statistical units | Preserve the dependence between seat-swapped hands | Treating every hand as independent | 2026-11-05 |
 | Direct net-return vectors | Rake breaks the zero-sum payoff identity | Half the difference between player returns | 2026-11-05 |
 | Standard-library regression suites | Durable checks for the requested public research release without another test dependency | Saved one-off checks only | 2026-11-07 |
+| Combined public repository and Python environment | User approved publishing Shove inside River; distinct rule engines and policies remain separate | Separate active repositories or a rewritten common game engine | 2026-11-07 |
 
 ## Out of scope
 

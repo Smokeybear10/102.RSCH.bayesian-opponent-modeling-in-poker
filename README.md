@@ -1,8 +1,14 @@
-# River | Poker Strategy Research
+# River | Poker Research and Competition
 
-Heads-up Hold'em simulation, persistent opponent models, and reproducible evaluation, alongside a Rust card-abstraction and Monte Carlo counterfactual regret minimization (MCCFR) solver.
+Heads-up Hold'em research, multi-player tournament bots, and competition preparation, alongside a Rust Monte Carlo counterfactual regret minimization (MCCFR) solver.
 
-The Python bot plays complete hands using heuristic policies and learned public responses. The Rust solver trains an abstract strategy blueprint. They share this repository; the Python policy currently runs independently of the Rust blueprint.
+River now includes the competition toolkit previously maintained as Shove. Both Python packages use the same pinned environment; their game rules, policies, and opponent state stay separate. The Rust solver trains an abstract strategy blueprint and is independent of both Python bots.
+
+| Mode | Entry point | Guide |
+| --- | --- | --- |
+| Heads-up research and local table | `python -m headsup` | [Architecture and connections](docs/architecture.md) |
+| Tournament simulation and competition preparation | `python -m competition` | [Competition guide](docs/competition.md) |
+| Rust abstraction and strategy training | `cargo run` with the relevant features | [Rust pipeline](#rust-pipeline) |
 
 ## Quick Start
 
@@ -23,6 +29,16 @@ uv run --locked python -m headsup serve --port 8788 --hands 100 --output runs/lo
 
 Open http://127.0.0.1:8788. Load the appropriate generated `player-N.json` credential file for each seat. [Connection details](docs/architecture.md#private-connections) cover bot clients, recovery, and replay.
 
+Rehearse the competition adapter and checked submission packaging:
+
+```sh
+uv run --locked python -m competition.eventday rehearse --deterministic --output day/rehearsal
+uv run --locked python -m competition.session start competition/rehearsal --output day/session
+uv run --locked python -m competition.session status day/session
+```
+
+These use a synthetic starter kit, without an external account or submission. The [competition guide](docs/competition.md) covers tournament comparisons and adapting an official starter. Each run requires a new output directory.
+
 ## What It Does
 
 **Complete games.** PokerKit owns Python betting rules and gross settlement. The engine handles explicit simulated rake and uncalled refunds. Policies receive their own cards and public information. Saved hands support settlement replay and exact policy replay with the recorded environment.
@@ -35,11 +51,15 @@ Open http://127.0.0.1:8788. Load the appropriate generated `player-N.json` crede
 
 **Private integration.** The local table supports authenticated clients and durable action receipts. Experimental PokerNow modules validate visible state and confirm actions through a supplied browser-control interface. No ClubGG adapter is included.
 
+**Tournament competition.** The imported toolkit includes multi-player Hold'em simulation, payout-aware policies, opponent leagues, SDK adapters, starter inspection, runtime checks, and verified candidate packaging. Its prepared strategy assumes standard no-limit Hold'em; official rules and interfaces still need to be supplied and validated for an event.
+
 ## Research and Results
 
 The [research report](research/REPORT.md) includes methods, failure records, negative findings, and reproduction commands. The 20,016-hand Python replication measured **+4.13 BB/100** for adaptive memory versus the same baseline without memory, with a **95% interval of +0.57 to +7.69** across three independent training seeds. This supports improvement in the tested synthetic pool, with limited precision from three seeds. It does not establish human-player profitability or validate the Rust solver.
 
 Compact evidence is versioned under `research/results/`. Raw journals, credentials, and real opponent databases remain local. Historical source hashes describe the code used for those experiments and are not rewritten during cleanup.
+
+Shove's saved tournament reports are preserved under [`reports/`](reports/). Its original [`eventday-kit.json`](eventday-kit.json) and [`toolkit archive`](artifacts/event-day-kit.zip) describe an older preparation snapshot, not the current complete source. Use `competition/` for new work. Those historical files retain their original repository names, hashes, and test counts; they do not validate the heads-up bot or certify an official competition entry.
 
 ```sh
 uv run --locked python scripts/verify_research.py research/results/replication-20261107
@@ -52,12 +72,13 @@ Node.js 24 runs the browser-adapter tests. Rust 1.90.0 is pinned in `rust-toolch
 
 ```sh
 uv run --locked python -m unittest discover -s tests -v
+uv run --locked python -m unittest discover -s competition -t . -p 'test*.py' -v
 node --test tests/*.test.mjs
 cargo test --locked --lib
 cargo test --locked --lib --features shortdeck
 ```
 
-Python tests cover engine accounting, private-card boundaries, identity isolation, persistence, action confirmation, and research integrity. Rust tests cover card evaluation, settlement, transport, and regret matching. Exhaustive and dataset-dependent Rust fixtures marked `#[ignore]` are excluded from normal runs.
+Python tests cover both game engines, private-card boundaries, identity isolation, persistence, research integrity, SDK conversion, and submission packaging. The dependency-free competition integration tests also run on Python 3.10–3.12. Rust tests cover card evaluation, settlement, transport, and regret matching. Exhaustive and dataset-dependent Rust fixtures marked `#[ignore]` are excluded from normal runs.
 
 ## Rust Pipeline
 
@@ -87,13 +108,17 @@ The Rust implementation has unresolved correctness limits: [biased card drawing]
 
 ```text
 headsup/              # Python game engine, policies, memory, and private arena
+competition/          # Tournament bot, event tooling, SDK rehearsal, and tests
 src/                  # Rust cards, abstraction, MCCFR, and query API
 tests/                # Python and JavaScript regression tests
 benches/              # Rust Criterion benchmarks
 scripts/              # Experiment runner and independent verification
 research/             # Methods and compact experiment evidence
+reports/              # Historical tournament evaluation reports
+artifacts/            # Original competition toolkit snapshot
 docs/architecture.md  # Runtime boundaries and connection protocols
-.github/workflows/    # Python and Rust checks
+docs/competition.md   # Tournament and event preparation commands
+.github/workflows/    # Research, competition, package, and Rust checks
 ```
 
 ## References

@@ -1,0 +1,176 @@
+{
+  "practice_only": true,
+  "seed": 20261103,
+  "parameters": {
+    "open_scale": 1.0,
+    "call_edge": 0.025,
+    "value_edge": 0.14,
+    "bet_fraction": 0.6,
+    "bluff_frequency": 0.08,
+    "samples": 40,
+    "equity_budget_us": 400,
+    "use_icm": true,
+    "adapt": true,
+    "learn_continuation": true
+  },
+  "fixture_note": "Cold per-agent range caches, 2/3/8 players, all streets, aggressive public-range hypotheses, and terminal all-in ICM states. Timings include act(), exclude Agent initialization and observation parsing, and are not official sandbox measurements.",
+  "groups": {
+    "2p_street0": {
+      "calls": 1280,
+      "p50_us": 168.5,
+      "p99_us": 294.5,
+      "max_us": 367.708,
+      "over_1ms": 0,
+      "mean_samples": 40,
+      "cpu_p99_us": 242.75,
+      "cpu_max_us": 347.375
+    },
+    "2p_street1": {
+      "calls": 1280,
+      "p50_us": 204.375,
+      "p99_us": 414.25,
+      "max_us": 579.208,
+      "over_1ms": 0,
+      "mean_samples": 39.78125,
+      "cpu_p99_us": 318.125,
+      "cpu_max_us": 385.959
+    },
+    "2p_street2": {
+      "calls": 1280,
+      "p50_us": 189.75,
+      "p99_us": 413.583,
+      "max_us": 575.334,
+      "over_1ms": 0,
+      "mean_samples": 39.79453125,
+      "cpu_p99_us": 320.0,
+      "cpu_max_us": 413.416
+    },
+    "2p_street3": {
+      "calls": 1280,
+      "p50_us": 227.291,
+      "p99_us": 1070.5,
+      "max_us": 3190.042,
+      "over_1ms": 15,
+      "mean_samples": 37.65078125,
+      "cpu_p99_us": 365.083,
+      "cpu_max_us": 426.208
+    },
+    "2p_terminal_icm": {
+      "calls": 1280,
+      "p50_us": 263.292,
+      "p99_us": 1037.291,
+      "max_us": 3091.25,
+      "over_1ms": 15,
+      "mean_samples": 37.58671875,
+      "cpu_p99_us": 434.0,
+      "cpu_max_us": 476.333
+    },
+    "3p_street0": {
+      "calls": 1280,
+      "p50_us": 284.083,
+      "p99_us": 473.792,
+      "max_us": 2203.792,
+      "over_1ms": 1,
+      "mean_samples": 39.1140625,
+      "cpu_p99_us": 410.083,
+      "cpu_max_us": 478.666
+    },
+    "3p_street1": {
+      "calls": 1280,
+      "p50_us": 319.666,
+      "p99_us": 433.583,
+      "max_us": 893.208,
+      "over_1ms": 0,
+      "mean_samples": 39.64296875,
+      "cpu_p99_us": 408.791,
+      "cpu_max_us": 431.0
+    },
+    "3p_street2": {
+      "calls": 1280,
+      "p50_us": 339.541,
+      "p99_us": 771.709,
+      "max_us": 76263.625,
+      "over_1ms": 9,
+      "mean_samples": 35.68984375,
+      "cpu_p99_us": 424.458,
+      "cpu_max_us": 468.667
+    },
+    "3p_street3": {
+      "calls": 1280,
+      "p50_us": 200.5,
+      "p99_us": 330.833,
+      "max_us": 419.333,
+      "over_1ms": 0,
+      "mean_samples": 39.98671875,
+      "cpu_p99_us": 286.917,
+      "cpu_max_us": 350.125
+    },
+    "3p_terminal_icm": {
+      "calls": 1280,
+      "p50_us": 169.0,
+      "p99_us": 280.25,
+      "max_us": 435.958,
+      "over_1ms": 0,
+      "mean_samples": 39.990625,
+      "cpu_p99_us": 265.667,
+      "cpu_max_us": 352.375
+    },
+    "8p_street0": {
+      "calls": 1280,
+      "p50_us": 417.75,
+      "p99_us": 1575.917,
+      "max_us": 4368.833,
+      "over_1ms": 28,
+      "mean_samples": 20.76875,
+      "cpu_p99_us": 448.792,
+      "cpu_max_us": 484.583
+    },
+    "8p_street1": {
+      "calls": 1280,
+      "p50_us": 434.25,
+      "p99_us": 1701.0,
+      "max_us": 22465.375,
+      "over_1ms": 33,
+      "mean_samples": 8.0390625,
+      "cpu_p99_us": 478.5,
+      "cpu_max_us": 554.959
+    },
+    "8p_street2": {
+      "calls": 1280,
+      "p50_us": 418.958,
+      "p99_us": 481.208,
+      "max_us": 639.292,
+      "over_1ms": 0,
+      "mean_samples": 14.72578125,
+      "cpu_p99_us": 449.917,
+      "cpu_max_us": 497.75
+    },
+    "8p_street3": {
+      "calls": 1280,
+      "p50_us": 413.0,
+      "p99_us": 442.292,
+      "max_us": 593.875,
+      "over_1ms": 0,
+      "mean_samples": 23.96328125,
+      "cpu_p99_us": 431.0,
+      "cpu_max_us": 463.208
+    },
+    "8p_terminal_icm": {
+      "calls": 1280,
+      "p50_us": 272.042,
+      "p99_us": 387.042,
+      "max_us": 827.25,
+      "over_1ms": 0,
+      "mean_samples": 40,
+      "cpu_p99_us": 362.625,
+      "cpu_max_us": 546.375
+    }
+  },
+  "total": {
+    "calls": 19200,
+    "p50_us": 283.125,
+    "p99_us": 716.0,
+    "max_us": 76263.625,
+    "over_1ms": 101
+  }
+}
