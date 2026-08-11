@@ -1,0 +1,40 @@
+[project]
+name = "heads-up-poker-lab"
+version = "0.4.0"
+description = "Heads-up Hold'em AI, private play-money connections and reproducible evaluation"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "pokerkit==0.7.7",
+    "eval7==0.1.11",
+    "scipy==1.18.1",
+    "fastapi==0.162.0",
+    "uvicorn==0.54.0",
+    "pydantic==2.14.3",
+    "httpx==0.28.1",
+]
+
+[project.scripts]
+headsup = "headsup.cli:main"
+
+[build-system]
+requires = ["hatchling==1.27.0"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["headsup"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/headsup",
+    "/tests",
+    "/scripts",
+    "/research",
+    "/public/architecture",
+    "/README.md",
+    "/ARCHITECTURE.md",
+    "/DESIGN.md",
+    "/pyproject.toml",
+    "/uv.lock",
+    "/.python-version",
+]

@@ -1,0 +1,71 @@
+{
+  "campaign": "replication-20261107",
+  "original_status": "incomplete",
+  "original_report_sha256": "6dae52077b6e0d8cd66ffcc586964e44fb48f909b14fc3c08b62a65e5358be27",
+  "original_manifest_sha256": "6031c393d059de0e0a7c6f1cef1144374920c02dc21184e2ce59bb14d69f563b",
+  "retained_complete_strata": 13,
+  "retained_complete_hands": 14456,
+  "failed_strata_repeated_from_start": [
+    {
+      "seed": 20261107102,
+      "style": "heldout_loose",
+      "error_type": "OSError",
+      "error": "ENOSPC: no space left on device while writing failure receipt",
+      "partial_journal_records": {
+        "learning": 600,
+        "evaluation": 298,
+        "invalid_json_lines": 0
+      },
+      "journal_sha256": "d17666eabc103053547f25d16b28874a2d59790ab46d95a94ec8d10b3b257eda"
+    },
+    {
+      "seed": 20261107103,
+      "style": "calling",
+      "error_type": "OSError",
+      "error": "ENOSPC: no space left on device while writing failure receipt",
+      "partial_journal_records": {
+        "learning": 600,
+        "evaluation": 147,
+        "invalid_json_lines": 0
+      },
+      "journal_sha256": "2109048bcbca37703caafb79f5d82a1b9576ed750fb6fd7d659626b3046c18df"
+    },
+    {
+      "seed": 20261107103,
+      "style": "aggressive",
+      "error_type": "OSError",
+      "error": "ENOSPC: no space left on device while writing failure receipt",
+      "partial_journal_records": {
+        "learning": 600,
+        "evaluation": 503,
+        "invalid_json_lines": 0
+      },
+      "journal_sha256": "3dc5c4546840b2b832041d7d0ecb26d994d03b881a1d648f2ab8c93de0ba1d40"
+    },
+    {
+      "seed": 20261107103,
+      "style": "heldout_pressure",
+      "error_type": "OSError",
+      "error": "ENOSPC: no space left on device while writing failure receipt",
+      "partial_journal_records": {
+        "learning": 566,
+        "evaluation": 0,
+        "invalid_json_lines": 0
+      },
+      "journal_sha256": "5513ca1fa424be54d32552cfccaf4645d29e2823618eb33728798e2d4249268f"
+    },
+    {
+      "seed": 20261107103,
+      "style": "heldout_loose",
+      "error_type": "OSError",
+      "error": "ENOSPC: no space left on device while writing failure receipt",
+      "partial_journal_records": {
+        "learning": 359,
+        "evaluation": 0,
+        "invalid_json_lines": 0
+      },
+      "journal_sha256": "eabdb95f876dc9ce93b503034bdcad193a5b4e3de81516413835a597eeaab326"
+    }
+  ],
+  "disposition": "Retained complete strata. All five failed strata rerun from first learning hand with original frozen policy source, seeds, settings and environment. Partial attempts excluded from final estimates; raw evidence retained locally. No outcome-based extension."
+}

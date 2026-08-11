@@ -1,0 +1,454 @@
+{
+  "status": "completed",
+  "strata": [
+    {
+      "status": "completed",
+      "seed": 20261107101,
+      "style": "calling",
+      "completed_hands": {
+        "learning": 600,
+        "evaluation": 512
+      },
+      "restart_verified": true,
+      "evaluation_profile_unchanged": true,
+      "adapted_decisions": {
+        "learning": 42,
+        "evaluation": 37
+      },
+      "baseline_mean_bb100": 277.59765625,
+      "adaptive_mean_bb100": 285.37109375,
+      "delta_mean_bb100": 7.7734375
+    },
+    {
+      "status": "completed",
+      "seed": 20261107101,
+      "style": "tight",
+      "completed_hands": {
+        "learning": 600,
+        "evaluation": 512
+      },
+      "restart_verified": true,
+      "evaluation_profile_unchanged": true,
+      "adapted_decisions": {
+        "learning": 7,
+        "evaluation": 21
+      },
+      "baseline_mean_bb100": -35.6640625,
+      "adaptive_mean_bb100": -28.14453125,
+      "delta_mean_bb100": 7.51953125
+    },
+    {
+      "status": "completed",
+      "seed": 20261107101,
+      "style": "aggressive",
+      "completed_hands": {
+        "learning": 600,
+        "evaluation": 512
+      },
+      "restart_verified": true,
+      "evaluation_profile_unchanged": true,
+      "adapted_decisions": {
+        "learning": 0,
+        "evaluation": 4
+      },
+      "baseline_mean_bb100": 113.61328125,
+      "adaptive_mean_bb100": 124.53125,
+      "delta_mean_bb100": 10.91796875
+    },
+    {
+      "status": "completed",
+      "seed": 20261107101,
+      "style": "heldout_fit_fold",
+      "completed_hands": {
+        "learning": 600,
+        "evaluation": 512
+      },
+      "restart_verified": true,
+      "evaluation_profile_unchanged": true,
+      "adapted_decisions": {
+        "learning": 0,
+        "evaluation": 1
+      },
+      "baseline_mean_bb100": 24.70703125,
+      "adaptive_mean_bb100": 2.96875,
+      "delta_mean_bb100": -21.73828125
+    },
+    {
+      "status": "completed",
+      "seed": 20261107101,
+      "style": "heldout_pressure",
+      "completed_hands": {
+        "learning": 600,
+        "evaluation": 512
+      },
+      "restart_verified": true,
+      "evaluation_profile_unchanged": true,
+      "adapted_decisions": {
+        "learning": 5,
+        "evaluation": 10
+      },
+      "baseline_mean_bb100": 41.71875,
+      "adaptive_mean_bb100": 56.1328125,
+      "delta_mean_bb100": 14.4140625
+    },
+    {
+      "status": "completed",
+      "seed": 20261107101,
+      "style": "heldout_loose",
+      "completed_hands": {
+        "learning": 600,
+        "evaluation": 512
+      },
+      "restart_verified": true,
+      "evaluation_profile_unchanged": true,
+      "adapted_decisions": {
+        "learning": 20,
+        "evaluation": 12
+      },
+      "baseline_mean_bb100": 74.9609375,
+      "adaptive_mean_bb100": 83.41796875,
+      "delta_mean_bb100": 8.45703125
+    },
+    {
+      "status": "completed",
+      "seed": 20261107102,
+      "style": "calling",
+      "completed_hands": {
+        "learning": 600,
+        "evaluation": 512
+      },
+      "restart_verified": true,
+      "evaluation_profile_unchanged": true,
+      "adapted_decisions": {
+        "learning": 35,
+        "evaluation": 23
+      },
+      "baseline_mean_bb100": 263.59375,
+      "adaptive_mean_bb100": 274.53125,
+      "delta_mean_bb100": 10.9375
+    },
+    {
+      "status": "completed",
+      "seed": 20261107102,
+      "style": "tight",
+      "completed_hands": {
+        "learning": 600,
+        "evaluation": 512
+      },
+      "restart_verified": true,
+      "evaluation_profile_unchanged": true,
+      "adapted_decisions": {
+        "learning": 27,
+        "evaluation": 24
+      },
+      "baseline_mean_bb100": 66.796875,
+      "adaptive_mean_bb100": 73.73046875,
+      "delta_mean_bb100": 6.93359375
+    },
+    {
+      "status": "completed",
+      "seed": 20261107102,
+      "style": "aggressive",
+      "completed_hands": {
+        "learning": 600,
+        "evaluation": 512
+      },
+      "restart_verified": true,
+      "evaluation_profile_unchanged": true,
+      "adapted_decisions": {
+        "learning": 2,
+        "evaluation": 7
+      },
+      "baseline_mean_bb100": 183.59375,
+      "adaptive_mean_bb100": 183.7109375,
+      "delta_mean_bb100": 0.1171875
+    },
+    {
+      "status": "completed",
+      "seed": 20261107102,
+      "style": "heldout_fit_fold",
+      "completed_hands": {
+        "learning": 600,
+        "evaluation": 512
+      },
+      "restart_verified": true,
+      "evaluation_profile_unchanged": true,
+      "adapted_decisions": {
+        "learning": 5,
+        "evaluation": 2
+      },
+      "baseline_mean_bb100": -5.5859375,
+      "adaptive_mean_bb100": 0.76171875,
+      "delta_mean_bb100": 6.34765625
+    },
+    {
+      "status": "completed",
+      "seed": 20261107102,
+      "style": "heldout_pressure",
+      "completed_hands": {
+        "learning": 600,
+        "evaluation": 512
+      },
+      "restart_verified": true,
+      "evaluation_profile_unchanged": true,
+      "adapted_decisions": {
+        "learning": 0,
+        "evaluation": 0
+      },
+      "baseline_mean_bb100": 149.39453125,
+      "adaptive_mean_bb100": 149.39453125,
+      "delta_mean_bb100": 0.0
+    },
+    {
+      "status": "completed",
+      "seed": 20261107102,
+      "style": "heldout_loose",
+      "completed_hands": {
+        "learning": 600,
+        "evaluation": 512
+      },
+      "restart_verified": true,
+      "evaluation_profile_unchanged": true,
+      "adapted_decisions": {
+        "learning": 13,
+        "evaluation": 14
+      },
+      "baseline_mean_bb100": 45.64453125,
+      "adaptive_mean_bb100": 53.06640625,
+      "delta_mean_bb100": 7.421875
+    },
+    {
+      "status": "completed",
+      "seed": 20261107103,
+      "style": "calling",
+      "completed_hands": {
+        "learning": 600,
+        "evaluation": 512
+      },
+      "restart_verified": true,
+      "evaluation_profile_unchanged": true,
+      "adapted_decisions": {
+        "learning": 36,
+        "evaluation": 24
+      },
+      "baseline_mean_bb100": 178.26171875,
+      "adaptive_mean_bb100": 179.90234375,
+      "delta_mean_bb100": 1.640625
+    },
+    {
+      "status": "completed",
+      "seed": 20261107103,
+      "style": "tight",
+      "completed_hands": {
+        "learning": 600,
+        "evaluation": 512
+      },
+      "restart_verified": true,
+      "evaluation_profile_unchanged": true,
+      "adapted_decisions": {
+        "learning": 30,
+        "evaluation": 15
+      },
+      "baseline_mean_bb100": 25.6640625,
+      "adaptive_mean_bb100": 30.3515625,
+      "delta_mean_bb100": 4.6875
+    },
+    {
+      "status": "completed",
+      "seed": 20261107103,
+      "style": "aggressive",
+      "completed_hands": {
+        "learning": 600,
+        "evaluation": 512
+      },
+      "restart_verified": true,
+      "evaluation_profile_unchanged": true,
+      "adapted_decisions": {
+        "learning": 5,
+        "evaluation": 5
+      },
+      "baseline_mean_bb100": -5.17578125,
+      "adaptive_mean_bb100": 0.9765625,
+      "delta_mean_bb100": 6.15234375
+    },
+    {
+      "status": "completed",
+      "seed": 20261107103,
+      "style": "heldout_fit_fold",
+      "completed_hands": {
+        "learning": 600,
+        "evaluation": 512
+      },
+      "restart_verified": true,
+      "evaluation_profile_unchanged": true,
+      "adapted_decisions": {
+        "learning": 0,
+        "evaluation": 9
+      },
+      "baseline_mean_bb100": 25.3515625,
+      "adaptive_mean_bb100": 24.86328125,
+      "delta_mean_bb100": -0.48828125
+    },
+    {
+      "status": "completed",
+      "seed": 20261107103,
+      "style": "heldout_pressure",
+      "completed_hands": {
+        "learning": 600,
+        "evaluation": 512
+      },
+      "restart_verified": true,
+      "evaluation_profile_unchanged": true,
+      "adapted_decisions": {
+        "learning": 3,
+        "evaluation": 6
+      },
+      "baseline_mean_bb100": 171.97265625,
+      "adaptive_mean_bb100": 172.48046875,
+      "delta_mean_bb100": 0.5078125
+    },
+    {
+      "status": "completed",
+      "seed": 20261107103,
+      "style": "heldout_loose",
+      "completed_hands": {
+        "learning": 600,
+        "evaluation": 512
+      },
+      "restart_verified": true,
+      "evaluation_profile_unchanged": true,
+      "adapted_decisions": {
+        "learning": 28,
+        "evaluation": 14
+      },
+      "baseline_mean_bb100": 90.33203125,
+      "adaptive_mean_bb100": 92.98828125,
+      "delta_mean_bb100": 2.65625
+    }
+  ],
+  "completed_hands": 20016,
+  "learning_hands": 10800,
+  "evaluation_hands": 9216,
+  "matched_deck_units": 2304,
+  "all_restarts_verified": true,
+  "all_evaluation_profiles_unchanged": true,
+  "primary_equal_style_pool": {
+    "independent_replicates": 3,
+    "mean_bb100": 4.125434027777778,
+    "standard_error": 0.8274150784865865,
+    "ci95": [
+      0.5653542816916013,
+      7.6855137738639545
+    ],
+    "adjustment_endpoints": 1,
+    "replicate_values_bb100": [
+      4.557291666666667,
+      5.29296875,
+      2.5260416666666665
+    ]
+  },
+  "secondary_by_style": {
+    "calling": {
+      "independent_replicates": 3,
+      "mean_bb100": 6.783854166666667,
+      "standard_error": 2.729006386435338,
+      "ci95": [
+        -22.923745358912715,
+        36.49145369224605
+      ],
+      "adjustment_endpoints": 6,
+      "replicate_values_bb100": [
+        7.7734375,
+        10.9375,
+        1.640625
+      ]
+    },
+    "tight": {
+      "independent_replicates": 3,
+      "mean_bb100": 6.380208333333333,
+      "standard_error": 0.8630907280965399,
+      "ci95": [
+        -3.0152822129619734,
+        15.775698879628639
+      ],
+      "adjustment_endpoints": 6,
+      "replicate_values_bb100": [
+        7.51953125,
+        6.93359375,
+        4.6875
+      ]
+    },
+    "aggressive": {
+      "independent_replicates": 3,
+      "mean_bb100": 5.729166666666667,
+      "standard_error": 3.1250881606487932,
+      "ci95": [
+        -28.29012622328187,
+        39.7484595566152
+      ],
+      "adjustment_endpoints": 6,
+      "replicate_values_bb100": [
+        10.91796875,
+        0.1171875,
+        6.15234375
+      ]
+    },
+    "heldout_fit_fold": {
+      "independent_replicates": 3,
+      "mean_bb100": -5.29296875,
+      "standard_error": 8.456136584220337,
+      "ci95": [
+        -97.34534371924812,
+        86.75940621924812
+      ],
+      "adjustment_endpoints": 6,
+      "replicate_values_bb100": [
+        -21.73828125,
+        6.34765625,
+        -0.48828125
+      ]
+    },
+    "heldout_pressure": {
+      "independent_replicates": 3,
+      "mean_bb100": 4.973958333333333,
+      "standard_error": 4.7223279355252705,
+      "ci95": [
+        -46.43267370474264,
+        56.38059037140931
+      ],
+      "adjustment_endpoints": 6,
+      "replicate_values_bb100": [
+        14.4140625,
+        0.0,
+        0.5078125
+      ]
+    },
+    "heldout_loose": {
+      "independent_replicates": 3,
+      "mean_bb100": 6.178385416666667,
+      "standard_error": 1.7862405152985206,
+      "ci95": [
+        -13.266390582618207,
+        25.623161415951543
+      ],
+      "adjustment_endpoints": 6,
+      "replicate_values_bb100": [
+        8.45703125,
+        7.421875,
+        2.65625
+      ]
+    }
+  },
+  "statistical_unit": "Independent training-seed replicate; each replicate averages equal-weight style strata and all matched evaluation units.",
+  "primary_endpoint": "One prespecified primary endpoint, equal-style mean adaptive-minus-baseline net bb/100, unadjusted 95% Student-t interval across independent training seeds.",
+  "secondary_endpoints": "Six style-specific differences; Bonferroni-adjusted 95% intervals across independent training seeds.",
+  "limitations": [
+    "Three default training replicates give only two degrees of freedom; normality is unverified and intervals are fragile.",
+    "Synthetic opponents only. No human-player, live-site, or monetary-profit inference.",
+    "Each unfamiliar style has its own warmup; this is adaptation, not zero-shot transfer.",
+    "Fixed 100BB fresh stacks and one configured rake schedule per campaign do not cover tournament or stake dynamics.",
+    "No population prior; individual lifetime learning and the adaptive policy match current defaults.",
+    "The profile records calls and raises separately, but adaptive betting adjustments primarily use fold probabilities."
+  ],
+  "frozen_source_unchanged": true
+}

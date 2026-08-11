@@ -1,8 +1,8 @@
-# River | Card Abstraction and Regret Minimization
+# River | Poker Strategy Research
 
-A Rust research implementation of card abstraction and Monte Carlo counterfactual regret minimization (MCCFR) for heads-up No-Limit Texas Hold'em. It groups card situations and samples game trees to make strategy training smaller than the full game.
+A poker research codebase with a Rust card-abstraction and Monte Carlo counterfactual regret minimization (MCCFR) solver, plus a Python heads-up lab for persistent opponent modeling and reproducible strategy evaluation.
 
-The browser interface has been retired. The Rust solver, command-line tools, and local query API remain available. Architecture diagrams preserve the earlier system design.
+The earlier Rust browser interface has been retired. The Rust solver, command-line tools, and local query API remain available. The [Python lab](lab/) includes its own local play-money arena. Architecture diagrams preserve the earlier Rust system design.
 
 ![Retired River interface](assets/screenshots/retired-interface.jpg)
 
@@ -10,7 +10,24 @@ The browser interface has been retired. The Rust solver, command-line tools, and
 
 Start with the [rock–paper–scissors regret check](src/mccfr/rps/blueprint.rs), then read the [shared training loop](src/mccfr/traits/blueprint.rs) and [poker trainer](src/mccfr/nlhe/blueprint.rs). The small game makes the regret calculation easier to inspect before adding poker's card and betting abstractions.
 
-[Run the checks](#run-the-checks) · [Pipeline commands](#pipeline-commands) · [Current limits](#current-limits)
+[Heads-up lab](#heads-up-lab) · [Rust checks](#run-the-checks) · [Pipeline commands](#pipeline-commands) · [Current limits](#current-limits)
+
+## Heads-Up Lab
+
+[`lab/`](lab/) contains the Python hand engine, persistent player profiles, optional river decision model, private arena, 108 automated tests, and reproducible experiments. Its [research report](lab/research/REPORT.md) includes the 20,016-hand opponent-learning replication and the unsuccessful historical river experiment.
+
+The lab currently runs its own heuristic policies. It does not query the Rust solver's trained blueprint, and its results do not validate the Rust solver. Both live in this repository; their runtimes and evidence remain distinct.
+
+From the repository root:
+
+```sh
+cd lab
+uv sync --locked
+uv run --locked python -m unittest discover -s tests
+node --test tests/*.test.mjs
+```
+
+See the [lab README](lab/README.md) to run the arena, benchmarks, and research replication.
 
 ## Method
 
@@ -29,7 +46,7 @@ The published trainer is fixed to two players, with 100-chip starting stacks and
 | [Transport checks](src/clustering/emd.rs) | Numerical properties of the distance calculations. |
 | [Criterion benchmarks](benches/benchmarks.rs) | Local timings for hand evaluation, observation enumeration, transport, and the small-game solver. |
 
-There is no committed trained blueprint, opponent-evaluation report, or exploitability estimate. The tests and microbenchmarks do not establish a poker win rate or a Nash-equilibrium result.
+The Rust solver has no committed trained blueprint, opponent-evaluation report, or exploitability estimate. Its tests and microbenchmarks do not establish a poker win rate or a Nash-equilibrium result. The Python lab's separate evaluation artifacts are under [`lab/research/`](lab/research/).
 
 ## Run the Checks
 
@@ -47,7 +64,7 @@ These commands do not require PostgreSQL or trained data. Exhaustive enumeration
 
 ## Current Limits
 
-The published implementation has correctness gaps that matter before interpreting any trained strategy:
+The Rust implementation has correctness gaps that matter before interpreting any trained strategy:
 
 - [Card drawing](src/cards/deck.rs) maps two random indices to the lowest remaining card when more than one card remains, leaving the highest remaining card unselected on that draw and biasing the dealing distribution.
 - [River strength](src/cards/observation.rs) excludes tied outcomes instead of assigning half the pot. It is not standard split-pot equity.
