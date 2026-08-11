@@ -1,0 +1,443 @@
+{
+  "schema_version": 1,
+  "kind": "historical-human-response-model-extension",
+  "source_url": "https://github.com/uoftcprg/phh-dataset",
+  "source_commit": "e47fbd5816372360bade4de5d712346fe1bb70f6",
+  "source_period": "July 2009",
+  "dataset_scope": "Anonymized PokerStars 50NL human hands; heads-up cash games at 80\u2013120BB effective stacks",
+  "new_source_files": 40,
+  "new_raw_hands": 39979,
+  "fresh_evaluation": {
+    "status": "completed",
+    "future_hands": 5838,
+    "future_players": 249,
+    "training_last_timestamp": "2009-07-01T18:39:10.000000Z",
+    "future_first_timestamp": "2009-07-02T17:10:43.000000Z",
+    "future_last_timestamp": "2009-07-03T06:36:43.000000Z",
+    "strength": 8.0,
+    "memory": "recent",
+    "inputs_source_and_frozen_model_unchanged": true
+  },
+  "prediction_metrics": {
+    "frozen": {
+      "responses": 7747,
+      "players": 235,
+      "hands": 4051,
+      "models": {
+        "fixed_prior": {
+          "brier": 0.280261714211953,
+          "log_loss": 0.76615346292115,
+          "player_macro_brier": 0.2805972426311294,
+          "player_macro_log_loss": 0.7668906942101591
+        },
+        "population": {
+          "brier": 0.24093840760455695,
+          "log_loss": 0.6741154767874621,
+          "player_macro_brier": 0.24396210349479522,
+          "player_macro_log_loss": 0.6818489009256695
+        },
+        "player": {
+          "brier": 0.2763060400970183,
+          "log_loss": 0.7572880292115134,
+          "player_macro_brier": 0.2783202860315394,
+          "player_macro_log_loss": 0.7618509634953001
+        },
+        "population_backed": {
+          "brier": 0.24064133565439363,
+          "log_loss": 0.6735414317600148,
+          "player_macro_brier": 0.24544406536904564,
+          "player_macro_log_loss": 0.6849655401615217
+        }
+      },
+      "paired_deltas": {
+        "population_minus_fixed_prior": {
+          "brier": -0.03932330660739605,
+          "log_loss": -0.09203798613368797,
+          "player_macro_brier": -0.03663513913633418,
+          "player_macro_log_loss": -0.08504179328448958
+        },
+        "player_minus_fixed_prior": {
+          "brier": -0.003955674114934693,
+          "log_loss": -0.008865433709636661,
+          "player_macro_brier": -0.0022769565995899854,
+          "player_macro_log_loss": -0.00503973071485897
+        },
+        "player_minus_population": {
+          "brier": 0.03536763249246136,
+          "log_loss": 0.0831725524240513,
+          "player_macro_brier": 0.03435818253674419,
+          "player_macro_log_loss": 0.0800020625696306
+        },
+        "population_backed_minus_population": {
+          "brier": -0.000297071950163319,
+          "log_loss": -0.0005740450274472897,
+          "player_macro_brier": 0.001481961874250426,
+          "player_macro_log_loss": 0.0031166392358521477
+        },
+        "population_backed_minus_player": {
+          "brier": -0.03566470444262468,
+          "log_loss": -0.0837465974514986,
+          "player_macro_brier": -0.032876220662493766,
+          "player_macro_log_loss": -0.07688542333377846
+        }
+      }
+    },
+    "online": {
+      "responses": 7747,
+      "players": 235,
+      "hands": 4051,
+      "models": {
+        "fixed_prior": {
+          "brier": 0.280261714211953,
+          "log_loss": 0.76615346292115,
+          "player_macro_brier": 0.2805972426311294,
+          "player_macro_log_loss": 0.7668906942101591
+        },
+        "population": {
+          "brier": 0.24093840760455695,
+          "log_loss": 0.6741154767874621,
+          "player_macro_brier": 0.24396210349479522,
+          "player_macro_log_loss": 0.6818489009256695
+        },
+        "player": {
+          "brier": 0.2561804632143261,
+          "log_loss": 0.711297805255819,
+          "player_macro_brier": 0.26557972563530013,
+          "player_macro_log_loss": 0.7325019866425098
+        },
+        "population_backed": {
+          "brier": 0.23652720763565532,
+          "log_loss": 0.6650043813853685,
+          "player_macro_brier": 0.24342814419609954,
+          "player_macro_log_loss": 0.6808992025737023
+        }
+      },
+      "paired_deltas": {
+        "population_minus_fixed_prior": {
+          "brier": -0.03932330660739605,
+          "log_loss": -0.09203798613368797,
+          "player_macro_brier": -0.03663513913633418,
+          "player_macro_log_loss": -0.08504179328448958
+        },
+        "player_minus_fixed_prior": {
+          "brier": -0.024081250997626924,
+          "log_loss": -0.05485565766533107,
+          "player_macro_brier": -0.015017516995829261,
+          "player_macro_log_loss": -0.034388707567649335
+        },
+        "player_minus_population": {
+          "brier": 0.015242055609769128,
+          "log_loss": 0.037182328468356896,
+          "player_macro_brier": 0.021617622140504916,
+          "player_macro_log_loss": 0.05065308571684024
+        },
+        "population_backed_minus_population": {
+          "brier": -0.00441119996890163,
+          "log_loss": -0.009111095402093539,
+          "player_macro_brier": -0.0005339592986956798,
+          "player_macro_log_loss": -0.000949698351967232
+        },
+        "population_backed_minus_player": {
+          "brier": -0.01965325557867076,
+          "log_loss": -0.046293423870450434,
+          "player_macro_brier": -0.022151581439200596,
+          "player_macro_log_loss": -0.05160278406880747
+        }
+      }
+    }
+  },
+  "expanded_refit": {
+    "status": "completed",
+    "development_training_hands": 14224,
+    "development_calibration_hands": 6097,
+    "refit_hands": 20321,
+    "refit_players": 673,
+    "strength": 24.0,
+    "fresh_evaluation_performed": false
+  },
+  "expanded_prior_sha256": "b042189260c2923dbd6af0442530bda5aba06a70eb2852eec207ff94234b23da",
+  "frozen_evaluation_prior_sha256": "e9b8ffc029e33e83d63ff25613dcfb7416cf5cf13648c884264c041907b81487",
+  "source_sha256": {
+    ".python-version": "f50159fad3f4319868eb38717b91d55843c41e9803014c8de05e116a6d0bcfdc",
+    "headsup/__init__.py": "e364931a8afff672985ee99f795e6d8b20ff33c55d71d757ec211ec6689b3c19",
+    "headsup/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "headsup/adaptation.py": "e2ab5351a6117443cbb1f89fb39ada3448a9363443c389cfac5f8f7cfc80c1fe",
+    "headsup/arena.py": "ddaaeb1b630807c5985a587e64cda603e44874ed5c8c8b83be5c6c775dfe5e13",
+    "headsup/cli.py": "285a69678c6eca12fc7de2bd57adffcf6938723178020cd1448647df2c27d768",
+    "headsup/connection.py": "735c2bf664bdb4b1715ec7f1d5e058c37e974ed94c36b79917ba182245f90353",
+    "headsup/decision_worker.py": "30669b4a321ab577a84cc899eb08427c7754176372c597e4659ba47b939cc0a8",
+    "headsup/engine.py": "a93bf2169ee2a2f7994e8b76e9e60dc21227424c5b3628e5aa07c5d25fbcb818",
+    "headsup/history_import.py": "73d9ebfba33137a5b0bccfb9aae4fa47c943a350b87c4dedb41e1103e5e24a95",
+    "headsup/human_learning.py": "0396398abef5ffb337027ada1ead39f3d3fe01d4d53b95fdb8c51744bd3dd670",
+    "headsup/learning.py": "f040bb1aab9689cb9d422e7f21546652ccddf56aedc10ca8bce875ae3fd1ded2",
+    "headsup/models.py": "3bbc210c58dc3cfc69c044c56955a43c5549929ab8d409b8b91709d380b38459",
+    "headsup/opponent_memory.py": "e87b91642739451e1123f9d543d4f847ac6f6f36ba9de72bb3c4eba1e06bfc56",
+    "headsup/opponents.py": "5cb171eadc535ecd3f116d79ff0f9f510ad5bd4c24886eb9e025218ffe4b763c",
+    "headsup/pokernow_bridge.mjs": "feb1e34d8c6ce1732f5dfb93ebb9da434c0f31476193ec64fd84d57e21ef68b2",
+    "headsup/pokernow_session.mjs": "08791e65b231e5e7c20c76c70439d13b5ede10c4193a2036008f6ce15419791c",
+    "headsup/pokernow_state.mjs": "bfcf917537598c51aee6dd28e11e1e16b4eb38397b12f7dc861c04fff74a5bb7",
+    "headsup/policies.py": "ab514ee82c0c68e0e0007b23080a2743e941356ef4ab1b3619cfccbff0e3a719",
+    "headsup/population_learning.py": "b171f3246b71c97a07cab5b1d396ea470d51abd2ee9626495a8d28fbcc0d9bd8",
+    "headsup/protocol.py": "870568b3fcb27b5a163de29461bb0cd630b80b138ce071cf9355b01afab0370f",
+    "headsup/river.py": "b60145e7fa0298704224e01aee99fbcdc6065a095133988c72a390e969b19e4a",
+    "headsup/river_evaluation.py": "d09ec25f91b202cce9fb0fd4393e937348d94d80e63865f82ffcb6345af0fdf2",
+    "headsup/table.py": "db5fd1ecc9033d1ee226b010d34585290cb67237cbe1d71e817b46338977050b",
+    "headsup/timing.py": "c2c099c832954912e9a27211f82951512a47ae89662eaa3eac83353610ac12a5",
+    "headsup/training.py": "5d17721830133523a2dce147df4a172b29556db8cd7b939ba59c78446048fd9e",
+    "headsup/web.py": "f1c8553835cbab7ca94071ab7ebfd8e3176517032fd20143af7a800164a5ddcc",
+    "pyproject.toml": "146030d156e1e4b4055169cb11308b418c146d586635c761b9a503a1cd9bec12",
+    "uv.lock": "e29e737a031d830162d4bc7e68fd557bacafbfe29f88efaf4805728b0d57d188"
+  },
+  "limitations": [
+    "Prediction of public fold/continue responses, not measurement of policy winnings.",
+    "Hands and players are correlated; prediction differences are descriptive, without a significance claim.",
+    "The expanded refit consumes the fresh evaluation period after the frozen-prior test; it has no new future holdout.",
+    "Historical PokerStars data does not identify PokerNow players or establish current player behavior.",
+    "Both historical priors remain opt-in; the default policy was not replaced.",
+    "The archive supplies hand start times, not completion times; sequential evaluation does not establish strict live information availability."
+  ],
+  "source_selection": "The next 40 numerically available PokerStars 50NL files after index 102, selected before downloading their contents.",
+  "source_files": [
+    {
+      "name": "ps NLH handhq_103-OBFUSCATED.phhs",
+      "url": "https://raw.githubusercontent.com/uoftcprg/phh-dataset/e47fbd5816372360bade4de5d712346fe1bb70f6/data/handhq/PS-2009-07-01_2009-07-23_50NLH_OBFU/0.5/ps%20NLH%20handhq_103-OBFUSCATED.phhs",
+      "sha": "2118c9b57cc3da8789c91cda86d2c1633f7c8eb5",
+      "size": 756237
+    },
+    {
+      "name": "ps NLH handhq_104-OBFUSCATED.phhs",
+      "url": "https://raw.githubusercontent.com/uoftcprg/phh-dataset/e47fbd5816372360bade4de5d712346fe1bb70f6/data/handhq/PS-2009-07-01_2009-07-23_50NLH_OBFU/0.5/ps%20NLH%20handhq_104-OBFUSCATED.phhs",
+      "sha": "f41d2b32248cdddfa95e2b29d757e470dffab534",
+      "size": 735490
+    },
+    {
+      "name": "ps NLH handhq_105-OBFUSCATED.phhs",
+      "url": "https://raw.githubusercontent.com/uoftcprg/phh-dataset/e47fbd5816372360bade4de5d712346fe1bb70f6/data/handhq/PS-2009-07-01_2009-07-23_50NLH_OBFU/0.5/ps%20NLH%20handhq_105-OBFUSCATED.phhs",
+      "sha": "e641230fb3fb1eebb9f59713707db793defd8b07",
+      "size": 666858
+    },
+    {
+      "name": "ps NLH handhq_106-OBFUSCATED.phhs",
+      "url": "https://raw.githubusercontent.com/uoftcprg/phh-dataset/e47fbd5816372360bade4de5d712346fe1bb70f6/data/handhq/PS-2009-07-01_2009-07-23_50NLH_OBFU/0.5/ps%20NLH%20handhq_106-OBFUSCATED.phhs",
+      "sha": "e497d2a62034203f8ec5897ff0bfb519726bfbe6",
+      "size": 709405
+    },
+    {
+      "name": "ps NLH handhq_107-OBFUSCATED.phhs",
+      "url": "https://raw.githubusercontent.com/uoftcprg/phh-dataset/e47fbd5816372360bade4de5d712346fe1bb70f6/data/handhq/PS-2009-07-01_2009-07-23_50NLH_OBFU/0.5/ps%20NLH%20handhq_107-OBFUSCATED.phhs",
+      "sha": "b868e6d1b4d632abcf1874447b7c114af9ee8772",
+      "size": 695861
+    },
+    {
+      "name": "ps NLH handhq_108-OBFUSCATED.phhs",
+      "url": "https://raw.githubusercontent.com/uoftcprg/phh-dataset/e47fbd5816372360bade4de5d712346fe1bb70f6/data/handhq/PS-2009-07-01_2009-07-23_50NLH_OBFU/0.5/ps%20NLH%20handhq_108-OBFUSCATED.phhs",
+      "sha": "da7e219b8acd946fc801ddefb165fc51bb4bf615",
+      "size": 671152
+    },
+    {
+      "name": "ps NLH handhq_109-OBFUSCATED.phhs",
+      "url": "https://raw.githubusercontent.com/uoftcprg/phh-dataset/e47fbd5816372360bade4de5d712346fe1bb70f6/data/handhq/PS-2009-07-01_2009-07-23_50NLH_OBFU/0.5/ps%20NLH%20handhq_109-OBFUSCATED.phhs",
+      "sha": "055aeea3b5ae4170c38be5a28bba842ad927446d",
+      "size": 679064
+    },
+    {
+      "name": "ps NLH handhq_110-OBFUSCATED.phhs",
+      "url": "https://raw.githubusercontent.com/uoftcprg/phh-dataset/e47fbd5816372360bade4de5d712346fe1bb70f6/data/handhq/PS-2009-07-01_2009-07-23_50NLH_OBFU/0.5/ps%20NLH%20handhq_110-OBFUSCATED.phhs",
+      "sha": "fa010e87b159026906e8687850788f8c970d94d4",
+      "size": 688661
+    },
+    {
+      "name": "ps NLH handhq_111-OBFUSCATED.phhs",
+      "url": "https://raw.githubusercontent.com/uoftcprg/phh-dataset/e47fbd5816372360bade4de5d712346fe1bb70f6/data/handhq/PS-2009-07-01_2009-07-23_50NLH_OBFU/0.5/ps%20NLH%20handhq_111-OBFUSCATED.phhs",
+      "sha": "f0c64ff900aafcbf56f286c78fe9bb69504b5b8e",
+      "size": 689075
+    },
+    {
+      "name": "ps NLH handhq_112-OBFUSCATED.phhs",
+      "url": "https://raw.githubusercontent.com/uoftcprg/phh-dataset/e47fbd5816372360bade4de5d712346fe1bb70f6/data/handhq/PS-2009-07-01_2009-07-23_50NLH_OBFU/0.5/ps%20NLH%20handhq_112-OBFUSCATED.phhs",
+      "sha": "bdee6ccef3b5ed71b12b2d2cd909b4ab4b8d1596",
+      "size": 676865
+    },
+    {
+      "name": "ps NLH handhq_113-OBFUSCATED.phhs",
+      "url": "https://raw.githubusercontent.com/uoftcprg/phh-dataset/e47fbd5816372360bade4de5d712346fe1bb70f6/data/handhq/PS-2009-07-01_2009-07-23_50NLH_OBFU/0.5/ps%20NLH%20handhq_113-OBFUSCATED.phhs",
+      "sha": "f58e58b8ad5a95b986f9ede65cb8ceeeb3bcfce5",
+      "size": 682161
+    },
+    {
+      "name": "ps NLH handhq_114-OBFUSCATED.phhs",
+      "url": "https://raw.githubusercontent.com/uoftcprg/phh-dataset/e47fbd5816372360bade4de5d712346fe1bb70f6/data/handhq/PS-2009-07-01_2009-07-23_50NLH_OBFU/0.5/ps%20NLH%20handhq_114-OBFUSCATED.phhs",
+      "sha": "d5cbdad7a3a4e6dc3a378c099590715cd9576fad",
+      "size": 691802
+    },
+    {
+      "name": "ps NLH handhq_115-OBFUSCATED.phhs",
+      "url": "https://raw.githubusercontent.com/uoftcprg/phh-dataset/e47fbd5816372360bade4de5d712346fe1bb70f6/data/handhq/PS-2009-07-01_2009-07-23_50NLH_OBFU/0.5/ps%20NLH%20handhq_115-OBFUSCATED.phhs",
+      "sha": "78e9838409fd050e7cc498a8deea48f772e99f43",
+      "size": 661589
+    },
+    {
+      "name": "ps NLH handhq_116-OBFUSCATED.phhs",
+      "url": "https://raw.githubusercontent.com/uoftcprg/phh-dataset/e47fbd5816372360bade4de5d712346fe1bb70f6/data/handhq/PS-2009-07-01_2009-07-23_50NLH_OBFU/0.5/ps%20NLH%20handhq_116-OBFUSCATED.phhs",
+      "sha": "933055d9c3076106ece2e9850a4e3ebe41ba769c",
+      "size": 655921
+    },
+    {
+      "name": "ps NLH handhq_117-OBFUSCATED.phhs",
+      "url": "https://raw.githubusercontent.com/uoftcprg/phh-dataset/e47fbd5816372360bade4de5d712346fe1bb70f6/data/handhq/PS-2009-07-01_2009-07-23_50NLH_OBFU/0.5/ps%20NLH%20handhq_117-OBFUSCATED.phhs",
+      "sha": "cf37a1b7dfe763b49b51be545a8edba30a4d9010",
+      "size": 683150
+    },
+    {
+      "name": "ps NLH handhq_118-OBFUSCATED.phhs",
+      "url": "https://raw.githubusercontent.com/uoftcprg/phh-dataset/e47fbd5816372360bade4de5d712346fe1bb70f6/data/handhq/PS-2009-07-01_2009-07-23_50NLH_OBFU/0.5/ps%20NLH%20handhq_118-OBFUSCATED.phhs",
+      "sha": "188a5ea2ca4fa6924973a6a64e62d3568b43d280",
+      "size": 708163
+    },
+    {
+      "name": "ps NLH handhq_119-OBFUSCATED.phhs",
+      "url": "https://raw.githubusercontent.com/uoftcprg/phh-dataset/e47fbd5816372360bade4de5d712346fe1bb70f6/data/handhq/PS-2009-07-01_2009-07-23_50NLH_OBFU/0.5/ps%20NLH%20handhq_119-OBFUSCATED.phhs",
+      "sha": "b8a2ca29f0f1566fce1c7a7b29b2de3852f491dd",
+      "size": 682732
+    },
+    {
+      "name": "ps NLH handhq_120-OBFUSCATED.phhs",
+      "url": "https://raw.githubusercontent.com/uoftcprg/phh-dataset/e47fbd5816372360bade4de5d712346fe1bb70f6/data/handhq/PS-2009-07-01_2009-07-23_50NLH_OBFU/0.5/ps%20NLH%20handhq_120-OBFUSCATED.phhs",
+      "sha": "ed833d7b7e60b597f9cef61cc8a8a9d26f6b1e1d",
+      "size": 660123
+    },
+    {
+      "name": "ps NLH handhq_121-OBFUSCATED.phhs",
+      "url": "https://raw.githubusercontent.com/uoftcprg/phh-dataset/e47fbd5816372360bade4de5d712346fe1bb70f6/data/handhq/PS-2009-07-01_2009-07-23_50NLH_OBFU/0.5/ps%20NLH%20handhq_121-OBFUSCATED.phhs",
+      "sha": "017bd8d7d83f563ab4b3f4013d9e44a3e6c3f1bb",
+      "size": 674463
+    },
+    {
+      "name": "ps NLH handhq_122-OBFUSCATED.phhs",
+      "url": "https://raw.githubusercontent.com/uoftcprg/phh-dataset/e47fbd5816372360bade4de5d712346fe1bb70f6/data/handhq/PS-2009-07-01_2009-07-23_50NLH_OBFU/0.5/ps%20NLH%20handhq_122-OBFUSCATED.phhs",
+      "sha": "c8ec68b664bf891c8d81689838738a21f48a2ec0",
+      "size": 703090
+    },
+    {
+      "name": "ps NLH handhq_123-OBFUSCATED.phhs",
+      "url": "https://raw.githubusercontent.com/uoftcprg/phh-dataset/e47fbd5816372360bade4de5d712346fe1bb70f6/data/handhq/PS-2009-07-01_2009-07-23_50NLH_OBFU/0.5/ps%20NLH%20handhq_123-OBFUSCATED.phhs",
+      "sha": "bd9f8bdbba25ccedd6bb54491872a413d9fbcf6a",
+      "size": 692023
+    },
+    {
+      "name": "ps NLH handhq_124-OBFUSCATED.phhs",
+      "url": "https://raw.githubusercontent.com/uoftcprg/phh-dataset/e47fbd5816372360bade4de5d712346fe1bb70f6/data/handhq/PS-2009-07-01_2009-07-23_50NLH_OBFU/0.5/ps%20NLH%20handhq_124-OBFUSCATED.phhs",
+      "sha": "57472403b536ee381faa6f93cff4df894275410c",
+      "size": 716519
+    },
+    {
+      "name": "ps NLH handhq_125-OBFUSCATED.phhs",
+      "url": "https://raw.githubusercontent.com/uoftcprg/phh-dataset/e47fbd5816372360bade4de5d712346fe1bb70f6/data/handhq/PS-2009-07-01_2009-07-23_50NLH_OBFU/0.5/ps%20NLH%20handhq_125-OBFUSCATED.phhs",
+      "sha": "dfb4e85d409bbc7c99f9911c775fd5064e834a31",
+      "size": 733637
+    },
+    {
+      "name": "ps NLH handhq_126-OBFUSCATED.phhs",
+      "url": "https://raw.githubusercontent.com/uoftcprg/phh-dataset/e47fbd5816372360bade4de5d712346fe1bb70f6/data/handhq/PS-2009-07-01_2009-07-23_50NLH_OBFU/0.5/ps%20NLH%20handhq_126-OBFUSCATED.phhs",
+      "sha": "54bfab7a6081116526ef1fe419480083bfe9caf0",
+      "size": 711820
+    },
+    {
+      "name": "ps NLH handhq_127-OBFUSCATED.phhs",
+      "url": "https://raw.githubusercontent.com/uoftcprg/phh-dataset/e47fbd5816372360bade4de5d712346fe1bb70f6/data/handhq/PS-2009-07-01_2009-07-23_50NLH_OBFU/0.5/ps%20NLH%20handhq_127-OBFUSCATED.phhs",
+      "sha": "cd3cd957aa59d384444c9b63c8178c388fc89ae3",
+      "size": 731439
+    },
+    {
+      "name": "ps NLH handhq_128-OBFUSCATED.phhs",
+      "url": "https://raw.githubusercontent.com/uoftcprg/phh-dataset/e47fbd5816372360bade4de5d712346fe1bb70f6/data/handhq/PS-2009-07-01_2009-07-23_50NLH_OBFU/0.5/ps%20NLH%20handhq_128-OBFUSCATED.phhs",
+      "sha": "32285016bd60117d581df76f0f4709069c2b255d",
+      "size": 698920
+    },
+    {
+      "name": "ps NLH handhq_129-OBFUSCATED.phhs",
+      "url": "https://raw.githubusercontent.com/uoftcprg/phh-dataset/e47fbd5816372360bade4de5d712346fe1bb70f6/data/handhq/PS-2009-07-01_2009-07-23_50NLH_OBFU/0.5/ps%20NLH%20handhq_129-OBFUSCATED.phhs",
+      "sha": "d65949db460a138483ea96436baa33cc67333528",
+      "size": 738681
+    },
+    {
+      "name": "ps NLH handhq_130-OBFUSCATED.phhs",
+      "url": "https://raw.githubusercontent.com/uoftcprg/phh-dataset/e47fbd5816372360bade4de5d712346fe1bb70f6/data/handhq/PS-2009-07-01_2009-07-23_50NLH_OBFU/0.5/ps%20NLH%20handhq_130-OBFUSCATED.phhs",
+      "sha": "62ae84993450130d4d81f55c740a02e6a96c6cf8",
+      "size": 700527
+    },
+    {
+      "name": "ps NLH handhq_131-OBFUSCATED.phhs",
+      "url": "https://raw.githubusercontent.com/uoftcprg/phh-dataset/e47fbd5816372360bade4de5d712346fe1bb70f6/data/handhq/PS-2009-07-01_2009-07-23_50NLH_OBFU/0.5/ps%20NLH%20handhq_131-OBFUSCATED.phhs",
+      "sha": "58bbc5a2c1ac8bc9bed0fd53a31f4b7221f9e264",
+      "size": 705413
+    },
+    {
+      "name": "ps NLH handhq_132-OBFUSCATED.phhs",
+      "url": "https://raw.githubusercontent.com/uoftcprg/phh-dataset/e47fbd5816372360bade4de5d712346fe1bb70f6/data/handhq/PS-2009-07-01_2009-07-23_50NLH_OBFU/0.5/ps%20NLH%20handhq_132-OBFUSCATED.phhs",
+      "sha": "41493bd05a93b204252de58a84cf429276c19280",
+      "size": 685279
+    },
+    {
+      "name": "ps NLH handhq_133-OBFUSCATED.phhs",
+      "url": "https://raw.githubusercontent.com/uoftcprg/phh-dataset/e47fbd5816372360bade4de5d712346fe1bb70f6/data/handhq/PS-2009-07-01_2009-07-23_50NLH_OBFU/0.5/ps%20NLH%20handhq_133-OBFUSCATED.phhs",
+      "sha": "6fb954514222733f69b3e90b46a55fc1b5a3ffd4",
+      "size": 732912
+    },
+    {
+      "name": "ps NLH handhq_134-OBFUSCATED.phhs",
+      "url": "https://raw.githubusercontent.com/uoftcprg/phh-dataset/e47fbd5816372360bade4de5d712346fe1bb70f6/data/handhq/PS-2009-07-01_2009-07-23_50NLH_OBFU/0.5/ps%20NLH%20handhq_134-OBFUSCATED.phhs",
+      "sha": "7f63593a0443e03621707cd7d1d74563e8d032a4",
+      "size": 715718
+    },
+    {
+      "name": "ps NLH handhq_135-OBFUSCATED.phhs",
+      "url": "https://raw.githubusercontent.com/uoftcprg/phh-dataset/e47fbd5816372360bade4de5d712346fe1bb70f6/data/handhq/PS-2009-07-01_2009-07-23_50NLH_OBFU/0.5/ps%20NLH%20handhq_135-OBFUSCATED.phhs",
+      "sha": "32cab7781d7d4018d25b4e610b07ef9a98d11c01",
+      "size": 724428
+    },
+    {
+      "name": "ps NLH handhq_136-OBFUSCATED.phhs",
+      "url": "https://raw.githubusercontent.com/uoftcprg/phh-dataset/e47fbd5816372360bade4de5d712346fe1bb70f6/data/handhq/PS-2009-07-01_2009-07-23_50NLH_OBFU/0.5/ps%20NLH%20handhq_136-OBFUSCATED.phhs",
+      "sha": "d43de60b573acc04d5ca9df65c1ea1c05ffff662",
+      "size": 655781
+    },
+    {
+      "name": "ps NLH handhq_137-OBFUSCATED.phhs",
+      "url": "https://raw.githubusercontent.com/uoftcprg/phh-dataset/e47fbd5816372360bade4de5d712346fe1bb70f6/data/handhq/PS-2009-07-01_2009-07-23_50NLH_OBFU/0.5/ps%20NLH%20handhq_137-OBFUSCATED.phhs",
+      "sha": "75a1b88883eeeeb55edaddf677e25c1553749d1f",
+      "size": 705328
+    },
+    {
+      "name": "ps NLH handhq_138-OBFUSCATED.phhs",
+      "url": "https://raw.githubusercontent.com/uoftcprg/phh-dataset/e47fbd5816372360bade4de5d712346fe1bb70f6/data/handhq/PS-2009-07-01_2009-07-23_50NLH_OBFU/0.5/ps%20NLH%20handhq_138-OBFUSCATED.phhs",
+      "sha": "26cfdc9948f6923fadbe3453a41b6c9b1feaff37",
+      "size": 672945
+    },
+    {
+      "name": "ps NLH handhq_139-OBFUSCATED.phhs",
+      "url": "https://raw.githubusercontent.com/uoftcprg/phh-dataset/e47fbd5816372360bade4de5d712346fe1bb70f6/data/handhq/PS-2009-07-01_2009-07-23_50NLH_OBFU/0.5/ps%20NLH%20handhq_139-OBFUSCATED.phhs",
+      "sha": "6ab5f123c656b23c5262d32c4cf46e9d74190542",
+      "size": 675330
+    },
+    {
+      "name": "ps NLH handhq_140-OBFUSCATED.phhs",
+      "url": "https://raw.githubusercontent.com/uoftcprg/phh-dataset/e47fbd5816372360bade4de5d712346fe1bb70f6/data/handhq/PS-2009-07-01_2009-07-23_50NLH_OBFU/0.5/ps%20NLH%20handhq_140-OBFUSCATED.phhs",
+      "sha": "db1c8bcac018b650b0ee3cb40daa97cbfd72e74e",
+      "size": 676529
+    },
+    {
+      "name": "ps NLH handhq_141-OBFUSCATED.phhs",
+      "url": "https://raw.githubusercontent.com/uoftcprg/phh-dataset/e47fbd5816372360bade4de5d712346fe1bb70f6/data/handhq/PS-2009-07-01_2009-07-23_50NLH_OBFU/0.5/ps%20NLH%20handhq_141-OBFUSCATED.phhs",
+      "sha": "c9e224f0c965b9c802b705fbc29b842016f2cccf",
+      "size": 669502
+    },
+    {
+      "name": "ps NLH handhq_142-OBFUSCATED.phhs",
+      "url": "https://raw.githubusercontent.com/uoftcprg/phh-dataset/e47fbd5816372360bade4de5d712346fe1bb70f6/data/handhq/PS-2009-07-01_2009-07-23_50NLH_OBFU/0.5/ps%20NLH%20handhq_142-OBFUSCATED.phhs",
+      "sha": "85cd235fd080eca991e157d8441ac9ec40a162ac",
+      "size": 689492
+    }
+  ],
+  "previous_evaluation_max_timestamp": "2009-07-02T17:10:32.000000Z"
+}

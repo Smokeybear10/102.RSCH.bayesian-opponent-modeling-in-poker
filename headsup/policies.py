@@ -1,6 +1,7 @@
 """Seeded heuristic policies for the local arena; none is a solved HUNL strategy."""
 
 from collections import Counter
+from hashlib import sha256
 from itertools import combinations
 from math import fsum, sqrt
 from random import Random
@@ -10,7 +11,7 @@ import eval7
 from .models import MAX_SAMPLES, Action, Event, Observation
 from .learning import OpponentProfile, response_context
 
-POLICY_NAMES = ("range", "equity", "calling", "tight", "aggressive")
+POLICY_NAMES = ("range", "equity", "calling", "tight", "aggressive", "precision")
 LEARNING_POLICY_NAMES = ("adaptive", "river")
 _RANKS = "23456789TJQKA"
 _CODES = tuple(rank + suit for rank in _RANKS for suit in "cdhs")
@@ -128,7 +129,7 @@ class Policy:
         available = tuple(card for card in range(52) if card not in known)
         evidence = tuple(event for event in obs.history
                          if event.actor != obs.actor and event.action.kind in ("check", "call", "raise_to"))[-8:]
-        if self.name != "range":
+        if self.name not in ("range", "precision"):
             evidence = ()
         pool = tuple(hand for hand in _HOLES if not known.intersection(hand))
         weights = []
@@ -169,6 +170,45 @@ class Policy:
         self.last_info.update(equity=equity, equity_standard_error=standard_error, samples=self.samples,
                               win_probability=wins / self.samples, tie_probability=ties / self.samples,
                               equity_method="fixed-sample conditional Monte Carlo")
+        if self.name == "precision":
+            return self._refine_equity(obs, hole, board, equity)
+        return equity
+
+    def _refine_equity(self, obs: Observation, hole: tuple[int, int], board: tuple[int, ...],
+                       equity: float) -> float:
+        thresholds = []
+        if obs.to_call:
+            terminal = obs.stacks[1 - obs.actor] == 0 or obs.to_call == obs.stacks[obs.actor]
+            if terminal:
+                final_pot = self.last_info["contestable_pot"] + obs.to_call
+                payout = final_pot - min(obs.rake_cap, final_pot * obs.rake_bps // 10000)
+                if payout:
+                    tie_award = payout // 2 + (payout % 2 if obs.actor == (obs.button + 1) % 2 else 0)
+                    thresholds.append((obs.to_call - self.last_info["tie_probability"]
+                                       * (tie_award - payout / 2)) / payout)
+            else:
+                thresholds.append(self.last_info["pot_odds"])
+        if obs.min_raise_to is not None and obs.max_raise_to is not None:
+            thresholds.extend((0.76,) if obs.to_call else (0.38, 0.62))
+        standard_error = self.last_info["equity_standard_error"]
+        radius = max(0.02, 1 / sqrt(self.samples), 2 * (standard_error or 0))
+        budget = min(MAX_SAMPLES - self.samples, max(512, 4 * self.samples))
+        detail = {"refined": False, "pilot_equity": equity, "pilot_samples": self.samples,
+                  "pilot_standard_error": standard_error, "thresholds": thresholds,
+                  "refinement_samples": 0, "total_samples": self.samples,
+                  "uncertainty_scope": "sampling only; heuristic range error is not measured"}
+        self.last_info["precision"] = detail
+        if budget <= self.samples or not any(abs(equity - threshold) <= radius for threshold in thresholds):
+            return equity
+        # A separate fixed batch avoids reusing the pilot selected for being near a threshold.
+        # Its RNG must not move the action-mixing stream or require extra reconnect state.
+        state = repr(self.rng.getstate()).encode()
+        seed = int.from_bytes(sha256(b"precision-equity-v1:" + state).digest()[:8], "big")
+        refined = Policy("range", seed, budget)
+        equity = refined._equity(obs, hole, board)
+        self.last_info.update(refined.last_info,
+                              equity_method="independent fixed refinement batch conditional on the heuristic range")
+        detail.update(refined=True, refinement_samples=budget, total_samples=self.samples + budget)
         return equity
 
     def _preflop_action(self, obs: Observation, score: float) -> Action:
@@ -226,7 +266,7 @@ class Policy:
             return self._finish(self._passive(obs), "calling reference takes every call and free check")
         hole = tuple(_INDEX[card] for card in obs.hole)
         board = tuple(_INDEX[card] for card in obs.board)
-        terminal_call = (self.name in ("range", "equity") and obs.to_call > 0
+        terminal_call = (self.name in ("range", "equity", "precision") and obs.to_call > 0
                          and (obs.stacks[other] == 0 or obs.to_call == obs.stacks[obs.actor]))
         if not board and not terminal_call:
             score = _preflop(hole)

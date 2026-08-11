@@ -64,6 +64,77 @@ The **river result is a failed promotion**, not evidence of improvement. Its neg
 
 Development runs are retained as well. Before the earlier 9,744-hand persistent-memory campaign, a sequential pilot was interrupted after 423 learning hands to parallelize execution. An initial parallel harness rejected a domain/protocol event conversion before learning; the corrected full campaign was evaluated separately. These were mechanical failures, not discarded losing strategy results.
 
+## Precision-policy comparison
+
+The opt-in `precision` candidate retains the `range` policy's betting rules. It uses the original Monte Carlo estimate as a pilot and, near call/value/bluff thresholds, replaces it with a larger independent fixed batch. Pilot and refinement together are capped at 8,192 draws. The refinement uses its own deterministic random stream; it does not consume the action-mixing stream. River enumeration stays exact within the heuristic range. This addresses sampling noise, not incorrect ranges or future-street equity realization.
+
+A frozen, predeclared comparison used three seeds, four fixed opponents (`range`, `equity`, `aggressive`, `tight`), 128 two-seat deal pairs per seed/opponent, and both candidate and control: **6,144 hands across 1,536 matched units**. Rules were 100BB, 1/2 blinds, zero rake and a 128-sample pilot. Both arms used identical decks and opponent seeds. All original policy actions, diagnostics and RNG states also matched the pre-change source across 1,140 saved-observation checks.
+
+The equal-opponent paired improvement was **+5.06 BB/100**, with an approximate **95% interval of −12.45 to +22.57**. This is inconclusive. Opponent-specific point estimates were −8.46 against `range`, +3.26 against `equity`, +26.82 against `aggressive` and −1.37 against `tight`; every secondary interval included zero. These opponents are heuristic references, without independently established expert strength. The default policy was not replaced.
+
+The candidate refined 1,251 of 2,389 sampled equity decisions. Local policy-call p95 latency was 31.56ms versus 20.53ms for the control; the candidate's maximum was 73.69ms. These timings exclude imports, transport and browser actions. The audit replayed all 6,144 settlements and 23,575 actions, then reproduced policies on 96 preselected hands. [Portable results, paired deltas and source hashes](results/precision-comparison-20261107.json) retain the complete comparison.
+
+To exercise the candidate locally:
+
+```sh
+uv run --locked python -m headsup benchmark --hero precision --opponents range equity aggressive tight --pairs 128 --samples 128 --seed 20261107811 --output runs/precision-check
+```
+
+## External Slumbot screen
+
+The new anonymous connector was first checked with two protocol-smoke hands and a separate 20-hand integration diagnostic. Those hands were excluded from a fixed **1,000-hand** screen of `precision` against [Slumbot's public research API](https://slumbot.com/sample_api.py). The screen used frozen source, 128 pilot samples, 50/100 blinds, 200BB stacks, no rake and no online opponent learning. The server supplied sequential deals; its strategy version and deal seeds were unavailable. This configuration differs from the 100BB local comparison.
+
+The candidate lost **86,583 chips (865.83BB)**, or **−86.58 BB/100**. The approximate descriptive 95% interval was **−184.48 to +11.32 BB/100**. The interval is broad and includes zero; this losing match does not demonstrate an advantage over Slumbot. Neither this result nor the smaller diagnostics justify default promotion or a human-profitability claim.
+
+An independent audit reconstructed all 3,547 responses, reproduced all 2,547 policy decisions with their diagnostics and receipts, checked equal seat counts, and recomputed every settlement: 820 folds and 180 revealed showdowns. The source and environment remained unchanged. Session tokens were absent from the private journal. [Portable results and source hashes](results/slumbot-screen-20261107.json) retain all 1,000 hand returns; private protocol traces and the audit remain in `runs/slumbot-screen-20261107/`.
+
+Post-hoc inspection found costly escalation with non-nut hands and repeated preflop reraises still governed by a hand-score heuristic. For example, the candidate reraised pocket tens twice before calling a final preflop shove at 200BB. More precise sampling does not correct these strategy and range-model assumptions. These observations identify hypotheses for future changes, not causal proof that any particular alternative wins more.
+
+## Historical human-hand extension
+
+A later slice from the public [PHH dataset](https://github.com/uoftcprg/phh-dataset) provides 39,979 anonymized PokerStars 50NL hands from July 2009. Forty source files were selected before inspecting their outcomes. Strict heads-up cash-game, timestamp and 80–120BB effective-stack filters retained **5,838 previously unused hands from 249 players**, all later than the previous evaluation. Public betting sequences were replayed before admission. These are historical human games, without expert labels or evidence that their players represent today's PokerNow pool.
+
+The existing population prior was frozen before this test. Predictions use public responses and update individual memory only after each complete timestamp group. The archive records hand start times rather than completion times, so this is an offline sequential test, not validation of live information availability. Across 7,747 fold/continue responses, the online results were:
+
+| Response model | Brier score, lower is better |
+|---|---:|
+| Fixed prior | 0.280262 |
+| Population only | 0.240938 |
+| Individual only | 0.256180 |
+| Population-backed individual | 0.236527 |
+
+The backed model's Brier score was 1.83% lower than population-only and 7.67% lower than individual-only in this slice. This is descriptive predictive evidence, not a policy win-rate measurement. Player-level weighting changes the comparison: the frozen backed model was slightly worse than population-only under equal player weighting; the online backed model was slightly better. Hands and players are correlated, and no significance claim is made.
+
+After preserving the test and its independent audit, a separate expanded prior was fitted on **20,321 unique eligible hands from 673 players**, with strength 24 selected using chronological development calibration. That refit includes the newly evaluated period, so its future performance is **unvalidated**. It does not replace the earlier frozen prior or the default policy. Dataset identities remain local to the archive and are not linked to live-site identities.
+
+[Compact results and source hashes](results/human-history-extension-20261107.json) preserve the evaluation and refit distinction. Raw histories, downloaded license, input hashes, old frozen prior, expanded prior and audit receipts remain in the ignored local `runs/data-source-20261107/` directory.
+
+## Actual professional-hand decision comparison
+
+The [DeepStack study](https://www.johanson.ca/publications/poker/2017-science-deepstack/2017-science-deepstack.html) supplies actual heads-up matches against named human professionals. Its expired download site was recovered through an [archived copy of the official match archive](https://web.archive.org/web/20240204232659id_/https://static1.squarespace.com/static/58a75073e6f2e1c1d5b36630/t/58bed3ac1b10e322e839c4f6/1488901079190/DeepStack_vs_IFP_pros.zip). The prespecified selection uses the first 3,000 Phil Laak hands and all 456 Dara O'Kearney hands. Both are accomplished professionals; this is not a representative sample of elite heads-up specialists or current online players. These games were played in 2016.
+
+All **3,456 selected hands** contain both private card pairs, including **2,891 hands ending in folds**, so coverage is not restricted to showdowns. Official ACPC logs provide 50/100 blinds and 200BB stacks reset each hand. The importer converts cumulative hand contributions into street-specific raises and verifies each complete board and settlement before comparison. The policy receives only the acting human's private cards, current public board and preceding public actions. After recording its proposed action, replay always advances using the original action. Frozen `range` and `precision` policies use 128 samples and the same seeded random stream at each decision; neither trains or updates opponent memory here.
+
+| Historical player | Hands | Human decisions | Range action-type agreement | Precision action-type agreement |
+|---|---:|---:|---:|---:|
+| Phil Laak | 3,000 | 6,878 | 70.73% | 70.89% |
+| Dara O'Kearney | 456 | 1,296 | 71.76% | 71.60% |
+| Pooled | 3,456 | 8,174 | 70.90% | 71.01% |
+
+Agreement means choosing the same fold, check, call or bet/raise category. It is **not an accuracy, optimality or win-rate score**. The candidate matched nine more action categories overall, which does not establish better play. Pooled results mostly reflect Laak's larger sample, and decisions within hands and players are correlated; no significance claim is made.
+
+The clearest descriptive difference is flop aggression: on the same **2,243 flop decision points**, the humans bet or raised 876 times (**39.05%**) and the candidate did so 436 times (**19.44%**). Across all streets, the corresponding frequencies were 39.39% and 29.35%. When both chose to bet or raise, the candidate's street-total amount differed by an average of 2.12BB across 1,882 decisions. These differences identify situations for strategy review; neither imitation nor disagreement establishes expected value. The bot also encounters historical states that its own earlier choices might not reach. Historical payouts and the original study's AIVAT scores are never assigned to it: the humans' responses to different bot actions are unknown.
+
+An independent parser replayed all **16,207 recorded actions**, matching every board and settlement. Hidden-card and future-board perturbations left 202 checked observations unchanged. The audit independently recomputed all summary groups from the 16,348 policy-decision rows and reproduced a deterministic sample of policy actions and diagnostics. Source and archive hashes stayed unchanged. All 108 Python and 35 Node tests passed, including 11 tests for the new comparator.
+
+The source archive contains 45,037 hands versus the paper's 44,852; exact original inclusion flags were not recovered. Our selected subset is explicit and is not claimed to reproduce the paper's analysis subset. No selected hand had an annotated disconnection. [Results, source provenance, examples and audit receipts](results/expert-comparison-20261107.json) preserve this comparison. Raw histories and full decision journals remain local because no redistribution license was located.
+
+To rerun against the downloaded archive with a new output directory:
+
+```sh
+uv run --locked python -m headsup.expert_compare runs/expert-history-20261107/source.zip --output runs/expert-comparison-check --players laak.phil okearney.dara --hands-per-player 3000 --policies range precision --samples 128 --seed 20261107841
+```
+
 ## Reproduction
 
 Run from the repository root with Python 3.12 and the locked dependencies:

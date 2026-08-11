@@ -1,0 +1,1250 @@
+{
+  "schema_version": 1,
+  "experiment": "historical_professional_human_decision_comparison",
+  "plan": {
+    "schema_version": 1,
+    "created_utc": "2026-11-08T00:04:41.074990+00:00",
+    "purpose": "Descriptive comparison of frozen bot decisions with actual historical professional human decisions; no counterfactual win rate or optimality claim",
+    "source_archive_sha256": "fb92b4b0821b31a5c8ba18373ae8dc1c99ec098996adb1fc120e8887fdf9431a",
+    "source_url": "https://www.deepstack.ai/s/DeepStack_vs_IFP_pros.zip",
+    "official_cdn_url": "https://static1.squarespace.com/static/58a75073e6f2e1c1d5b36630/t/58bed3ac1b10e322e839c4f6/1488901079190/DeepStack_vs_IFP_pros.zip",
+    "retrieval_url": "https://web.archive.org/web/20240204232659id_/https://static1.squarespace.com/static/58a75073e6f2e1c1d5b36630/t/58bed3ac1b10e322e839c4f6/1488901079190/DeepStack_vs_IFP_pros.zip",
+    "paper": "https://www.johanson.ca/publications/poker/2017-science-deepstack/2017-science-deepstack.html",
+    "selection": {
+      "players": [
+        "laak.phil",
+        "okearney.dara"
+      ],
+      "first_hands_per_player": 3000,
+      "order": "chronological source file order; first 3000 Phil Laak hands and all 456 Dara O\u2019Kearney hands",
+      "rationale": "Named accomplished professionals; selection by documented professional identity, not observed bot agreement or rewards",
+      "exclusions": "Malformed/unreconstructable histories and source-annotated disconnections; counts and reasons retained; no replacement hands"
+    },
+    "policies": [
+      "range",
+      "precision"
+    ],
+    "samples": 128,
+    "seed": 20261107841,
+    "game": {
+      "small_blind": 50,
+      "big_blind": 100,
+      "stack_bb": 200,
+      "rake": 0
+    },
+    "metrics": [
+      "human and bot action frequencies",
+      "action-class agreement and confusion by player and street",
+      "raise-size differences conditional on both raising",
+      "prespecified high-commitment disagreement examples"
+    ],
+    "examples_rule": "First three chronological decision mismatches where the human folds facing >=20BB and the candidate continues; first three where the human continues for >=20BB and candidate folds. Descriptive, not errors or causal value loss.",
+    "visibility": "Only acting human hole cards, current public board and preceding public actions; opponent cards and future board not passed to policy",
+    "continuation": "Always advance recorded human/DeepStack actions after collecting bot decisions, even if bot differs",
+    "adaptation": "No policy changes, fitting, or player memory updates during comparison; action class agreement is not a quality score",
+    "raw_data": "Keep archive and source hand traces ignored locally; no redistribution license located"
+  },
+  "plan_sha256": "a33c2cec7bba81d8cd924206e08e1fe6286bbb4892295beee3729920c551b3a1",
+  "report": {
+    "schema_version": 1,
+    "status": "completed",
+    "scope": "Descriptive comparison with recorded human decisions, not action quality, exploitability or winnings against humans.",
+    "selected_hands": 3456,
+    "validated_completed_hands": 3456,
+    "source_environment_and_archive_unchanged": true,
+    "failure": null,
+    "policies": {
+      "range": {
+        "overall": {
+          "decisions": 8174,
+          "action_class_matches": 5795,
+          "action_class_agreement": 0.7089552238805971,
+          "confusion_human_then_bot": {
+            "call->call": 805,
+            "call->fold": 305,
+            "call->raise_to": 61,
+            "check->check": 1959,
+            "check->raise_to": 350,
+            "fold->call": 216,
+            "fold->fold": 1137,
+            "fold->raise_to": 121,
+            "raise_to->call": 170,
+            "raise_to->check": 982,
+            "raise_to->fold": 174,
+            "raise_to->raise_to": 1894
+          },
+          "both_raise_decisions": 1894,
+          "mean_absolute_raise_to_difference_bb": 1.9781467793030623,
+          "mean_absolute_raise_to_difference_pot": 0.3375414171843393,
+          "exact_action_matches": 3966
+        },
+        "by_street": {
+          "preflop": {
+            "decisions": 3619,
+            "action_class_matches": 2772,
+            "action_class_agreement": 0.7659574468085106,
+            "confusion_human_then_bot": {
+              "call->call": 513,
+              "call->fold": 138,
+              "call->raise_to": 47,
+              "check->check": 342,
+              "check->raise_to": 4,
+              "fold->call": 151,
+              "fold->fold": 681,
+              "fold->raise_to": 121,
+              "raise_to->call": 134,
+              "raise_to->check": 98,
+              "raise_to->fold": 154,
+              "raise_to->raise_to": 1236
+            },
+            "both_raise_decisions": 1236,
+            "mean_absolute_raise_to_difference_bb": 0.7266828478964401,
+            "mean_absolute_raise_to_difference_pot": 0.3445381607335491,
+            "exact_action_matches": 1600
+          },
+          "flop": {
+            "decisions": 2243,
+            "action_class_matches": 1405,
+            "action_class_agreement": 0.6263932233615693,
+            "confusion_human_then_bot": {
+              "call->call": 158,
+              "call->fold": 68,
+              "call->raise_to": 5,
+              "check->check": 725,
+              "check->raise_to": 151,
+              "fold->call": 34,
+              "fold->fold": 226,
+              "raise_to->call": 23,
+              "raise_to->check": 544,
+              "raise_to->fold": 13,
+              "raise_to->raise_to": 296
+            },
+            "both_raise_decisions": 296,
+            "mean_absolute_raise_to_difference_bb": 1.6413851351351352,
+            "mean_absolute_raise_to_difference_pot": 0.168890146289046,
+            "exact_action_matches": 1109
+          },
+          "turn": {
+            "decisions": 1363,
+            "action_class_matches": 924,
+            "action_class_agreement": 0.677916360968452,
+            "confusion_human_then_bot": {
+              "call->call": 72,
+              "call->fold": 51,
+              "call->raise_to": 1,
+              "check->check": 521,
+              "check->raise_to": 109,
+              "fold->call": 24,
+              "fold->fold": 117,
+              "raise_to->call": 8,
+              "raise_to->check": 242,
+              "raise_to->fold": 4,
+              "raise_to->raise_to": 214
+            },
+            "both_raise_decisions": 214,
+            "mean_absolute_raise_to_difference_bb": 2.689485981308411,
+            "mean_absolute_raise_to_difference_pot": 0.24684255400581206,
+            "exact_action_matches": 710
+          },
+          "river": {
+            "decisions": 949,
+            "action_class_matches": 694,
+            "action_class_agreement": 0.7312961011591148,
+            "confusion_human_then_bot": {
+              "call->call": 62,
+              "call->fold": 48,
+              "call->raise_to": 8,
+              "check->check": 371,
+              "check->raise_to": 86,
+              "fold->call": 7,
+              "fold->fold": 113,
+              "raise_to->call": 5,
+              "raise_to->check": 98,
+              "raise_to->fold": 3,
+              "raise_to->raise_to": 148
+            },
+            "both_raise_decisions": 148,
+            "mean_absolute_raise_to_difference_bb": 12.074527027027028,
+            "mean_absolute_raise_to_difference_pot": 0.7475573487950713,
+            "exact_action_matches": 547
+          }
+        },
+        "by_human": {
+          "laak.phil": {
+            "decisions": 6878,
+            "action_class_matches": 4865,
+            "action_class_agreement": 0.7073277115440535,
+            "confusion_human_then_bot": {
+              "call->call": 673,
+              "call->fold": 233,
+              "call->raise_to": 57,
+              "check->check": 1594,
+              "check->raise_to": 268,
+              "fold->call": 206,
+              "fold->fold": 992,
+              "fold->raise_to": 114,
+              "raise_to->call": 123,
+              "raise_to->check": 868,
+              "raise_to->fold": 144,
+              "raise_to->raise_to": 1606
+            },
+            "both_raise_decisions": 1606,
+            "mean_absolute_raise_to_difference_bb": 1.899483188044832,
+            "mean_absolute_raise_to_difference_pot": 0.32443484358371166,
+            "exact_action_matches": 3321
+          },
+          "okearney.dara": {
+            "decisions": 1296,
+            "action_class_matches": 930,
+            "action_class_agreement": 0.7175925925925926,
+            "confusion_human_then_bot": {
+              "call->call": 132,
+              "call->fold": 72,
+              "call->raise_to": 4,
+              "check->check": 365,
+              "check->raise_to": 82,
+              "fold->call": 10,
+              "fold->fold": 145,
+              "fold->raise_to": 7,
+              "raise_to->call": 47,
+              "raise_to->check": 114,
+              "raise_to->fold": 30,
+              "raise_to->raise_to": 288
+            },
+            "both_raise_decisions": 288,
+            "mean_absolute_raise_to_difference_bb": 2.4168055555555554,
+            "mean_absolute_raise_to_difference_pot": 0.41062876858228353,
+            "exact_action_matches": 645
+          }
+        }
+      },
+      "precision": {
+        "overall": {
+          "decisions": 8174,
+          "action_class_matches": 5804,
+          "action_class_agreement": 0.7100562759970639,
+          "confusion_human_then_bot": {
+            "call->call": 807,
+            "call->fold": 304,
+            "call->raise_to": 60,
+            "check->check": 1973,
+            "check->raise_to": 336,
+            "fold->call": 211,
+            "fold->fold": 1142,
+            "fold->raise_to": 121,
+            "raise_to->call": 167,
+            "raise_to->check": 998,
+            "raise_to->fold": 173,
+            "raise_to->raise_to": 1882
+          },
+          "both_raise_decisions": 1882,
+          "mean_absolute_raise_to_difference_bb": 2.120249734325186,
+          "mean_absolute_raise_to_difference_pot": 0.3449527117526576,
+          "exact_action_matches": 3987
+        },
+        "by_street": {
+          "preflop": {
+            "decisions": 3619,
+            "action_class_matches": 2771,
+            "action_class_agreement": 0.765681127383255,
+            "confusion_human_then_bot": {
+              "call->call": 513,
+              "call->fold": 138,
+              "call->raise_to": 47,
+              "check->check": 342,
+              "check->raise_to": 4,
+              "fold->call": 152,
+              "fold->fold": 680,
+              "fold->raise_to": 121,
+              "raise_to->call": 134,
+              "raise_to->check": 98,
+              "raise_to->fold": 154,
+              "raise_to->raise_to": 1236
+            },
+            "both_raise_decisions": 1236,
+            "mean_absolute_raise_to_difference_bb": 0.7266828478964401,
+            "mean_absolute_raise_to_difference_pot": 0.3445381607335491,
+            "exact_action_matches": 1599
+          },
+          "flop": {
+            "decisions": 2243,
+            "action_class_matches": 1417,
+            "action_class_agreement": 0.6317432010699956,
+            "confusion_human_then_bot": {
+              "call->call": 162,
+              "call->fold": 64,
+              "call->raise_to": 5,
+              "check->check": 736,
+              "check->raise_to": 140,
+              "fold->call": 32,
+              "fold->fold": 228,
+              "raise_to->call": 20,
+              "raise_to->check": 551,
+              "raise_to->fold": 14,
+              "raise_to->raise_to": 291
+            },
+            "both_raise_decisions": 291,
+            "mean_absolute_raise_to_difference_bb": 1.69893470790378,
+            "mean_absolute_raise_to_difference_pot": 0.17241115495620374,
+            "exact_action_matches": 1126
+          },
+          "turn": {
+            "decisions": 1363,
+            "action_class_matches": 922,
+            "action_class_agreement": 0.6764490095377843,
+            "confusion_human_then_bot": {
+              "call->call": 70,
+              "call->fold": 54,
+              "check->check": 524,
+              "check->raise_to": 106,
+              "fold->call": 20,
+              "fold->fold": 121,
+              "raise_to->call": 8,
+              "raise_to->check": 251,
+              "raise_to->fold": 2,
+              "raise_to->raise_to": 207
+            },
+            "both_raise_decisions": 207,
+            "mean_absolute_raise_to_difference_bb": 3.916473429951691,
+            "mean_absolute_raise_to_difference_pot": 0.3021338315841023,
+            "exact_action_matches": 715
+          },
+          "river": {
+            "decisions": 949,
+            "action_class_matches": 694,
+            "action_class_agreement": 0.7312961011591148,
+            "confusion_human_then_bot": {
+              "call->call": 62,
+              "call->fold": 48,
+              "call->raise_to": 8,
+              "check->check": 371,
+              "check->raise_to": 86,
+              "fold->call": 7,
+              "fold->fold": 113,
+              "raise_to->call": 5,
+              "raise_to->check": 98,
+              "raise_to->fold": 3,
+              "raise_to->raise_to": 148
+            },
+            "both_raise_decisions": 148,
+            "mean_absolute_raise_to_difference_bb": 12.074527027027028,
+            "mean_absolute_raise_to_difference_pot": 0.7475573487950713,
+            "exact_action_matches": 547
+          }
+        },
+        "by_human": {
+          "laak.phil": {
+            "decisions": 6878,
+            "action_class_matches": 4876,
+            "action_class_agreement": 0.7089270136667636,
+            "confusion_human_then_bot": {
+              "call->call": 677,
+              "call->fold": 230,
+              "call->raise_to": 56,
+              "check->check": 1604,
+              "check->raise_to": 258,
+              "fold->call": 202,
+              "fold->fold": 996,
+              "fold->raise_to": 114,
+              "raise_to->call": 121,
+              "raise_to->check": 878,
+              "raise_to->fold": 143,
+              "raise_to->raise_to": 1599
+            },
+            "both_raise_decisions": 1599,
+            "mean_absolute_raise_to_difference_bb": 2.06083176985616,
+            "mean_absolute_raise_to_difference_pot": 0.3324202114864315,
+            "exact_action_matches": 3339
+          },
+          "okearney.dara": {
+            "decisions": 1296,
+            "action_class_matches": 928,
+            "action_class_agreement": 0.7160493827160493,
+            "confusion_human_then_bot": {
+              "call->call": 130,
+              "call->fold": 74,
+              "call->raise_to": 4,
+              "check->check": 369,
+              "check->raise_to": 78,
+              "fold->call": 9,
+              "fold->fold": 146,
+              "fold->raise_to": 7,
+              "raise_to->call": 46,
+              "raise_to->check": 120,
+              "raise_to->fold": 30,
+              "raise_to->raise_to": 283
+            },
+            "both_raise_decisions": 283,
+            "mean_absolute_raise_to_difference_bb": 2.4559717314487632,
+            "mean_absolute_raise_to_difference_pot": 0.41576355247949703,
+            "exact_action_matches": 648
+          }
+        }
+      }
+    },
+    "limitations": [
+      "One recorded professional action is a mixed-strategy sample, not an optimal-action label; agreement does not prove strength.",
+      "Histories contain responses to DeepStack, not responses to this bot. Different bot actions have unknown counterfactual continuations.",
+      "Historical winnings are used only to validate reconstruction and are never attributed to the compared policies.",
+      "Only current actor cards, current public board and past actions enter each policy observation; opponent cards and future boards remain excluded.",
+      "Rows within hands, matches and humans are correlated; these are descriptive summaries without independent-action significance claims.",
+      "The fixed opening sample per human is not representative of all later play or current online populations."
+    ]
+  },
+  "action_frequencies": {
+    "range": {
+      "overall": {
+        "decisions": 8174,
+        "human_counts": {
+          "raise_to": 3220,
+          "check": 2309,
+          "fold": 1474,
+          "call": 1171
+        },
+        "bot_counts": {
+          "raise_to": 2426,
+          "check": 2941,
+          "fold": 1616,
+          "call": 1191
+        },
+        "human_rates": {
+          "raise_to": 0.3939319794470272,
+          "check": 0.28248103743577196,
+          "fold": 0.18032786885245902,
+          "call": 0.14325911426474186
+        },
+        "bot_rates": {
+          "raise_to": 0.29679471494984094,
+          "check": 0.3597993638365549,
+          "fold": 0.1977000244678248,
+          "call": 0.1457058967457793
+        }
+      },
+      "player:laak.phil": {
+        "decisions": 6878,
+        "human_counts": {
+          "raise_to": 2741,
+          "check": 1862,
+          "fold": 1312,
+          "call": 963
+        },
+        "bot_counts": {
+          "raise_to": 2045,
+          "check": 2462,
+          "fold": 1369,
+          "call": 1002
+        },
+        "human_rates": {
+          "raise_to": 0.3985170107589415,
+          "check": 0.27071823204419887,
+          "fold": 0.1907531259086944,
+          "call": 0.14001163128816516
+        },
+        "bot_rates": {
+          "raise_to": 0.2973248037220122,
+          "check": 0.35795289328293106,
+          "fold": 0.19904041872637396,
+          "call": 0.14568188426868275
+        }
+      },
+      "player:okearney.dara": {
+        "decisions": 1296,
+        "human_counts": {
+          "raise_to": 479,
+          "call": 208,
+          "check": 447,
+          "fold": 162
+        },
+        "bot_counts": {
+          "raise_to": 381,
+          "fold": 247,
+          "check": 479,
+          "call": 189
+        },
+        "human_rates": {
+          "raise_to": 0.36959876543209874,
+          "call": 0.16049382716049382,
+          "check": 0.3449074074074074,
+          "fold": 0.125
+        },
+        "bot_rates": {
+          "raise_to": 0.29398148148148145,
+          "fold": 0.19058641975308643,
+          "check": 0.36959876543209874,
+          "call": 0.14583333333333334
+        }
+      },
+      "street:preflop": {
+        "decisions": 3619,
+        "human_counts": {
+          "raise_to": 1622,
+          "fold": 953,
+          "call": 698,
+          "check": 346
+        },
+        "bot_counts": {
+          "raise_to": 1408,
+          "fold": 973,
+          "call": 798,
+          "check": 440
+        },
+        "human_rates": {
+          "raise_to": 0.44819010776457585,
+          "fold": 0.2633324122685825,
+          "call": 0.19287095882840563,
+          "check": 0.09560652113843603
+        },
+        "bot_rates": {
+          "raise_to": 0.3890577507598784,
+          "fold": 0.2688588007736944,
+          "call": 0.2205029013539652,
+          "check": 0.12158054711246201
+        }
+      },
+      "street:flop": {
+        "decisions": 2243,
+        "human_counts": {
+          "raise_to": 876,
+          "check": 876,
+          "call": 231,
+          "fold": 260
+        },
+        "bot_counts": {
+          "check": 1269,
+          "fold": 307,
+          "call": 215,
+          "raise_to": 452
+        },
+        "human_rates": {
+          "raise_to": 0.39054837271511367,
+          "check": 0.39054837271511367,
+          "call": 0.10298707088720464,
+          "fold": 0.115916183682568
+        },
+        "bot_rates": {
+          "check": 0.5657601426660722,
+          "fold": 0.13687026304057068,
+          "call": 0.09585376727596968,
+          "raise_to": 0.20151582701738743
+        }
+      },
+      "street:turn": {
+        "decisions": 1363,
+        "human_counts": {
+          "check": 630,
+          "fold": 141,
+          "raise_to": 468,
+          "call": 124
+        },
+        "bot_counts": {
+          "check": 763,
+          "fold": 172,
+          "raise_to": 324,
+          "call": 104
+        },
+        "human_rates": {
+          "check": 0.46221570066030815,
+          "fold": 0.10344827586206896,
+          "raise_to": 0.3433602347762289,
+          "call": 0.09097578870139399
+        },
+        "bot_rates": {
+          "check": 0.5597945707997065,
+          "fold": 0.12619222303741745,
+          "raise_to": 0.23771093176815847,
+          "call": 0.07630227439471754
+        }
+      },
+      "street:river": {
+        "decisions": 949,
+        "human_counts": {
+          "check": 457,
+          "raise_to": 254,
+          "call": 118,
+          "fold": 120
+        },
+        "bot_counts": {
+          "check": 469,
+          "call": 74,
+          "raise_to": 242,
+          "fold": 164
+        },
+        "human_rates": {
+          "check": 0.4815595363540569,
+          "raise_to": 0.26765015806111697,
+          "call": 0.12434141201264488,
+          "fold": 0.12644889357218125
+        },
+        "bot_rates": {
+          "check": 0.49420442571127504,
+          "call": 0.0779768177028451,
+          "raise_to": 0.25500526870389884,
+          "fold": 0.17281348788198103
+        }
+      }
+    },
+    "precision": {
+      "overall": {
+        "decisions": 8174,
+        "human_counts": {
+          "raise_to": 3220,
+          "check": 2309,
+          "fold": 1474,
+          "call": 1171
+        },
+        "bot_counts": {
+          "raise_to": 2399,
+          "check": 2971,
+          "fold": 1619,
+          "call": 1185
+        },
+        "human_rates": {
+          "raise_to": 0.3939319794470272,
+          "check": 0.28248103743577196,
+          "fold": 0.18032786885245902,
+          "call": 0.14325911426474186
+        },
+        "bot_rates": {
+          "raise_to": 0.2934915586004404,
+          "check": 0.36346953755811107,
+          "fold": 0.19806704183998042,
+          "call": 0.14497186200146808
+        }
+      },
+      "player:laak.phil": {
+        "decisions": 6878,
+        "human_counts": {
+          "raise_to": 2741,
+          "check": 1862,
+          "fold": 1312,
+          "call": 963
+        },
+        "bot_counts": {
+          "raise_to": 2027,
+          "check": 2482,
+          "fold": 1369,
+          "call": 1000
+        },
+        "human_rates": {
+          "raise_to": 0.3985170107589415,
+          "check": 0.27071823204419887,
+          "fold": 0.1907531259086944,
+          "call": 0.14001163128816516
+        },
+        "bot_rates": {
+          "raise_to": 0.29470776388485026,
+          "check": 0.36086071532422215,
+          "fold": 0.19904041872637396,
+          "call": 0.14539110206455366
+        }
+      },
+      "player:okearney.dara": {
+        "decisions": 1296,
+        "human_counts": {
+          "raise_to": 479,
+          "call": 208,
+          "check": 447,
+          "fold": 162
+        },
+        "bot_counts": {
+          "raise_to": 372,
+          "fold": 250,
+          "check": 489,
+          "call": 185
+        },
+        "human_rates": {
+          "raise_to": 0.36959876543209874,
+          "call": 0.16049382716049382,
+          "check": 0.3449074074074074,
+          "fold": 0.125
+        },
+        "bot_rates": {
+          "raise_to": 0.28703703703703703,
+          "fold": 0.19290123456790123,
+          "check": 0.3773148148148148,
+          "call": 0.1427469135802469
+        }
+      },
+      "street:preflop": {
+        "decisions": 3619,
+        "human_counts": {
+          "raise_to": 1622,
+          "fold": 953,
+          "call": 698,
+          "check": 346
+        },
+        "bot_counts": {
+          "raise_to": 1408,
+          "fold": 972,
+          "call": 799,
+          "check": 440
+        },
+        "human_rates": {
+          "raise_to": 0.44819010776457585,
+          "fold": 0.2633324122685825,
+          "call": 0.19287095882840563,
+          "check": 0.09560652113843603
+        },
+        "bot_rates": {
+          "raise_to": 0.3890577507598784,
+          "fold": 0.2685824813484388,
+          "call": 0.22077922077922077,
+          "check": 0.12158054711246201
+        }
+      },
+      "street:flop": {
+        "decisions": 2243,
+        "human_counts": {
+          "raise_to": 876,
+          "check": 876,
+          "call": 231,
+          "fold": 260
+        },
+        "bot_counts": {
+          "check": 1287,
+          "fold": 306,
+          "call": 214,
+          "raise_to": 436
+        },
+        "human_rates": {
+          "raise_to": 0.39054837271511367,
+          "check": 0.39054837271511367,
+          "call": 0.10298707088720464,
+          "fold": 0.115916183682568
+        },
+        "bot_rates": {
+          "check": 0.5737851092287115,
+          "fold": 0.13642443156486847,
+          "call": 0.0954079358002675,
+          "raise_to": 0.19438252340615247
+        }
+      },
+      "street:turn": {
+        "decisions": 1363,
+        "human_counts": {
+          "check": 630,
+          "fold": 141,
+          "raise_to": 468,
+          "call": 124
+        },
+        "bot_counts": {
+          "check": 775,
+          "fold": 177,
+          "raise_to": 313,
+          "call": 98
+        },
+        "human_rates": {
+          "check": 0.46221570066030815,
+          "fold": 0.10344827586206896,
+          "raise_to": 0.3433602347762289,
+          "call": 0.09097578870139399
+        },
+        "bot_rates": {
+          "check": 0.5685986793837124,
+          "fold": 0.12986060161408658,
+          "raise_to": 0.22964049889948643,
+          "call": 0.0719002201027146
+        }
+      },
+      "street:river": {
+        "decisions": 949,
+        "human_counts": {
+          "check": 457,
+          "raise_to": 254,
+          "call": 118,
+          "fold": 120
+        },
+        "bot_counts": {
+          "check": 469,
+          "call": 74,
+          "raise_to": 242,
+          "fold": 164
+        },
+        "human_rates": {
+          "check": 0.4815595363540569,
+          "raise_to": 0.26765015806111697,
+          "call": 0.12434141201264488,
+          "fold": 0.12644889357218125
+        },
+        "bot_rates": {
+          "check": 0.49420442571127504,
+          "call": 0.0779768177028451,
+          "raise_to": 0.25500526870389884,
+          "fold": 0.17281348788198103
+        }
+      }
+    }
+  },
+  "examples": {
+    "human_fold_bot_continue": [
+      {
+        "human": "laak.phil",
+        "source_line": 78,
+        "action_index": 6,
+        "human_action": {
+          "kind": "fold",
+          "amount": 0
+        },
+        "bot_action": {
+          "kind": "call",
+          "amount": 0
+        },
+        "timestamp": "1480800923.39217",
+        "street": "turn",
+        "hole": [
+          "Ah",
+          "7h"
+        ],
+        "board": [
+          "Ad",
+          "Js",
+          "4c",
+          "8s"
+        ],
+        "pot": 4800,
+        "to_call": 2400,
+        "stacks": [
+          16400,
+          18800
+        ],
+        "bets": [
+          2400,
+          0
+        ]
+      },
+      {
+        "human": "laak.phil",
+        "source_line": 621,
+        "action_index": 9,
+        "human_action": {
+          "kind": "fold",
+          "amount": 0
+        },
+        "bot_action": {
+          "kind": "call",
+          "amount": 0
+        },
+        "timestamp": "1480814182.7424",
+        "street": "river",
+        "hole": [
+          "Ts",
+          "As"
+        ],
+        "board": [
+          "8s",
+          "Tc",
+          "Ad",
+          "Qc",
+          "Kd"
+        ],
+        "pot": 16875,
+        "to_call": 5625,
+        "stacks": [
+          14375,
+          8750
+        ],
+        "bets": [
+          3375,
+          9000
+        ]
+      },
+      {
+        "human": "laak.phil",
+        "source_line": 1117,
+        "action_index": 9,
+        "human_action": {
+          "kind": "fold",
+          "amount": 0
+        },
+        "bot_action": {
+          "kind": "call",
+          "amount": 0
+        },
+        "timestamp": "1480822711.95683",
+        "street": "turn",
+        "hole": [
+          "2s",
+          "5s"
+        ],
+        "board": [
+          "6d",
+          "6s",
+          "3s",
+          "Td"
+        ],
+        "pot": 19500,
+        "to_call": 6500,
+        "stacks": [
+          7000,
+          13500
+        ],
+        "bets": [
+          10400,
+          3900
+        ]
+      }
+    ],
+    "human_continue_bot_fold": [
+      {
+        "human": "okearney.dara",
+        "source_line": 59,
+        "action_index": 10,
+        "human_action": {
+          "kind": "call",
+          "amount": 0
+        },
+        "bot_action": {
+          "kind": "fold",
+          "amount": 0
+        },
+        "timestamp": "1480394703.36674",
+        "street": "river",
+        "hole": [
+          "Jc",
+          "2h"
+        ],
+        "board": [
+          "Js",
+          "5d",
+          "4h",
+          "6s",
+          "Ts"
+        ],
+        "pot": 4800,
+        "to_call": 3200,
+        "stacks": [
+          19200,
+          16000
+        ],
+        "bets": [
+          0,
+          3200
+        ]
+      },
+      {
+        "human": "okearney.dara",
+        "source_line": 177,
+        "action_index": 7,
+        "human_action": {
+          "kind": "call",
+          "amount": 0
+        },
+        "bot_action": {
+          "kind": "fold",
+          "amount": 0
+        },
+        "timestamp": "1480399758.54538",
+        "street": "turn",
+        "hole": [
+          "5c",
+          "5h"
+        ],
+        "board": [
+          "Ts",
+          "3h",
+          "Jd",
+          "7s"
+        ],
+        "pot": 6300,
+        "to_call": 2100,
+        "stacks": [
+          17900,
+          15800
+        ],
+        "bets": [
+          0,
+          2100
+        ]
+      },
+      {
+        "human": "laak.phil",
+        "source_line": 216,
+        "action_index": 8,
+        "human_action": {
+          "kind": "call",
+          "amount": 0
+        },
+        "bot_action": {
+          "kind": "fold",
+          "amount": 0
+        },
+        "timestamp": "1480804210.95797",
+        "street": "turn",
+        "hole": [
+          "Jd",
+          "8h"
+        ],
+        "board": [
+          "Ts",
+          "3c",
+          "9h",
+          "8c"
+        ],
+        "pot": 11360,
+        "to_call": 5680,
+        "stacks": [
+          17160,
+          11480
+        ],
+        "bets": [
+          0,
+          5680
+        ]
+      }
+    ]
+  },
+  "source_audit": {
+    "schema_version": 1,
+    "audit_type": "independent_source_audit",
+    "status": "pass",
+    "created_utc": "2026-11-08T00:05:42.585071+00:00",
+    "source_archive_sha256": "fb92b4b0821b31a5c8ba18373ae8dc1c99ec098996adb1fc120e8887fdf9431a",
+    "source_archive_bytes": 15675135,
+    "plan_sha256": "a33c2cec7bba81d8cd924206e08e1fe6286bbb4892295beee3729920c551b3a1",
+    "source_origin": "https://static1.squarespace.com/static/58a75073e6f2e1c1d5b36630/t/58bed3ac1b10e322e839c4f6/1488901079190/DeepStack_vs_IFP_pros.zip",
+    "retrieved_from": "https://web.archive.org/web/20240204232659id_/https://static1.squarespace.com/static/58a75073e6f2e1c1d5b36630/t/58bed3ac1b10e322e839c4f6/1488901079190/DeepStack_vs_IFP_pros.zip",
+    "study_supplement": "https://johanson.ca/publications/poker/2017-science-deepstack/2017-science-deepstack-supplement.pdf",
+    "game_configuration": {
+      "small_blind": 50,
+      "big_blind": 100,
+      "starting_stack": 20000,
+      "stack_bb": 200,
+      "reset_each_hand": true,
+      "support": "Authors supplement pages 1\u20132 specifies a 100-chip big blind, 20,000-chip stacks, and resetting stacks each hand; archive ACPC README specifies 50/100 blinds."
+    },
+    "aggregate_raw_hands": 45037,
+    "individual_files": 33,
+    "individual_raw_hands": 45037,
+    "reported_study_hands": 44852,
+    "raw_vs_study_difference": 185,
+    "raw_vs_study_interpretation": "The archive contains 185 more hands than the published study count. This audit does not assert that the complete raw archive equals the published analysis subset. The first 3,000 Phil Laak hands match our prespecified selection and the reported study count; original author inclusion flags were not recovered.",
+    "selected_total": 3456,
+    "selected_duplicates": 0,
+    "by_player": {
+      "laak.phil": {
+        "source_hands": 3003,
+        "selected_hands": 3000,
+        "omitted_after_cutoff": 3,
+        "selected_sha256": "f2f11efc6c17238336d50db62a63536cd6b7a81a603cd47477a477b8b970df19",
+        "acpc_member": "DeepStack_vs_IFP_pros/DeepStack_logs/ACPC/all_hands.laak.phil.log",
+        "acpc_sha256": "27fc5e26d8291ae4323e6e734b70b2ae7b02426ffedfc69a8741ee0b1c71b254",
+        "csv_member": "DeepStack_vs_IFP_pros/AIVAT_analysis/results.laak.phil.csv",
+        "csv_sha256": "e033f1f34a2014c7dda63c529ab1610e11ce4446928cb5ac6ae80a4807f2924c",
+        "csv_rows": 3003,
+        "csv_alignment_mismatches": {},
+        "chronological": true,
+        "table_account_names": [
+          "laak.phil.1",
+          "laak.phil.2",
+          "laak.phil.3",
+          "laak.phil.4"
+        ],
+        "unique_selected_identity_keys": 3000,
+        "unique_selected_full_records": 3000,
+        "selected_records_each_once_in_aggregate": true,
+        "all_selected_holecards_known": 3000,
+        "valid_unique_card_layouts": 3000,
+        "folded_hands_with_both_holecards": 2554,
+        "max_recorded_cumulative_raise": 20000,
+        "source_notes": [],
+        "selected_notes": [],
+        "first_selected_utc": "2016-12-03T08:06:14.612080+00:00",
+        "last_selected_utc": "2016-12-04T21:35:53.235390+00:00",
+        "first_omitted_utc": "2016-12-04T21:35:55.749460+00:00"
+      },
+      "okearney.dara": {
+        "source_hands": 456,
+        "selected_hands": 456,
+        "omitted_after_cutoff": 0,
+        "selected_sha256": "df1e49e5e0f47eb8fe0e0e2cb5abcb25650dfbc59d46722258bde24bd7004e9f",
+        "acpc_member": "DeepStack_vs_IFP_pros/DeepStack_logs/ACPC/all_hands.okearney.dara.log",
+        "acpc_sha256": "10317ae24c7a7b62065ab280ce1acd4030c21cba106afe637b77d6bf6a147cba",
+        "csv_member": "DeepStack_vs_IFP_pros/AIVAT_analysis/results.okearney.dara.csv",
+        "csv_sha256": "e4caf42d36d8ed110fd2fa39f25b487c7840a88fe4eb15895860da22a35d7e6d",
+        "csv_rows": 456,
+        "csv_alignment_mismatches": {},
+        "chronological": true,
+        "table_account_names": [
+          "okearney.dara.1",
+          "okearney.dara.2"
+        ],
+        "unique_selected_identity_keys": 456,
+        "unique_selected_full_records": 456,
+        "selected_records_each_once_in_aggregate": true,
+        "all_selected_holecards_known": 456,
+        "valid_unique_card_layouts": 456,
+        "folded_hands_with_both_holecards": 337,
+        "max_recorded_cumulative_raise": 20000,
+        "source_notes": [],
+        "selected_notes": [],
+        "first_selected_utc": "2016-11-29T04:07:24.533650+00:00",
+        "last_selected_utc": "2016-12-05T21:44:24.228790+00:00",
+        "first_omitted_utc": null
+      }
+    },
+    "license_files_found": [],
+    "redistribution": "No explicit redistribution license located; retain archive and hand traces locally.",
+    "interpretation_limits": [
+      "The professional cohort was recruited through the IFP using self-identification; participants are not individually validated here as top heads-up specialists.",
+      "Chronological timestamps are hand start times, not completion times.",
+      "Both players\u2019 hole cards are present for auditing; policies must receive only the acting human\u2019s hole cards, current board, and preceding actions.",
+      "Historical action agreement is not counterfactual profitability or optimality."
+    ],
+    "errors": []
+  },
+  "replay_audit": {
+    "schema_version": 1,
+    "status": "passed",
+    "created_utc": "2026-11-08T00:07:09.605949+00:00",
+    "archive_sha256": "fb92b4b0821b31a5c8ba18373ae8dc1c99ec098996adb1fc120e8887fdf9431a",
+    "plan_sha256": "a33c2cec7bba81d8cd924206e08e1fe6286bbb4892295beee3729920c551b3a1",
+    "comparator_sha256": "6847a2df5bc0a5a40978e63d3665df5cb4ab48c32a82f72d666fc3bc1a0b1174",
+    "selection": {
+      "laak.phil": 3000,
+      "okearney.dara": 456
+    },
+    "independent_source_replay": {
+      "hands": 3456,
+      "recorded_actions": 16207,
+      "human_decisions": 8174,
+      "failures": 0,
+      "method": "Separate inline ACPC parser and explicit per-seat cumulative contribution bookkeeping; historical whole-hand raises converted using contributions at street start, with existing Hand engine execution. Every board and net settlement matched the archive.",
+      "limits": "Uses the same PokerKit-backed Hand engine as the comparator, not an independent poker rules implementation."
+    },
+    "comparator_reconstruction": {
+      "hands": 3456,
+      "recorded_actions": 16207,
+      "human_decisions": 8174,
+      "failures": 0
+    },
+    "hidden_information_perturbations": {
+      "unchanged_human_observations": 202,
+      "method": "For selected river-fold hands, replace opponent private cards and unrevealed board suffixes with other distinct legal cards; compare every human Observation at or before 0/3/4/5 visible public cards. All compared observations and recorded actions remained identical.",
+      "scope": "Selected perturbation checks, not exhaustive hidden-card enumeration."
+    },
+    "focused_tests": {
+      "command": ".venv/bin/python -m unittest tests.test_expert_compare -q",
+      "passed": 11
+    },
+    "review_findings": [],
+    "review_scope": [
+      "ACPC cumulative raise translation",
+      "200BB and BB/SB mapping",
+      "canonical player file identities",
+      "aggregate log exclusion",
+      "source annotation handling",
+      "actor-only information boundary",
+      "legal bot actions",
+      "recorded actions preserve historical continuation",
+      "descriptive metrics do not assign historical winnings to bot"
+    ]
+  },
+  "metrics_audit": {
+    "status": "passed",
+    "source_files_unchanged": 31,
+    "decision_rows": 16348,
+    "unique_human_positions": 8174,
+    "all_policy_pairs_same_inputs": true,
+    "all_summary_groups_recomputed": true,
+    "policy_decisions_reproduced": 170,
+    "policy_replay_selection": "SHA256(JSON([member,line,action_index])) mod97 ==0; both policies at selected positions",
+    "journal_sha256": "7b65622c75f83c5638353fc6ececf52799d271f54fe1b8c9aca0a84969b14734",
+    "tests": {
+      "python": 108,
+      "node": 35
+    }
+  },
+  "environment": {
+    "python": "3.12.14",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "dependencies": {
+      "pokerkit": "0.7.7",
+      "eval7": "0.1.11",
+      "scipy": "1.18.1",
+      "fastapi": "0.162.0",
+      "pydantic": "2.14.3",
+      "uvicorn": "0.54.0",
+      "httpx": "0.28.1"
+    },
+    "source_sha256": {
+      "headsup/__init__.py": "e364931a8afff672985ee99f795e6d8b20ff33c55d71d757ec211ec6689b3c19",
+      "headsup/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "headsup/adaptation.py": "e2ab5351a6117443cbb1f89fb39ada3448a9363443c389cfac5f8f7cfc80c1fe",
+      "headsup/arena.py": "ddaaeb1b630807c5985a587e64cda603e44874ed5c8c8b83be5c6c775dfe5e13",
+      "headsup/cli.py": "285a69678c6eca12fc7de2bd57adffcf6938723178020cd1448647df2c27d768",
+      "headsup/connection.py": "735c2bf664bdb4b1715ec7f1d5e058c37e974ed94c36b79917ba182245f90353",
+      "headsup/decision_worker.py": "30669b4a321ab577a84cc899eb08427c7754176372c597e4659ba47b939cc0a8",
+      "headsup/engine.py": "a93bf2169ee2a2f7994e8b76e9e60dc21227424c5b3628e5aa07c5d25fbcb818",
+      "headsup/expert_compare.py": "6847a2df5bc0a5a40978e63d3665df5cb4ab48c32a82f72d666fc3bc1a0b1174",
+      "headsup/history_import.py": "73d9ebfba33137a5b0bccfb9aae4fa47c943a350b87c4dedb41e1103e5e24a95",
+      "headsup/human_learning.py": "0396398abef5ffb337027ada1ead39f3d3fe01d4d53b95fdb8c51744bd3dd670",
+      "headsup/learning.py": "f040bb1aab9689cb9d422e7f21546652ccddf56aedc10ca8bce875ae3fd1ded2",
+      "headsup/models.py": "3bbc210c58dc3cfc69c044c56955a43c5549929ab8d409b8b91709d380b38459",
+      "headsup/opponent_memory.py": "e87b91642739451e1123f9d543d4f847ac6f6f36ba9de72bb3c4eba1e06bfc56",
+      "headsup/opponents.py": "5cb171eadc535ecd3f116d79ff0f9f510ad5bd4c24886eb9e025218ffe4b763c",
+      "headsup/policies.py": "ab514ee82c0c68e0e0007b23080a2743e941356ef4ab1b3619cfccbff0e3a719",
+      "headsup/population_learning.py": "b171f3246b71c97a07cab5b1d396ea470d51abd2ee9626495a8d28fbcc0d9bd8",
+      "headsup/protocol.py": "870568b3fcb27b5a163de29461bb0cd630b80b138ce071cf9355b01afab0370f",
+      "headsup/river.py": "b60145e7fa0298704224e01aee99fbcdc6065a095133988c72a390e969b19e4a",
+      "headsup/river_evaluation.py": "d09ec25f91b202cce9fb0fd4393e937348d94d80e63865f82ffcb6345af0fdf2",
+      "headsup/slumbot.py": "a7554e699339b9cdce59357c435524a1db30845e71ee2b2f0a57e3b5cf59a966",
+      "headsup/table.py": "db5fd1ecc9033d1ee226b010d34585290cb67237cbe1d71e817b46338977050b",
+      "headsup/timing.py": "c2c099c832954912e9a27211f82951512a47ae89662eaa3eac83353610ac12a5",
+      "headsup/training.py": "5d17721830133523a2dce147df4a172b29556db8cd7b939ba59c78446048fd9e",
+      "headsup/web.py": "f1c8553835cbab7ca94071ab7ebfd8e3176517032fd20143af7a800164a5ddcc",
+      "pyproject.toml": "146030d156e1e4b4055169cb11308b418c146d586635c761b9a503a1cd9bec12",
+      "uv.lock": "e29e737a031d830162d4bc7e68fd557bacafbfe29f88efaf4805728b0d57d188"
+    }
+  },
+  "source_sha256": {
+    "uv.lock": "e29e737a031d830162d4bc7e68fd557bacafbfe29f88efaf4805728b0d57d188",
+    "pyproject.toml": "146030d156e1e4b4055169cb11308b418c146d586635c761b9a503a1cd9bec12",
+    ".python-version": "f50159fad3f4319868eb38717b91d55843c41e9803014c8de05e116a6d0bcfdc",
+    "headsup/human_learning.py": "0396398abef5ffb337027ada1ead39f3d3fe01d4d53b95fdb8c51744bd3dd670",
+    "headsup/opponent_memory.py": "e87b91642739451e1123f9d543d4f847ac6f6f36ba9de72bb3c4eba1e06bfc56",
+    "headsup/expert_compare.py": "6847a2df5bc0a5a40978e63d3665df5cb4ab48c32a82f72d666fc3bc1a0b1174",
+    "headsup/web.py": "f1c8553835cbab7ca94071ab7ebfd8e3176517032fd20143af7a800164a5ddcc",
+    "headsup/river_evaluation.py": "d09ec25f91b202cce9fb0fd4393e937348d94d80e63865f82ffcb6345af0fdf2",
+    "headsup/models.py": "3bbc210c58dc3cfc69c044c56955a43c5549929ab8d409b8b91709d380b38459",
+    "headsup/pokernow_state.mjs": "bfcf917537598c51aee6dd28e11e1e16b4eb38397b12f7dc861c04fff74a5bb7",
+    "headsup/population_learning.py": "b171f3246b71c97a07cab5b1d396ea470d51abd2ee9626495a8d28fbcc0d9bd8",
+    "headsup/history_import.py": "73d9ebfba33137a5b0bccfb9aae4fa47c943a350b87c4dedb41e1103e5e24a95",
+    "headsup/protocol.py": "870568b3fcb27b5a163de29461bb0cd630b80b138ce071cf9355b01afab0370f",
+    "headsup/__init__.py": "e364931a8afff672985ee99f795e6d8b20ff33c55d71d757ec211ec6689b3c19",
+    "headsup/connection.py": "735c2bf664bdb4b1715ec7f1d5e058c37e974ed94c36b79917ba182245f90353",
+    "headsup/engine.py": "a93bf2169ee2a2f7994e8b76e9e60dc21227424c5b3628e5aa07c5d25fbcb818",
+    "headsup/timing.py": "c2c099c832954912e9a27211f82951512a47ae89662eaa3eac83353610ac12a5",
+    "headsup/pokernow_bridge.mjs": "feb1e34d8c6ce1732f5dfb93ebb9da434c0f31476193ec64fd84d57e21ef68b2",
+    "headsup/cli.py": "285a69678c6eca12fc7de2bd57adffcf6938723178020cd1448647df2c27d768",
+    "headsup/opponents.py": "5cb171eadc535ecd3f116d79ff0f9f510ad5bd4c24886eb9e025218ffe4b763c",
+    "headsup/pokernow_session.mjs": "08791e65b231e5e7c20c76c70439d13b5ede10c4193a2036008f6ce15419791c",
+    "headsup/table.py": "db5fd1ecc9033d1ee226b010d34585290cb67237cbe1d71e817b46338977050b",
+    "headsup/river.py": "b60145e7fa0298704224e01aee99fbcdc6065a095133988c72a390e969b19e4a",
+    "headsup/learning.py": "f040bb1aab9689cb9d422e7f21546652ccddf56aedc10ca8bce875ae3fd1ded2",
+    "headsup/adaptation.py": "e2ab5351a6117443cbb1f89fb39ada3448a9363443c389cfac5f8f7cfc80c1fe",
+    "headsup/slumbot.py": "a7554e699339b9cdce59357c435524a1db30845e71ee2b2f0a57e3b5cf59a966",
+    "headsup/policies.py": "ab514ee82c0c68e0e0007b23080a2743e941356ef4ab1b3619cfccbff0e3a719",
+    "headsup/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "headsup/decision_worker.py": "30669b4a321ab577a84cc899eb08427c7754176372c597e4659ba47b939cc0a8",
+    "headsup/training.py": "5d17721830133523a2dce147df4a172b29556db8cd7b939ba59c78446048fd9e",
+    "headsup/arena.py": "ddaaeb1b630807c5985a587e64cda603e44874ed5c8c8b83be5c6c775dfe5e13"
+  },
+  "source_member_sha256": {
+    "DeepStack_vs_IFP_pros/DeepStack_logs/ACPC/all_hands.laak.phil.log": "27fc5e26d8291ae4323e6e734b70b2ae7b02426ffedfc69a8741ee0b1c71b254",
+    "DeepStack_vs_IFP_pros/AIVAT_analysis/results.laak.phil.csv": "e033f1f34a2014c7dda63c529ab1610e11ce4446928cb5ac6ae80a4807f2924c",
+    "DeepStack_vs_IFP_pros/DeepStack_logs/ACPC/all_hands.okearney.dara.log": "10317ae24c7a7b62065ab280ce1acd4030c21cba106afe637b77d6bf6a147cba",
+    "DeepStack_vs_IFP_pros/AIVAT_analysis/results.okearney.dara.csv": "e4caf42d36d8ed110fd2fa39f25b487c7840a88fe4eb15895860da22a35d7e6d"
+  },
+  "limitations": [
+    "One recorded professional action is a mixed-strategy sample, not an optimal-action label; agreement does not prove strength.",
+    "Histories contain responses to DeepStack, not responses to this bot. Different bot actions have unknown counterfactual continuations.",
+    "Historical winnings are used only to validate reconstruction and are never attributed to the compared policies.",
+    "Only current actor cards, current public board and past actions enter each policy observation; opponent cards and future boards remain excluded.",
+    "Rows within hands, matches and humans are correlated; these are descriptive summaries without independent-action significance claims.",
+    "The fixed opening sample per human is not representative of all later play or current online populations.",
+    "Two named accomplished professionals are not a representative sample of elite heads-up specialists.",
+    "Policies are evaluated on states reached by historical actions, including states their own earlier choices might not reach.",
+    "No persistent opponent adaptation or population-prior refitting in this comparison.",
+    "No source redistribution license located; raw archive and decision journals remain local."
+  ]
+}

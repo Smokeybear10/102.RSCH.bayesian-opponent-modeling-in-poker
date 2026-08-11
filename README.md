@@ -45,11 +45,15 @@ These use a synthetic starter kit, without an external account or submission. Th
 
 **Opponent memory.** SQLite stores verified completed-hand fold/call/raise responses, separated by room, hero ID, opponent ID, and blinds. Names and seat changes cannot merge players. Default targeted adjustments require 24 matching individual responses. Lifetime memory, recent memory, and optional frozen population priors are supported.
 
+**Precision candidate.** The opt-in `precision` policy uses the range baseline's betting rules and spends more samples on equity estimates near decision thresholds. An independent refinement batch reduces sampling noise without changing the action-mixing random stream. Total sampling is bounded; river equity remains exact within the heuristic range. This does not resolve range-model error or make the policy an equilibrium strategy.
+
 **River decisions.** The optional river policy extends the adaptive baseline with exact card enumeration within heuristic ranges, bounded bet sizes, modeled responses, and rake-aware terminal values. Its historical benchmark did not establish improvement, so it remains opt-in.
 
 **Rust strategy research.** Card isomorphisms, hierarchical clustering, and optimal transport reduce the card space. MCCFR samples abstract game trees and accumulates strategy weights. The native trainer and PostgreSQL query API are available; WebAssembly bindings are opt-in through the `wasm` feature.
 
 **Private integration.** The local table supports authenticated clients and durable action receipts. Experimental PokerNow modules validate visible state and confirm actions through a supplied browser-control interface. No ClubGG adapter is included.
+
+**External AI benchmark.** The Slumbot connector plays a bounded anonymous match through its documented research API at 200BB, checks each action receipt, and verifies settlement when the necessary cards are available. It stops on ambiguous requests instead of retrying them. Session tokens stay in memory and are excluded from saved journals.
 
 **Tournament competition.** The imported toolkit includes multi-player Hold'em simulation, payout-aware policies, opponent leagues, SDK adapters, starter inspection, runtime checks, and verified candidate packaging. Its prepared strategy assumes standard no-limit Hold'em; official rules and interfaces still need to be supplied and validated for an event.
 
@@ -65,6 +69,14 @@ Shove's saved tournament reports are preserved under [`reports/`](reports/). Its
 uv run --locked python scripts/verify_research.py research/results/replication-20261107
 uv run --locked python -m headsup opponent-profiles
 ```
+
+Run an optional external AI test with a new output directory:
+
+```sh
+uv run --locked python -m headsup.slumbot --hands 20 --policy precision --samples 128 --output runs/slumbot-test
+```
+
+This sends decisions to [Slumbot's public API](https://slumbot.com/sample_api.py), using simulated chips. The match uses sequential server deals, with no paired control or online learning. The `precision` candidate and expanded historical population prior remain experimental; see the research report for their separate validation results.
 
 ## Checks
 
