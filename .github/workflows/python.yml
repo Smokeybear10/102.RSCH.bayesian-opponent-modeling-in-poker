@@ -4,9 +4,14 @@ on:
   push:
     paths:
       - "headsup/**"
+      - "competition/**"
       - "scripts/**"
       - "tests/**"
       - "research/**"
+      - "docs/competition.md"
+      - "artifacts/event-day-kit.zip"
+      - "eventday-kit.json"
+      - "reports/**"
       - "pyproject.toml"
       - "uv.lock"
       - ".python-version"
@@ -14,9 +19,14 @@ on:
   pull_request:
     paths:
       - "headsup/**"
+      - "competition/**"
       - "scripts/**"
       - "tests/**"
       - "research/**"
+      - "docs/competition.md"
+      - "artifacts/event-day-kit.zip"
+      - "eventday-kit.json"
+      - "reports/**"
       - "pyproject.toml"
       - "uv.lock"
       - ".python-version"
@@ -46,6 +56,15 @@ jobs:
           node-version: "24.6.0"
       - run: uv sync --locked
       - run: uv run --locked python -m unittest discover -s tests -v
+      - name: Check tournament policies and competition integration
+        run: >-
+          uv run --locked python -m unittest
+          competition.tests competition.test_eventday competition.test_session
+          competition.test_league competition.test_river_policy -v
+      - name: Rehearse the competition archive
+        run: >-
+          uv run --locked python -S -m competition.eventday rehearse
+          --deterministic --output day/ci-rehearsal
       - run: node --test tests/*.test.mjs
       - name: Verify published research evidence
         run: uv run --locked python scripts/verify_research.py research/results/replication-20261107
@@ -57,9 +76,49 @@ jobs:
       - run: uv run --locked python scripts/verify_research.py runs/ci-smoke-export
       - run: uv run --locked python scripts/audit_research_run.py runs/ci-smoke
       - run: uv build
+      - name: Verify the installed wheel outside the checkout
+        shell: bash
+        run: |
+          package_test_dir="$(mktemp -d)"
+          uv export --locked --no-dev --no-emit-project --quiet \
+            --output-file "$package_test_dir/requirements.txt" > /dev/null
+          uv venv --python 3.12.14 "$package_test_dir/venv"
+          package_python="$package_test_dir/venv/bin/python"
+          uv pip sync --python "$package_python" "$package_test_dir/requirements.txt"
+          uv pip install --python "$package_python" --no-deps dist/river_poker-*.whl
+          cd "$package_test_dir"
+          "$package_python" -I -m headsup --help
+          "$package_python" -I -m competition --help
+          "$package_python" -I -m competition.session --help
+          "$package_python" -I -m competition.eventday rehearse \
+            --deterministic --output rehearsal
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: matrix.os == 'ubuntu-latest'
         with:
           name: river-python-distributions
           path: dist/*
           if-no-files-found: error
+
+  sdk-core:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.10", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          version: "0.12.15"
+          python-version: ${{ matrix.python }}
+      - name: Check competition adapters without site packages
+        run: >-
+          uv run --no-project --python ${{ matrix.python }} python -S -m unittest
+          competition.test_eventday competition.test_session -v
+      - name: Prepare and inspect a starter session
+        run: |
+          uv run --no-project --python ${{ matrix.python }} python -S \
+            -m competition.session start competition/rehearsal --output day/session
+          uv run --no-project --python ${{ matrix.python }} python -S \
+            -m competition.session status day/session

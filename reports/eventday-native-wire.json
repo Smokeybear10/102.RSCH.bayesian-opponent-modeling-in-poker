@@ -1,0 +1,99 @@
+{
+  "official_sdk": false,
+  "purpose": "Full eight-player Hold'em games through raw SDK-shaped observations, history replay, adapter normalization, native equity policy, output encoding and PokerKit legality checks",
+  "configuration": {
+    "stacks": [
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000
+    ],
+    "payouts": [
+      50,
+      30,
+      20,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "blinds": [
+      20,
+      40,
+      80,
+      160,
+      320,
+      640,
+      1280,
+      2560
+    ],
+    "hands_per_level": 25,
+    "max_hands": 200,
+    "enforce_deadline": true
+  },
+  "seed": 20261107,
+  "tables": 24,
+  "illegal_action_or_accounting_failures": 0,
+  "timing_note": "Wall times include serializing SDK-shaped input, decode, validation, history, policy, encode, and applying wire amount conventions. Desktop timings do not certify the official runtime.",
+  "modes": {
+    "to": {
+      "tables": 8,
+      "mean_points": 40,
+      "95pct_interval": [
+        26.64485118016276,
+        53.35514881983724
+      ],
+      "decisions": 1334,
+      "overruns": 0,
+      "latency_us": {
+        "p50": 164.375,
+        "p95": 343.625,
+        "p99": 423.375,
+        "max": 460.167
+      },
+      "mean_hands": 136.25,
+      "bridge_budget_fallbacks": 0
+    },
+    "increment": {
+      "tables": 8,
+      "mean_points": 28.75,
+      "95pct_interval": [
+        14.196563979595746,
+        43.303436020404256
+      ],
+      "decisions": 1310,
+      "overruns": 0,
+      "latency_us": {
+        "p50": 173.667,
+        "p95": 357.291,
+        "p99": 427.792,
+        "max": 454.75
+      },
+      "mean_hands": 131.375,
+      "bridge_budget_fallbacks": 0
+    },
+    "additional": {
+      "tables": 8,
+      "mean_points": 31.25,
+      "95pct_interval": [
+        15.782534144210956,
+        46.717465855789044
+      ],
+      "decisions": 1318,
+      "overruns": 0,
+      "latency_us": {
+        "p50": 169.709,
+        "p95": 351.792,
+        "p99": 413.0,
+        "max": 447.667
+      },
+      "mean_hands": 125.875,
+      "bridge_budget_fallbacks": 0
+    }
+  }
+}

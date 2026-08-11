@@ -1,7 +1,7 @@
 [project]
 name = "river-poker"
 version = "0.4.0"
-description = "Heads-up Hold'em AI, private play-money connections and reproducible evaluation"
+description = "Heads-up poker research, tournament policies and competition preparation"
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
 dependencies = [
@@ -22,15 +22,20 @@ requires = ["hatchling==1.27.0"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["headsup"]
+packages = ["headsup", "competition"]
 
 [tool.hatch.build.targets.sdist]
 include = [
     "/headsup",
+    "/competition",
     "/tests",
     "/scripts",
     "/research",
     "/docs/architecture.md",
+    "/docs/competition.md",
+    "/artifacts/event-day-kit.zip",
+    "/eventday-kit.json",
+    "/reports",
     "/README.md",
     "/pyproject.toml",
     "/uv.lock",
