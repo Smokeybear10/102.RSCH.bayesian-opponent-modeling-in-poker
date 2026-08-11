@@ -16,9 +16,20 @@
 *.gif
 *.sh
 
-# whitelist architecture diagrams
-!docs/architecture/*.png
-
 .gstack/
 .vercel
 supabase/.temp/
+.venv/
+__pycache__/
+*.pyc
+runs/
+state/
+dist/
+*.sqlite3
+*.sqlite3-*
+player-0.json
+player-1.json
+.env.*
+!.env.example
+.coverage
+htmlcov/

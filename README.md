@@ -1,115 +1,107 @@
 # River | Poker Strategy Research
 
-A poker research codebase with a Rust card-abstraction and Monte Carlo counterfactual regret minimization (MCCFR) solver, plus a Python heads-up lab for persistent opponent modeling and reproducible strategy evaluation.
+Heads-up Hold'em simulation, persistent opponent models, and reproducible evaluation, alongside a Rust card-abstraction and Monte Carlo counterfactual regret minimization (MCCFR) solver.
 
-The earlier Rust browser interface has been retired. The Rust solver, command-line tools, and local query API remain available. The [Python lab](lab/) includes its own local play-money arena. Architecture diagrams preserve the earlier Rust system design.
+The Python bot plays complete hands using heuristic policies and learned public responses. The Rust solver trains an abstract strategy blueprint. They share this repository; the Python policy currently runs independently of the Rust blueprint.
 
-![Retired River interface](assets/screenshots/retired-interface.jpg)
+## Quick Start
 
-## Start Here
-
-Start with the [rock–paper–scissors regret check](src/mccfr/rps/blueprint.rs), then read the [shared training loop](src/mccfr/traits/blueprint.rs) and [poker trainer](src/mccfr/nlhe/blueprint.rs). The small game makes the regret calculation easier to inspect before adding poker's card and betting abstractions.
-
-[Heads-up lab](#heads-up-lab) · [Rust checks](#run-the-checks) · [Pipeline commands](#pipeline-commands) · [Current limits](#current-limits)
-
-## Heads-Up Lab
-
-[`lab/`](lab/) contains the Python hand engine, persistent player profiles, optional river decision model, private arena, 108 automated tests, and reproducible experiments. Its [research report](lab/research/REPORT.md) includes the 20,016-hand opponent-learning replication and the unsuccessful historical river experiment.
-
-The lab currently runs its own heuristic policies. It does not query the Rust solver's trained blueprint, and its results do not validate the Rust solver. Both live in this repository; their runtimes and evidence remain distinct.
-
-From the repository root:
+Requires [uv](https://docs.astral.sh/uv/getting-started/installation/). Python 3.12.14 and dependencies are pinned. Linux and macOS are supported.
 
 ```sh
-cd lab
-uv sync --locked
-uv run --locked python -m unittest discover -s tests
-node --test tests/*.test.mjs
-```
-
-See the [lab README](lab/README.md) to run the arena, benchmarks, and research replication.
-
-## Method
-
-1. **Represent cards.** Hand evaluation and suit isomorphisms identify equivalent observations. River hand strength is evaluated against uniformly distributed opposing hands, subject to the tie-handling issue below.
-2. **Build abstractions.** [Hierarchical clustering](src/clustering/layer.rs) groups observations by distributions over later card states, using Earth Mover's Distance and [optimal transport](src/transport/).
-3. **Train and inspect.** MCCFR samples game trees, updates regrets and strategy weights, and writes a *blueprint*: a stored strategy that can be queried through the PostgreSQL-backed API.
-
-The published trainer is fixed to two players, with 100-chip starting stacks and 1/2-chip blinds: 50 big blinds per player. These settings are in [src/lib.rs](src/lib.rs).
-
-## Checks and Evidence
-
-| Artifact | What it checks |
-| --- | --- |
-| [Rock–paper–scissors test](src/mccfr/rps/blueprint.rs) | The policy-weighted counterfactual regrets are centered on a small game. |
-| [Hand evaluation](src/cards/evaluator.rs) and [settlement tests](src/gameplay/showdown.rs) | Specific hand rankings, pot splits, and payout examples. Settlement tests include multiway fixtures; the trainer remains heads-up. |
-| [Transport checks](src/clustering/emd.rs) | Numerical properties of the distance calculations. |
-| [Criterion benchmarks](benches/benchmarks.rs) | Local timings for hand evaluation, observation enumeration, transport, and the small-game solver. |
-
-The Rust solver has no committed trained blueprint, opponent-evaluation report, or exploitability estimate. Its tests and microbenchmarks do not establish a poker win rate or a Nash-equilibrium result. The Python lab's separate evaluation artifacts are under [`lab/research/`](lab/research/).
-
-## Run the Checks
-
-Install Rust through rustup. [rust-toolchain.toml](rust-toolchain.toml) pins Rust 1.90.0, and [Cargo.lock](Cargo.lock) fixes dependency resolution.
-
-```bash
 git clone https://github.com/Smokeybear10/103.RSCH.river.git
 cd 103.RSCH.river
-cargo test --locked --lib
-cargo test --locked --lib --features shortdeck
-cargo bench --locked --bench benchmarks -- 'cfr solve rock paper scissors'
+uv sync --locked
+uv run --locked python -m headsup benchmark --pairs 16 --samples 128 --output runs/first-benchmark
 ```
 
-These commands do not require PostgreSQL or trained data. Exhaustive enumeration and dataset-dependent tests marked `#[ignore]` are excluded from the normal test run. Criterion writes local reports under `target/criterion/`; its timings depend on the machine and fixture.
+Run the local play-money table:
 
-## Current Limits
+```sh
+uv run --locked python -m headsup serve --port 8788 --hands 100 --output runs/local-table
+```
 
-The Rust implementation has correctness gaps that matter before interpreting any trained strategy:
+Open http://127.0.0.1:8788. Load the appropriate generated `player-N.json` credential file for each seat. [Connection details](docs/architecture.md#private-connections) cover bot clients, recovery, and replay.
 
-- [Card drawing](src/cards/deck.rs) maps two random indices to the lowest remaining card when more than one card remains, leaving the highest remaining card unselected on that draw and biasing the dealing distribution.
-- [River strength](src/cards/observation.rs) excludes tied outcomes instead of assigning half the pot. It is not standard split-pot equity.
-- [Blueprint loading](src/mccfr/nlhe/profile.rs) restores strategy values but resets the iteration count. Resuming is not equivalent to an uninterrupted training run.
+## What It Does
 
-Depth-limited subgame search is unimplemented, and the training CLI has no run-level seed option. The commands below describe the existing workflow; they do not reproduce a validated playing-strength result.
+**Complete games.** PokerKit owns Python betting rules and gross settlement. The engine handles explicit simulated rake and uncalled refunds. Policies receive their own cards and public information. Saved hands support settlement replay and exact policy replay with the recorded environment.
 
-## Pipeline Commands
+**Opponent memory.** SQLite stores verified completed-hand fold/call/raise responses, separated by room, hero ID, opponent ID, and blinds. Names and seat changes cannot merge players. Default targeted adjustments require 24 matching individual responses. Lifetime memory, recent memory, and optional frozen population priors are supported.
 
-Run these stages in order from a fresh checkout. The reduced configuration uses 36 cards, ranks six through ace, with the existing Hold'em rankings. It is not a complete implementation of standard short-deck rules.
+**River decisions.** The optional river policy extends the adaptive baseline with exact card enumeration within heuristic ranges, bounded bet sizes, modeled responses, and rake-aware terminal values. Its historical benchmark did not establish improvement, so it remains opt-in.
 
-```bash
+**Rust strategy research.** Card isomorphisms, hierarchical clustering, and optimal transport reduce the card space. MCCFR samples abstract game trees and accumulates strategy weights. The native trainer and PostgreSQL query API are available; WebAssembly bindings are opt-in through the `wasm` feature.
+
+**Private integration.** The local table supports authenticated clients and durable action receipts. Experimental PokerNow modules validate visible state and confirm actions through a supplied browser-control interface. No ClubGG adapter is included.
+
+## Research and Results
+
+The [research report](research/REPORT.md) includes methods, failure records, negative findings, and reproduction commands. The 20,016-hand Python replication measured **+4.13 BB/100** for adaptive memory versus the same baseline without memory, with a **95% interval of +0.57 to +7.69** across three independent training seeds. This supports improvement in the tested synthetic pool, with limited precision from three seeds. It does not establish human-player profitability or validate the Rust solver.
+
+Compact evidence is versioned under `research/results/`. Raw journals, credentials, and real opponent databases remain local. Historical source hashes describe the code used for those experiments and are not rewritten during cleanup.
+
+```sh
+uv run --locked python scripts/verify_research.py research/results/replication-20261107
+uv run --locked python -m headsup opponent-profiles
+```
+
+## Checks
+
+Node.js 24 runs the browser-adapter tests. Rust 1.90.0 is pinned in `rust-toolchain.toml`.
+
+```sh
+uv run --locked python -m unittest discover -s tests -v
+node --test tests/*.test.mjs
+cargo test --locked --lib
+cargo test --locked --lib --features shortdeck
+```
+
+Python tests cover engine accounting, private-card boundaries, identity isolation, persistence, action confirmation, and research integrity. Rust tests cover card evaluation, settlement, transport, and regret matching. Exhaustive and dataset-dependent Rust fixtures marked `#[ignore]` are excluded from normal runs.
+
+## Rust Pipeline
+
+The native trainer uses two players with 100-chip stacks and 1/2 blinds, or 50BB. Python defaults to 100BB. The reduced Rust configuration uses 36 cards with existing Hold'em rankings; it is not a complete standard short-deck ruleset.
+
+```sh
 cargo run --release --locked --features "cluster demo shortdeck"
 cargo run --release --locked --features "trainer demo shortdeck"
 ```
 
-`cluster` must finish before `trainer` starts. `demo` reduces clustering iterations and sets a 65,536-tree training budget; even this configuration enumerates card observations and can be expensive. `RAYON_NUM_THREADS` controls parallel workers. There is no `--players` option.
+Clustering must finish before training. Even `demo` enumerates card observations and can be expensive. Keep the same feature settings across stages; use separate checkouts for different deck configurations because outputs share `pgcopy/demo/` or `pgcopy/`.
 
-Demo outputs go to `pgcopy/demo/`; other outputs go to `pgcopy/`. These directories do not distinguish deck sizes. Keep the same `demo` and `shortdeck` settings through every stage and use separate checkouts for different configurations. Generated data are gitignored.
+With PostgreSQL running, publish a trained dataset to a fresh database:
 
-To inspect a dataset, start a local PostgreSQL server and use a fresh database for that configuration:
-
-```bash
+```sh
 createdb river_demo
 export DB_URL='postgresql://localhost/river_demo'
 cargo run --release --locked --features "publish demo shortdeck"
 cargo run --release --locked --features "analyze demo shortdeck"
 ```
 
-The API defaults to `http://127.0.0.1:3002`. In another terminal:
+The API defaults to `http://127.0.0.1:3002`. `/health` checks abstraction queries; `POST /blueprint` requires a trained and published strategy. See the [request types](src/analysis/request.rs).
 
-```bash
-curl http://127.0.0.1:3002/health
+The Rust implementation has unresolved correctness limits: [biased card drawing](src/cards/deck.rs), [river equity that excludes ties](src/cards/observation.rs), and [resume loading that resets the iteration count](src/mccfr/nlhe/profile.rs). There is no committed trained Rust blueprint or exploitability estimate. These limits must be resolved before interpreting its playing strength.
+
+## Project Structure
+
+```text
+headsup/              # Python game engine, policies, memory, and private arena
+src/                  # Rust cards, abstraction, MCCFR, and query API
+tests/                # Python and JavaScript regression tests
+benches/              # Rust Criterion benchmarks
+scripts/              # Experiment runner and independent verification
+research/             # Methods and compact experiment evidence
+docs/architecture.md  # Runtime boundaries and connection protocols
+.github/workflows/    # Python and Rust checks
 ```
 
-The health endpoint checks the abstraction queries for each street. Strategy queries use `POST /blueprint` with `turn`, `seen`, and `past`, as defined in [the request types](src/analysis/request.rs). They require a trained and published blueprint; publishing abstractions alone does not supply a strategy.
+## References
 
-## Background
+1. [Regret Minimization in Games with Incomplete Information](https://papers.nips.cc/paper_files/paper/2007/hash/08d98638c6fcd194a4b1e6992063e944-Abstract.html).
+2. [Potential-Aware Imperfect-Recall Abstraction with Earth Mover's Distance](https://www.cs.cmu.edu/~sandholm/potential-aware_imperfect-recall.aaai14.pdf).
+3. [Solving Imperfect-Information Games via Discounted Regret Minimization](https://arxiv.org/abs/1809.04040).
 
-These papers describe the methods and related research, not measured results for River.
+These describe related methods, not measured results for River.
 
-1. [Regret Minimization in Games with Incomplete Information](https://papers.nips.cc/paper_files/paper/2007/hash/08d98638c6fcd194a4b1e6992063e944-Abstract.html) — Zinkevich et al., 2007.
-2. [Potential-Aware Imperfect-Recall Abstraction with Earth Mover's Distance](https://www.cs.cmu.edu/~sandholm/potential-aware_imperfect-recall.aaai14.pdf) — Ganzfried and Sandholm, 2014.
-3. [Solving Imperfect-Information Games via Discounted Regret Minimization](https://arxiv.org/abs/1809.04040) — Brown and Sandholm, 2019.
-
----
-
-Maintained by Thomas Ou. The Rust package retains its original author credit in [Cargo.toml](Cargo.toml).
+Maintained by Thomas Ou

@@ -40,7 +40,7 @@ def _rules_identity() -> dict:
 def _new_hand(config: GameConfig) -> dict:
     deck = list(CARDS)
     secrets.SystemRandom().shuffle(deck)
-    hand = Hand(config, deck=tuple(deck))
+    Hand(config, deck=tuple(deck))
     return {"deck": deck, "actions": []}
 
 
@@ -358,7 +358,7 @@ class _CommandBodyLimit:
 def create_app(store: TableStore) -> FastAPI:
     from .web import PAGE
 
-    app = FastAPI(title="Heads-Up Poker Lab private table", docs_url=None,
+    app = FastAPI(title="River private table", docs_url=None,
                   redoc_url=None, openapi_url=None)
     app.add_middleware(_CommandBodyLimit)
 

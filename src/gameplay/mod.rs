@@ -19,7 +19,9 @@ pub use odds::*;
 pub mod path;
 pub use path::*;
 
+#[cfg(feature = "native")]
 pub mod recall;
+#[cfg(feature = "native")]
 pub use recall::*;
 
 pub mod seat;

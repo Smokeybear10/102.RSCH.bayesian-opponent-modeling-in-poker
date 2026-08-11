@@ -1,14 +1,26 @@
-name: Heads-up lab
+name: Python
 
 on:
   push:
     paths:
-      - "lab/**"
-      - ".github/workflows/lab.yml"
+      - "headsup/**"
+      - "scripts/**"
+      - "tests/**"
+      - "research/**"
+      - "pyproject.toml"
+      - "uv.lock"
+      - ".python-version"
+      - ".github/workflows/python.yml"
   pull_request:
     paths:
-      - "lab/**"
-      - ".github/workflows/lab.yml"
+      - "headsup/**"
+      - "scripts/**"
+      - "tests/**"
+      - "research/**"
+      - "pyproject.toml"
+      - "uv.lock"
+      - ".python-version"
+      - ".github/workflows/python.yml"
 
 permissions:
   contents: read
@@ -21,9 +33,6 @@ jobs:
         os: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     timeout-minutes: 15
-    defaults:
-      run:
-        working-directory: lab
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
@@ -31,7 +40,6 @@ jobs:
           version: "0.12.15"
           python-version: "3.12.14"
           enable-cache: true
-          working-directory: lab
           cache-dependency-glob: "uv.lock"
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
@@ -52,6 +60,6 @@ jobs:
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: matrix.os == 'ubuntu-latest'
         with:
-          name: heads-up-poker-lab-distributions
-          path: lab/dist/*
+          name: river-python-distributions
+          path: dist/*
           if-no-files-found: error

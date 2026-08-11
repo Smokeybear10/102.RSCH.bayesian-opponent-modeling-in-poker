@@ -161,46 +161,10 @@ impl Game {
     }
 }
 
-#[allow(dead_code)]
 /// mutating methods modify game state privately
 /// such that we enforce NLHE invariants irrespective
 /// of caller behavior
 impl Game {
-    fn conclude(&mut self) {
-        self.give_chips();
-    }
-    fn commence(&mut self) {
-        assert!(self.seats.iter().all(|s| s.stack() > 0), "game over");
-        self.wipe_board();
-        self.deal_cards();
-        self.move_button();
-        self.act(Action::Blind(self.to_post()));
-        self.act(Action::Blind(self.to_post()));
-    }
-    fn give_chips(&mut self) {
-        for (_, (settlement, seat)) in self
-            .settlements()
-            .iter()
-            .zip(self.seats.iter_mut())
-            .enumerate()
-            .inspect(|(i, (x, s))| log::trace!("{} {} {:>7} {}", i, s.cards(), s.stack(), x.pnl()))
-        {
-            seat.win(settlement.reward);
-        }
-    }
-    fn wipe_board(&mut self) {
-        self.pot = 0;
-        self.board.clear();
-        assert!(self.street() == Street::Pref);
-    }
-    fn move_button(&mut self) {
-        assert!(self.seats.len() == self.n());
-        assert!(self.street() == Street::Pref);
-        self.dealer += 1;
-        self.dealer %= self.n();
-        self.ticker = self.dealer;
-        self.next_player();
-    }
     fn deal_cards(&mut self) {
         assert!(self.street() == Street::Pref);
         let mut deck = Deck::new();
@@ -463,17 +427,6 @@ impl Game {
 
 /// effective bet sizes
 impl Game {
-    #[allow(dead_code)]
-    fn effective_stack(&self) -> Chips {
-        let mut totals = self
-            .seats
-            .iter()
-            .map(|s| s.stack() + s.stake())
-            .collect::<Vec<Chips>>();
-        totals.sort_unstable();
-        totals.pop().unwrap_or(0);
-        totals.pop().unwrap_or(0)
-    }
     fn effective_stake(&self) -> Chips {
         self.seats
             .iter()
