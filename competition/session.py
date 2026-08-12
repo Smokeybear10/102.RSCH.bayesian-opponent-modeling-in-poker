@@ -1,4 +1,4 @@
-"""Prepare an inspectable event workspace without executing supplied code."""
+"""Citadel Poker: prepare an inspectable event workspace without executing supplied code."""
 
 import argparse
 import hashlib
@@ -52,7 +52,7 @@ EVIDENCE_TERMS = {
     "prewritten_code_policy": ("prewritten", "pre-written", "reuse", "scratch"),
 }
 
-HANDOFF = """# Event integration handoff
+HANDOFF = """# Citadel Poker | Event integration handoff
 
 This session is preparation, not a playable or validated competition submission.
 `starter/` is the preserved supplied baseline. Work only in `candidate/`; do not

@@ -1,1 +1,1 @@
-"""Local tournament preparation; the event's Agent adapter is not yet available."""
+"""Citadel Poker tournament preparation; the official Agent adapter is not yet available."""

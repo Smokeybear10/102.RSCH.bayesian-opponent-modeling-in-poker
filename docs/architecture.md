@@ -4,9 +4,9 @@
 
 Bayesian Opponent Modeling in Poker contains a Rust solver and two Python packages. The Rust solver under `src/` builds card abstractions, trains an MCCFR blueprint, and serves stored strategy queries. The Python engine under `headsup/` plays complete heads-up Hold'em hands, evaluates heuristic policies, and connects separate clients to a private play-money table. The `competition/` package adds multi-player tournaments and event integration. Both Python policies run independently of the Rust blueprint. PokerKit owns Python game transitions and gross settlement; the heads-up engine applies declared simulated rake once. Policies receive observations containing their own cards and public information. Full replay decks remain in local host storage.
 
-## Competition integration
+## Citadel Poker competition integration
 
-The competition package was imported from Shove commit `6ecc87d` into River (now Bayesian Opponent Modeling in Poker) on November 7, 2026. Bayesian Opponent Modeling in Poker is the active source repository for both modes. The modules and recorded results were preserved; this consolidation does not claim a new strategy result.
+Citadel Poker is the competition bot under `competition/`. The package was imported from Shove commit `6ecc87d` into River (now Bayesian Opponent Modeling in Poker) on November 7, 2026. Bayesian Opponent Modeling in Poker is the active source repository for both modes. The modules and recorded results were preserved; this consolidation does not claim a new strategy result.
 
 ```text
 uv sync --locked

@@ -467,7 +467,7 @@ def rehearse(output: Path, deterministic: bool = False) -> dict:
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Event-day starter intake, adapter rehearsal, and checked candidate packaging"
+        description="Citadel Poker: event-day starter intake, adapter rehearsal, and checked candidate packaging"
     )
     commands = parser.add_subparsers(dest="command", required=True)
     inspect = commands.add_parser(

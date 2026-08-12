@@ -1,6 +1,6 @@
-# Bayesian Opponent Modeling in Poker | Competition Toolkit
+# Citadel Poker | Competition Bot
 
-This is the competition mode of Bayesian Opponent Modeling in Poker, imported from Shove. Run it from the Bayesian Opponent Modeling in Poker repository root with the same environment as the heads-up package:
+Citadel Poker is the competition bot in Bayesian Opponent Modeling in Poker, previously maintained as Shove. Run it from the repository root with the same environment as the heads-up package:
 
 ```sh
 uv sync --locked

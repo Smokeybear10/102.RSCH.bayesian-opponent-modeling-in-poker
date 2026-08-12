@@ -10,7 +10,7 @@ from .policy import Parameters
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Local Hold'em preparation arena; not the unpublished competition Agent interface."
+        description="Citadel Poker: local Hold'em preparation arena; not the unpublished competition Agent interface."
     )
     parser.add_argument(
         "--tables", type=int, default=32, help="tables per field and policy"

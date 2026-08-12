@@ -2,12 +2,12 @@
 
 Heads-up Hold'em research, multi-player tournament bots, and competition preparation, alongside a Rust Monte Carlo counterfactual regret minimization (MCCFR) solver.
 
-Bayesian Opponent Modeling in Poker includes the competition toolkit previously maintained as Shove. Both Python packages use the same pinned environment; their game rules, policies, and opponent state stay separate. The Rust solver trains an abstract strategy blueprint and is independent of both Python bots.
+Bayesian Opponent Modeling in Poker includes **Citadel Poker**, the competition bot previously maintained as Shove. Both Python packages use the same pinned environment; their game rules, policies, and opponent state stay separate. The Rust solver trains an abstract strategy blueprint and is independent of both Python bots.
 
 | Mode | Entry point | Guide |
 | --- | --- | --- |
 | Heads-up research and local table | `python -m headsup` | [Architecture and connections](docs/architecture.md) |
-| Tournament simulation and competition preparation | `python -m competition` | [Competition guide](docs/competition.md) |
+| Citadel Poker: tournament simulation and competition preparation | `python -m competition` | [Competition guide](docs/competition.md) |
 | Rust abstraction and strategy training | `cargo run` with the relevant features | [Rust pipeline](#rust-pipeline) |
 
 ## Quick Start
@@ -55,7 +55,7 @@ These use a synthetic starter kit, without an external account or submission. Th
 
 **External AI benchmark.** The Slumbot connector plays a bounded anonymous match through its documented research API at 200BB, checks each action receipt, and verifies settlement when the necessary cards are available. It stops on ambiguous requests instead of retrying them. Session tokens stay in memory and are excluded from saved journals.
 
-**Tournament competition.** The imported toolkit includes multi-player Hold'em simulation, payout-aware policies, opponent leagues, SDK adapters, starter inspection, runtime checks, and verified candidate packaging. Its prepared strategy assumes standard no-limit Hold'em; official rules and interfaces still need to be supplied and validated for an event.
+**Citadel Poker.** The competition bot includes multi-player Hold'em simulation, payout-aware policies, opponent leagues, SDK adapters, starter inspection, runtime checks, and verified candidate packaging. Its prepared strategy assumes standard no-limit Hold'em; official rules and interfaces still need to be supplied and validated for an event.
 
 ## Research and Results
 
