@@ -10,7 +10,6 @@ import { ExplorerSection } from "@/app/components/explorer-section"
 import { StrategySection } from "@/app/components/strategy-section"
 import { FilmGrain } from "@/app/components/film-grain"
 import { SplitText } from "@/app/components/split-text"
-import { ProgressBar } from "@/app/components/progress-bar"
 
 export default function LandingPage() {
   return (

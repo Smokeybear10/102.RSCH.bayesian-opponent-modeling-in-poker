@@ -5,6 +5,7 @@
 /.vscode
 
 .cursorrules
+.claude/scheduled_tasks.lock
 .DS_Store
 .todo
 .env
