@@ -102,31 +102,6 @@ wheels = [
 ]
 
 [[package]]
-name = "heads-up-poker-lab"
-version = "0.4.0"
-source = { editable = "." }
-dependencies = [
-    { name = "eval7" },
-    { name = "fastapi" },
-    { name = "httpx" },
-    { name = "pokerkit" },
-    { name = "pydantic" },
-    { name = "scipy" },
-    { name = "uvicorn" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "eval7", specifier = "==0.1.11" },
-    { name = "fastapi", specifier = "==0.162.0" },
-    { name = "httpx", specifier = "==0.28.1" },
-    { name = "pokerkit", specifier = "==0.7.7" },
-    { name = "pydantic", specifier = "==2.14.3" },
-    { name = "scipy", specifier = "==1.18.1" },
-    { name = "uvicorn", specifier = "==0.54.0" },
-]
-
-[[package]]
 name = "httpcore"
 version = "1.0.9"
 source = { registry = "https://pypi.org/simple" }
@@ -255,6 +230,31 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/e4/11/b213bebff182584360cb8d17c72c1677fec5c5c228de439e63bcf8ab1c8f/pyparsing-3.3.3.tar.gz", hash = "sha256:928ae7e20211f3b6f3915a72f06a0cfd29ab9d24279dd6346b6b1a7146397d36", size = 1050487, upload-time = "2026-09-20T20:59:05.609Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/38/bb/d215ee7c73b61497b28a5503f9f53523f294fcc936762b7caf90e0c1c2b5/pyparsing-3.3.3-py3-none-any.whl", hash = "sha256:ece8c00a69cf01b45d0b1dedabb469c90d8caf996d4fda40f147627a122849a4", size = 126420, upload-time = "2026-09-20T20:59:04.025Z" },
+]
+
+[[package]]
+name = "river-poker"
+version = "0.4.0"
+source = { editable = "." }
+dependencies = [
+    { name = "eval7" },
+    { name = "fastapi" },
+    { name = "httpx" },
+    { name = "pokerkit" },
+    { name = "pydantic" },
+    { name = "scipy" },
+    { name = "uvicorn" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "eval7", specifier = "==0.1.11" },
+    { name = "fastapi", specifier = "==0.162.0" },
+    { name = "httpx", specifier = "==0.28.1" },
+    { name = "pokerkit", specifier = "==0.7.7" },
+    { name = "pydantic", specifier = "==2.14.3" },
+    { name = "scipy", specifier = "==1.18.1" },
+    { name = "uvicorn", specifier = "==0.54.0" },
 ]
 
 [[package]]

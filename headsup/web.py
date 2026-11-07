@@ -3,7 +3,7 @@ PAGE = r'''<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Heads-Up Poker Lab | Private table</title>
+<title>River | Private table</title>
 <link rel="icon" href="data:,">
 <style>
 :root{color-scheme:dark;font:16px/1.45 "Helvetica Neue",Helvetica,sans-serif;background:#171918;color:#eeeae1;--muted:#a9aea7;--line:#383c38;--accent:#d2b780;--felt:#203e34;--ink:#202724;--red:#a43d38}

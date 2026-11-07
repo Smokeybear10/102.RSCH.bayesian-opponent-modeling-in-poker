@@ -1,5 +1,5 @@
 [project]
-name = "heads-up-poker-lab"
+name = "river-poker"
 version = "0.4.0"
 description = "Heads-up Hold'em AI, private play-money connections and reproducible evaluation"
 readme = "README.md"
@@ -30,10 +30,8 @@ include = [
     "/tests",
     "/scripts",
     "/research",
-    "/public/architecture",
+    "/docs/architecture.md",
     "/README.md",
-    "/ARCHITECTURE.md",
-    "/DESIGN.md",
     "/pyproject.toml",
     "/uv.lock",
     "/.python-version",

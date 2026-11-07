@@ -7,7 +7,7 @@ COPY . .
 # binary that starts up and immediately exits. `demo` and `shortdeck` must match the
 # features the published dataset was generated with: they set the abstraction bucket
 # counts and the 36-card deck, so a mismatched binary misreads every abstraction.
-RUN cargo build --release --features "analyze demo shortdeck"
+RUN cargo build --release --locked --features "analyze demo shortdeck"
 
 # Final stage
 FROM debian:bookworm-slim
@@ -15,6 +15,7 @@ RUN apt-get update && \
     apt-get install -y libssl3 ca-certificates && \
     rm -rf /var/lib/apt/lists/*
 COPY --from=builder /usr/src/r1ver/target/release/r1ver .
+COPY --from=builder /usr/src/r1ver/NOTICE /usr/share/doc/r1ver/NOTICE
 # Serve on all interfaces; the platform's PORT overrides the default.
 ENV HOST=0.0.0.0
 EXPOSE 3002

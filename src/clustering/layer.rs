@@ -265,10 +265,6 @@ impl Layer {
         }
     }
 
-    /// wrawpper for distance metric calculations
-    fn emd(&self, x: &Histogram, y: &Histogram) -> Energy {
-        self.metric.emd(x, y)
-    }
     /// fast assignment distance: expected distance O(Sp × Sc), no Sinkhorn iterations
     fn fast_emd(&self, x: &Histogram, y: &Histogram) -> Energy {
         self.metric.expected(x, y)

@@ -25,7 +25,6 @@ impl Measure for Equity {
 
 /// different distance metrics over Equity Histograms
 /// conveniently have properties of distributions over the [0, 1] interval.
-#[allow(dead_code)]
 impl Equity {
     pub fn variation(x: &Histogram, y: &Histogram) -> Energy {
         let mut cdf_x = 0.0;

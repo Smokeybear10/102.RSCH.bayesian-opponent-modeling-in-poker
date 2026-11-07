@@ -62,17 +62,6 @@ impl Encoder {
             _ => vec![Edge::from(action)],
         }
     }
-
-    #[allow(dead_code)]
-    fn infoize(&self, recall: &crate::gameplay::recall::Recall) -> Info {
-        let depth = 0;
-        let ref game = recall.head();
-        let ref iso = recall.isomorphism();
-        let present = self.abstraction(iso);
-        let futures = Path::from(Self::choices(game, depth));
-        let history = Path::from(recall.path());
-        Info::from((history, present, futures))
-    }
 }
 
 impl crate::mccfr::traits::encoder::Encoder for Encoder {

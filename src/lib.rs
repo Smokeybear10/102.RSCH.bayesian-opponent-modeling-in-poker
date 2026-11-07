@@ -4,7 +4,9 @@ pub mod gameplay;
 pub use gameplay::*;
 pub mod transport;
 pub use transport::*;
+#[cfg(feature = "wasm")]
 pub mod wasm;
+#[cfg(feature = "wasm")]
 pub use wasm::*;
 
 #[cfg(feature = "native")]
@@ -17,13 +19,13 @@ pub mod mccfr;
 pub mod players;
 #[cfg(feature = "native")]
 pub mod save;
-#[cfg(feature = "native")]
-pub mod search;
 
 /// dimensional analysis types
 type Chips = i16;
 type Equity = f32;
+#[cfg(feature = "native")]
 type Energy = f32;
+#[cfg(feature = "native")]
 type Entropy = f32;
 type Utility = f32;
 type Probability = f32;
@@ -36,12 +38,16 @@ const N: usize = 2;
 const STACK: Chips = 100;
 const B_BLIND: Chips = 2;
 const S_BLIND: Chips = 1;
+#[cfg(feature = "native")]
 const MAX_RAISE_REPEATS: usize = 3;
 const MAX_DEPTH_SUBGAME: usize = 16;
 
 /// sinkhorn optimal transport parameters
+#[cfg(feature = "native")]
 const SINKHORN_TEMPERATURE: Entropy = 0.025;
+#[cfg(feature = "native")]
 const SINKHORN_ITERATIONS: usize = 128;
+#[cfg(feature = "native")]
 const SINKHORN_TOLERANCE: Energy = 0.001;
 
 // kmeans clustering parameters
@@ -74,24 +80,33 @@ const KMEANS_EQTY_CLUSTER_COUNT: usize = 101;
 const KMEANS_EQTY_CLUSTER_COUNT: usize = 16;
 
 /// rps mccfr parameteres
+#[cfg(feature = "native")]
 const ASYMMETRIC_UTILITY: f32 = 2.0;
+#[cfg(feature = "native")]
 const CFR_BATCH_SIZE_RPS: usize = 1;
+#[cfg(feature = "native")]
 const CFR_TREE_COUNT_RPS: usize = 8192;
 
 // nlhe mccfr parameters
+#[cfg(feature = "native")]
 const CFR_BATCH_SIZE_NLHE: usize = 128;
-#[cfg(not(feature = "demo"))]
+#[cfg(all(feature = "native", not(feature = "demo")))]
 const CFR_TREE_COUNT_NLHE: usize = 0x10000000; // 268M trees
 #[cfg(feature = "demo")]
 const CFR_TREE_COUNT_NLHE: usize = 0x10000; // 65K trees
 
 /// profile average sampling parameters
+#[cfg(feature = "native")]
 const SAMPLING_THRESHOLD: Entropy = 1.0;
+#[cfg(feature = "native")]
 const SAMPLING_ACTIVATION: Energy = 0.0;
+#[cfg(feature = "native")]
 const SAMPLING_EXPLORATION: Probability = 0.01;
 
-// regret matching parameters, although i haven't implemented regret clamp yet
+// regret matching parameters
+#[cfg(feature = "native")]
 const POLICY_MIN: Probability = Probability::MIN_POSITIVE;
+#[cfg(feature = "native")]
 const REGRET_MIN: Utility = -3e5;
 
 /// trait for random generation, mainly (strictly?) for testing

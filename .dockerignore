@@ -1,6 +1,9 @@
 *
 !Cargo.toml
 !Cargo.lock
+!rust-toolchain.toml
+!README.md
+!NOTICE
 !benches/
 !pgcopy/
 !src/

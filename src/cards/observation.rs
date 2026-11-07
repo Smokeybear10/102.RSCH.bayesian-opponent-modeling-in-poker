@@ -48,9 +48,6 @@ impl Observation {
             _ => won as Equity / sum as Equity,
         }
     }
-    pub fn simulate(&self, _: usize) -> Equity {
-        todo!("run out some number of simulations and take equity as average")
-    }
     pub fn street(&self) -> Street {
         Street::from(self.public.size())
     }
@@ -61,7 +58,6 @@ impl Observation {
         &self.public
     }
 
-    // #[cfg(feature = "entropy")]
     fn shuffle(hand: String) -> String {
         use rand::seq::SliceRandom;
         let ref mut rng = rand::rng();

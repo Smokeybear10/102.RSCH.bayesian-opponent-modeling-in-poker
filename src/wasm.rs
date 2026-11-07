@@ -189,11 +189,6 @@ impl WasmObservation {
     }
 
     #[wasm_bindgen]
-    pub fn simulate(&self, n: usize) -> f64 {
-        self.0.simulate(n) as f64
-    }
-
-    #[wasm_bindgen]
     pub fn equivalent(&self) -> String {
         self.0.equivalent()
     }

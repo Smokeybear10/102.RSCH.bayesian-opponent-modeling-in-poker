@@ -1,8 +1,8 @@
-# Heads-Up Poker Lab | Architecture
+# River | Architecture
 
 ## System overview
 
-A Python application under River's `lab/` directory plays complete heads-up Hold'em hands, evaluates heuristic policies, and connects separate clients to a private play-money table. Its runtime does not currently consume River's Rust blueprint. PokerKit owns legal game transitions and gross settlement. The engine applies the declared simulated rake once. Policies receive frozen observations containing their own cards and public information. Full decks remain in private host storage for offline replay.
+River contains two runtimes. The Rust solver under `src/` builds card abstractions, trains an MCCFR blueprint, and serves stored strategy queries. The Python engine under `headsup/` plays complete heads-up Hold'em hands, evaluates heuristic policies, and connects separate clients to a private play-money table. The Python policy currently runs independently of the Rust blueprint. PokerKit owns Python game transitions and gross settlement; the engine applies declared simulated rake once. Policies receive frozen observations containing their own cards and public information. Full decks remain in private host storage for offline replay.
 
 ```mermaid
 graph TD
