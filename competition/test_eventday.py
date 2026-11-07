@@ -40,15 +40,20 @@ class BridgeTests(unittest.TestCase):
         self.assertEqual(result.share, 0.5)
         self.assertEqual(result.call_return, 240)
 
+    # Action encoding must not depend on the host meeting the callback deadline.
+    @patch("competition.bridge.perf_counter_ns", new=lambda: 0)
+    @patch("competition.policy.perf_counter_ns", new=lambda: 0)
     def test_all_three_raise_conventions_preserve_the_bet(self) -> None:
         for mode, expected in (("to", 140), ("increment", 80), ("additional", 120)):
             frame = DemoAdapter().decode(fixture(mode))
             validate_frame(frame)
             self.assertEqual(encode_raise(140, frame.observation, mode), expected)
             self.assertEqual(normalize_raise(expected, frame.observation, mode), 140)
-            result = Bridge(DemoAdapter(), policy).decide(fixture(mode))
+            bridge = Bridge(DemoAdapter(), policy)
+            result = bridge.decide(fixture(mode))
             self.assertTrue(legal_output(fixture(mode), result))
             self.assertEqual(result["type"], "raise")
+            self.assertEqual(bridge.budget_fallbacks, 0)
 
     def test_repeated_snapshots_do_not_duplicate_opponent_actions(self) -> None:
         bridge = Bridge(DemoAdapter(), policy)
@@ -65,6 +70,8 @@ class BridgeTests(unittest.TestCase):
         self.assertEqual(bridge.table_resets, 2)
         self.assertEqual(bridge.policy.opponents.seats[1].raises, 1)
 
+    @patch("competition.bridge.perf_counter_ns", new=lambda: 0)
+    @patch("competition.policy.perf_counter_ns", new=lambda: 0)
     def test_sdk_action_objects_can_use_the_same_bridge(self) -> None:
         class ObjectAdapter(DemoAdapter):
             def encode(self, action, raw, frame):
@@ -75,8 +82,10 @@ class BridgeTests(unittest.TestCase):
                     else 0,
                 )
 
-        result = Bridge(ObjectAdapter(), policy).decide(fixture("additional"))
+        bridge = Bridge(ObjectAdapter(), policy)
+        result = bridge.decide(fixture("additional"))
         self.assertEqual(result, ("raise", 328))
+        self.assertEqual(bridge.budget_fallbacks, 0)
 
     def test_gapped_or_reordered_history_is_rejected(self) -> None:
         raw = fixture()
