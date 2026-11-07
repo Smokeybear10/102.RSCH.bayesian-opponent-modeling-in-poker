@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "experiment": "independent_training_seed_replication",
+  "created_utc": "2026-11-07T06:03:50.304814+00:00",
+  "seeds": [
+    20261107101,
+    20261107102,
+    20261107103
+  ],
+  "styles": [
+    "calling",
+    "tight",
+    "aggressive",
+    "heldout_fit_fold",
+    "heldout_pressure",
+    "heldout_loose"
+  ],
+  "warmup_hands_per_stratum": 600,
+  "matched_evaluation_units_per_stratum": 128,
+  "hands_per_evaluation_unit": 4,
+  "samples": 128,
+  "jobs": 6,
+  "config": {
+    "small_blind": 10,
+    "big_blind": 20,
+    "stack_bb": 100,
+    "rake_bps": 0,
+    "rake_cap": 0,
+    "no_flop_no_drop": true
+  },
+  "planned_hands": 20016,
+  "protocol": "Per style and seed: learn only completed public responses, persist each hand, restart and verify, freeze profile, compare range and adaptive on identical new decks and policy seeds in both seats. Evaluation never updates memory.",
+  "selection_policy": "All seeds, styles, sample sizes and one primary endpoint are fixed before play. No default promotion, outcome-driven extension or selective export.",
+  "source_sha256": {
+    "headsup/__init__.py": "e364931a8afff672985ee99f795e6d8b20ff33c55d71d757ec211ec6689b3c19",
+    "headsup/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "headsup/adaptation.py": "e2ab5351a6117443cbb1f89fb39ada3448a9363443c389cfac5f8f7cfc80c1fe",
+    "headsup/arena.py": "ddaaeb1b630807c5985a587e64cda603e44874ed5c8c8b83be5c6c775dfe5e13",
+    "headsup/cli.py": "1cde3b81f950d48d09e63e92d9302e2208ff59a94c01ea0f3789d9ec69344356",
+    "headsup/connection.py": "735c2bf664bdb4b1715ec7f1d5e058c37e974ed94c36b79917ba182245f90353",
+    "headsup/decision_worker.py": "30669b4a321ab577a84cc899eb08427c7754176372c597e4659ba47b939cc0a8",
+    "headsup/engine.py": "a93bf2169ee2a2f7994e8b76e9e60dc21227424c5b3628e5aa07c5d25fbcb818",
+    "headsup/history_import.py": "73d9ebfba33137a5b0bccfb9aae4fa47c943a350b87c4dedb41e1103e5e24a95",
+    "headsup/human_learning.py": "0396398abef5ffb337027ada1ead39f3d3fe01d4d53b95fdb8c51744bd3dd670",
+    "headsup/learning.py": "f040bb1aab9689cb9d422e7f21546652ccddf56aedc10ca8bce875ae3fd1ded2",
+    "headsup/models.py": "3bbc210c58dc3cfc69c044c56955a43c5549929ab8d409b8b91709d380b38459",
+    "headsup/opponent_memory.py": "e87b91642739451e1123f9d543d4f847ac6f6f36ba9de72bb3c4eba1e06bfc56",
+    "headsup/opponents.py": "5cb171eadc535ecd3f116d79ff0f9f510ad5bd4c24886eb9e025218ffe4b763c",
+    "headsup/pokernow_bridge.mjs": "feb1e34d8c6ce1732f5dfb93ebb9da434c0f31476193ec64fd84d57e21ef68b2",
+    "headsup/pokernow_session.mjs": "08791e65b231e5e7c20c76c70439d13b5ede10c4193a2036008f6ce15419791c",
+    "headsup/pokernow_state.mjs": "bfcf917537598c51aee6dd28e11e1e16b4eb38397b12f7dc861c04fff74a5bb7",
+    "headsup/policies.py": "a6f301dde3777f9f6544441f6090405d0df94bc99079e4849ff80d00edf61c0b",
+    "headsup/population_learning.py": "b171f3246b71c97a07cab5b1d396ea470d51abd2ee9626495a8d28fbcc0d9bd8",
+    "headsup/protocol.py": "870568b3fcb27b5a163de29461bb0cd630b80b138ce071cf9355b01afab0370f",
+    "headsup/river.py": "b60145e7fa0298704224e01aee99fbcdc6065a095133988c72a390e969b19e4a",
+    "headsup/river_evaluation.py": "d09ec25f91b202cce9fb0fd4393e937348d94d80e63865f82ffcb6345af0fdf2",
+    "headsup/table.py": "ee6777032f23a5d6b94f7fe449f130b7abfa7c71d313cb6135823410b69f2a8c",
+    "headsup/timing.py": "c2c099c832954912e9a27211f82951512a47ae89662eaa3eac83353610ac12a5",
+    "headsup/training.py": "5d17721830133523a2dce147df4a172b29556db8cd7b939ba59c78446048fd9e",
+    "headsup/web.py": "c84e93d8eda832fa8a72b46678ed13ffb5d732bac297162068f369fbd342cdf6",
+    "pyproject.toml": "41d7eee3049c02019e354497352f518b2efa94431d0059bde843ceda36011502",
+    "run_research.py": "c84e8f0b563103a82a029df3ac595a48405a94f8bf70cdcd0c250c9523cb9b14",
+    "uv.lock": "2a6dc9ceae1b35f8a3c75d47c7f847c0a2b48746387c9871bbb335c79631a87c",
+    "run_research-recovery-1.py": "82013c926cc2ffdb51e3b0e1ebb63e7a0f07539b80fb913a1c0e24cb310a35fc"
+  },
+  "environment": {
+    "python": "3.12.14",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "dependencies": {
+      "pokerkit": "0.7.7",
+      "eval7": "0.1.11",
+      "scipy": "1.18.1",
+      "pydantic": "2.14.3"
+    }
+  },
+  "recovery_attempts": [
+    {
+      "attempt": 1,
+      "created_utc": "2026-11-07T06:08:19.643048+00:00",
+      "runner_file": "run_research-recovery-1.py",
+      "runner_sha256": "82013c926cc2ffdb51e3b0e1ebb63e7a0f07539b80fb913a1c0e24cb310a35fc",
+      "previous_completed_hands": 14456,
+      "protocol": "Completed strata retained; failed strata archived and repeated from their first learning hand with the same frozen policy source and seeds. No outcome-based parameter changes.",
+      "retained_completed_strata": 13,
+      "repeated_strata": [
+        {
+          "seed": 20261107102,
+          "style": "heldout_loose"
+        },
+        {
+          "seed": 20261107103,
+          "style": "calling"
+        },
+        {
+          "seed": 20261107103,
+          "style": "aggressive"
+        },
+        {
+          "seed": 20261107103,
+          "style": "heldout_pressure"
+        },
+        {
+          "seed": 20261107103,
+          "style": "heldout_loose"
+        }
+      ]
+    }
+  ]
+}

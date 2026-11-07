@@ -1,0 +1,1271 @@
+{
+  "20261107101": {
+    "calling": {
+      "schema_version": 1,
+      "hands_observed": 600,
+      "responses": {
+        "flop:bb:first:medium": {
+          "fold": 0,
+          "call": 65,
+          "raise": 0
+        },
+        "flop:button:first:medium": {
+          "fold": 0,
+          "call": 54,
+          "raise": 0
+        },
+        "preflop:bb:first:medium": {
+          "fold": 0,
+          "call": 219,
+          "raise": 0
+        },
+        "preflop:button:first:medium": {
+          "fold": 0,
+          "call": 42,
+          "raise": 0
+        },
+        "river:bb:first:medium": {
+          "fold": 0,
+          "call": 100,
+          "raise": 0
+        },
+        "river:button:first:medium": {
+          "fold": 0,
+          "call": 86,
+          "raise": 0
+        },
+        "turn:bb:first:medium": {
+          "fold": 0,
+          "call": 77,
+          "raise": 0
+        },
+        "turn:button:first:medium": {
+          "fold": 0,
+          "call": 72,
+          "raise": 0
+        }
+      }
+    },
+    "tight": {
+      "schema_version": 1,
+      "hands_observed": 600,
+      "responses": {
+        "flop:bb:first:medium": {
+          "fold": 9,
+          "call": 6,
+          "raise": 0
+        },
+        "flop:button:first:medium": {
+          "fold": 5,
+          "call": 8,
+          "raise": 0
+        },
+        "preflop:bb:first:medium": {
+          "fold": 154,
+          "call": 64,
+          "raise": 2
+        },
+        "preflop:button:reraised:medium": {
+          "fold": 0,
+          "call": 4,
+          "raise": 0
+        },
+        "river:bb:first:medium": {
+          "fold": 2,
+          "call": 13,
+          "raise": 0
+        },
+        "river:bb:reraised:medium": {
+          "fold": 0,
+          "call": 0,
+          "raise": 2
+        },
+        "river:button:first:medium": {
+          "fold": 1,
+          "call": 13,
+          "raise": 0
+        },
+        "turn:bb:first:medium": {
+          "fold": 4,
+          "call": 8,
+          "raise": 0
+        },
+        "turn:button:first:medium": {
+          "fold": 3,
+          "call": 11,
+          "raise": 0
+        }
+      }
+    },
+    "aggressive": {
+      "schema_version": 1,
+      "hands_observed": 600,
+      "responses": {
+        "flop:bb:first:medium": {
+          "fold": 16,
+          "call": 5,
+          "raise": 0
+        },
+        "flop:bb:reraised:medium": {
+          "fold": 0,
+          "call": 1,
+          "raise": 2
+        },
+        "flop:button:first:medium": {
+          "fold": 14,
+          "call": 13,
+          "raise": 7
+        },
+        "flop:button:reraised:medium": {
+          "fold": 0,
+          "call": 1,
+          "raise": 0
+        },
+        "preflop:bb:first:medium": {
+          "fold": 72,
+          "call": 138,
+          "raise": 18
+        },
+        "preflop:bb:reraised:medium": {
+          "fold": 0,
+          "call": 0,
+          "raise": 1
+        },
+        "preflop:button:reraised:medium": {
+          "fold": 0,
+          "call": 2,
+          "raise": 2
+        },
+        "river:bb:first:medium": {
+          "fold": 5,
+          "call": 9,
+          "raise": 0
+        },
+        "river:bb:reraised:medium": {
+          "fold": 1,
+          "call": 1,
+          "raise": 1
+        },
+        "river:bb:reraised:small": {
+          "fold": 0,
+          "call": 1,
+          "raise": 0
+        },
+        "river:button:first:medium": {
+          "fold": 7,
+          "call": 12,
+          "raise": 7
+        },
+        "river:button:first:small": {
+          "fold": 0,
+          "call": 2,
+          "raise": 0
+        },
+        "river:button:reraised:medium": {
+          "fold": 0,
+          "call": 1,
+          "raise": 0
+        },
+        "turn:bb:first:medium": {
+          "fold": 8,
+          "call": 7,
+          "raise": 2
+        },
+        "turn:bb:reraised:medium": {
+          "fold": 0,
+          "call": 0,
+          "raise": 4
+        },
+        "turn:bb:reraised:small": {
+          "fold": 0,
+          "call": 1,
+          "raise": 0
+        },
+        "turn:button:first:medium": {
+          "fold": 8,
+          "call": 15,
+          "raise": 8
+        },
+        "turn:button:reraised:medium": {
+          "fold": 0,
+          "call": 0,
+          "raise": 2
+        }
+      }
+    },
+    "heldout_fit_fold": {
+      "schema_version": 1,
+      "hands_observed": 600,
+      "responses": {
+        "flop:bb:first:medium": {
+          "fold": 24,
+          "call": 4,
+          "raise": 0
+        },
+        "flop:bb:reraised:medium": {
+          "fold": 0,
+          "call": 0,
+          "raise": 1
+        },
+        "flop:button:first:medium": {
+          "fold": 12,
+          "call": 3,
+          "raise": 5
+        },
+        "flop:button:reraised:medium": {
+          "fold": 0,
+          "call": 0,
+          "raise": 2
+        },
+        "preflop:bb:first:medium": {
+          "fold": 138,
+          "call": 73,
+          "raise": 24
+        },
+        "preflop:button:reraised:medium": {
+          "fold": 0,
+          "call": 2,
+          "raise": 0
+        },
+        "river:bb:first:medium": {
+          "fold": 8,
+          "call": 5,
+          "raise": 0
+        },
+        "river:bb:reraised:medium": {
+          "fold": 0,
+          "call": 0,
+          "raise": 1
+        },
+        "river:button:first:medium": {
+          "fold": 6,
+          "call": 1,
+          "raise": 6
+        },
+        "turn:bb:first:medium": {
+          "fold": 8,
+          "call": 3,
+          "raise": 1
+        },
+        "turn:bb:reraised:medium": {
+          "fold": 0,
+          "call": 0,
+          "raise": 1
+        },
+        "turn:button:first:medium": {
+          "fold": 13,
+          "call": 3,
+          "raise": 2
+        },
+        "turn:button:first:small": {
+          "fold": 0,
+          "call": 2,
+          "raise": 0
+        }
+      }
+    },
+    "heldout_pressure": {
+      "schema_version": 1,
+      "hands_observed": 600,
+      "responses": {
+        "flop:bb:first:medium": {
+          "fold": 22,
+          "call": 13,
+          "raise": 1
+        },
+        "flop:bb:reraised:medium": {
+          "fold": 1,
+          "call": 1,
+          "raise": 0
+        },
+        "flop:button:first:medium": {
+          "fold": 27,
+          "call": 11,
+          "raise": 0
+        },
+        "flop:button:reraised:medium": {
+          "fold": 0,
+          "call": 0,
+          "raise": 2
+        },
+        "preflop:bb:first:medium": {
+          "fold": 52,
+          "call": 148,
+          "raise": 19
+        },
+        "preflop:bb:reraised:medium": {
+          "fold": 0,
+          "call": 0,
+          "raise": 3
+        },
+        "preflop:button:reraised:medium": {
+          "fold": 0,
+          "call": 3,
+          "raise": 6
+        },
+        "river:bb:first:medium": {
+          "fold": 6,
+          "call": 6,
+          "raise": 0
+        },
+        "river:bb:reraised:medium": {
+          "fold": 0,
+          "call": 0,
+          "raise": 2
+        },
+        "river:button:first:medium": {
+          "fold": 2,
+          "call": 7,
+          "raise": 10
+        },
+        "river:button:reraised:medium": {
+          "fold": 0,
+          "call": 0,
+          "raise": 2
+        },
+        "turn:bb:first:medium": {
+          "fold": 7,
+          "call": 14,
+          "raise": 3
+        },
+        "turn:bb:first:small": {
+          "fold": 0,
+          "call": 1,
+          "raise": 0
+        },
+        "turn:bb:reraised:medium": {
+          "fold": 0,
+          "call": 1,
+          "raise": 1
+        },
+        "turn:button:first:medium": {
+          "fold": 7,
+          "call": 14,
+          "raise": 2
+        },
+        "turn:button:reraised:medium": {
+          "fold": 0,
+          "call": 0,
+          "raise": 1
+        }
+      }
+    },
+    "heldout_loose": {
+      "schema_version": 1,
+      "hands_observed": 600,
+      "responses": {
+        "flop:bb:first:medium": {
+          "fold": 24,
+          "call": 35,
+          "raise": 0
+        },
+        "flop:button:first:medium": {
+          "fold": 28,
+          "call": 41,
+          "raise": 1
+        },
+        "preflop:bb:first:medium": {
+          "fold": 12,
+          "call": 213,
+          "raise": 10
+        },
+        "preflop:button:first:medium": {
+          "fold": 0,
+          "call": 39,
+          "raise": 0
+        },
+        "river:bb:first:medium": {
+          "fold": 7,
+          "call": 49,
+          "raise": 0
+        },
+        "river:bb:reraised:medium": {
+          "fold": 0,
+          "call": 1,
+          "raise": 1
+        },
+        "river:button:first:medium": {
+          "fold": 10,
+          "call": 40,
+          "raise": 3
+        },
+        "river:button:first:small": {
+          "fold": 0,
+          "call": 1,
+          "raise": 0
+        },
+        "turn:bb:first:medium": {
+          "fold": 10,
+          "call": 45,
+          "raise": 0
+        },
+        "turn:bb:reraised:medium": {
+          "fold": 0,
+          "call": 0,
+          "raise": 1
+        },
+        "turn:button:first:medium": {
+          "fold": 7,
+          "call": 47,
+          "raise": 4
+        },
+        "turn:button:reraised:medium": {
+          "fold": 0,
+          "call": 0,
+          "raise": 2
+        }
+      }
+    }
+  },
+  "20261107102": {
+    "calling": {
+      "schema_version": 1,
+      "hands_observed": 600,
+      "responses": {
+        "flop:bb:first:medium": {
+          "fold": 0,
+          "call": 70,
+          "raise": 0
+        },
+        "flop:button:first:medium": {
+          "fold": 0,
+          "call": 68,
+          "raise": 0
+        },
+        "preflop:bb:first:medium": {
+          "fold": 0,
+          "call": 227,
+          "raise": 0
+        },
+        "preflop:button:first:medium": {
+          "fold": 0,
+          "call": 46,
+          "raise": 0
+        },
+        "river:bb:first:medium": {
+          "fold": 0,
+          "call": 96,
+          "raise": 0
+        },
+        "river:button:first:medium": {
+          "fold": 0,
+          "call": 103,
+          "raise": 0
+        },
+        "turn:bb:first:medium": {
+          "fold": 0,
+          "call": 66,
+          "raise": 0
+        },
+        "turn:button:first:medium": {
+          "fold": 0,
+          "call": 87,
+          "raise": 0
+        }
+      }
+    },
+    "tight": {
+      "schema_version": 1,
+      "hands_observed": 600,
+      "responses": {
+        "flop:bb:first:medium": {
+          "fold": 8,
+          "call": 3,
+          "raise": 0
+        },
+        "flop:button:first:medium": {
+          "fold": 6,
+          "call": 3,
+          "raise": 0
+        },
+        "flop:button:first:small": {
+          "fold": 0,
+          "call": 1,
+          "raise": 0
+        },
+        "preflop:bb:first:medium": {
+          "fold": 190,
+          "call": 67,
+          "raise": 6
+        },
+        "preflop:button:reraised:medium": {
+          "fold": 0,
+          "call": 4,
+          "raise": 2
+        },
+        "river:bb:first:medium": {
+          "fold": 4,
+          "call": 9,
+          "raise": 0
+        },
+        "river:button:first:medium": {
+          "fold": 3,
+          "call": 6,
+          "raise": 2
+        },
+        "turn:bb:first:medium": {
+          "fold": 7,
+          "call": 6,
+          "raise": 0
+        },
+        "turn:button:first:medium": {
+          "fold": 4,
+          "call": 5,
+          "raise": 1
+        }
+      }
+    },
+    "aggressive": {
+      "schema_version": 1,
+      "hands_observed": 600,
+      "responses": {
+        "flop:bb:first:medium": {
+          "fold": 25,
+          "call": 9,
+          "raise": 2
+        },
+        "flop:bb:reraised:medium": {
+          "fold": 0,
+          "call": 0,
+          "raise": 7
+        },
+        "flop:button:first:medium": {
+          "fold": 24,
+          "call": 10,
+          "raise": 6
+        },
+        "flop:button:reraised:medium": {
+          "fold": 0,
+          "call": 0,
+          "raise": 1
+        },
+        "flop:button:reraised:small": {
+          "fold": 0,
+          "call": 1,
+          "raise": 0
+        },
+        "preflop:bb:first:medium": {
+          "fold": 51,
+          "call": 173,
+          "raise": 14
+        },
+        "preflop:button:reraised:medium": {
+          "fold": 0,
+          "call": 7,
+          "raise": 0
+        },
+        "river:bb:first:medium": {
+          "fold": 6,
+          "call": 15,
+          "raise": 2
+        },
+        "river:bb:first:small": {
+          "fold": 0,
+          "call": 1,
+          "raise": 0
+        },
+        "river:bb:reraised:medium": {
+          "fold": 1,
+          "call": 1,
+          "raise": 2
+        },
+        "river:bb:reraised:small": {
+          "fold": 0,
+          "call": 1,
+          "raise": 0
+        },
+        "river:button:first:medium": {
+          "fold": 1,
+          "call": 10,
+          "raise": 5
+        },
+        "river:button:first:small": {
+          "fold": 0,
+          "call": 1,
+          "raise": 0
+        },
+        "river:button:reraised:medium": {
+          "fold": 0,
+          "call": 0,
+          "raise": 1
+        },
+        "turn:bb:first:medium": {
+          "fold": 5,
+          "call": 12,
+          "raise": 2
+        },
+        "turn:bb:reraised:medium": {
+          "fold": 0,
+          "call": 1,
+          "raise": 0
+        },
+        "turn:button:first:medium": {
+          "fold": 6,
+          "call": 15,
+          "raise": 6
+        },
+        "turn:button:reraised:medium": {
+          "fold": 0,
+          "call": 0,
+          "raise": 2
+        }
+      }
+    },
+    "heldout_fit_fold": {
+      "schema_version": 1,
+      "hands_observed": 600,
+      "responses": {
+        "flop:bb:first:medium": {
+          "fold": 21,
+          "call": 0,
+          "raise": 0
+        },
+        "flop:bb:reraised:medium": {
+          "fold": 0,
+          "call": 1,
+          "raise": 0
+        },
+        "flop:button:first:medium": {
+          "fold": 32,
+          "call": 3,
+          "raise": 0
+        },
+        "preflop:bb:first:medium": {
+          "fold": 122,
+          "call": 85,
+          "raise": 16
+        },
+        "preflop:button:reraised:medium": {
+          "fold": 1,
+          "call": 3,
+          "raise": 2
+        },
+        "river:bb:first:medium": {
+          "fold": 6,
+          "call": 1,
+          "raise": 0
+        },
+        "river:bb:reraised:medium": {
+          "fold": 0,
+          "call": 1,
+          "raise": 0
+        },
+        "river:button:first:medium": {
+          "fold": 11,
+          "call": 3,
+          "raise": 1
+        },
+        "turn:bb:first:medium": {
+          "fold": 13,
+          "call": 2,
+          "raise": 1
+        },
+        "turn:button:first:medium": {
+          "fold": 10,
+          "call": 2,
+          "raise": 2
+        }
+      }
+    },
+    "heldout_pressure": {
+      "schema_version": 1,
+      "hands_observed": 600,
+      "responses": {
+        "flop:bb:first:medium": {
+          "fold": 23,
+          "call": 14,
+          "raise": 0
+        },
+        "flop:bb:reraised:medium": {
+          "fold": 1,
+          "call": 0,
+          "raise": 0
+        },
+        "flop:button:first:medium": {
+          "fold": 21,
+          "call": 10,
+          "raise": 2
+        },
+        "flop:button:reraised:medium": {
+          "fold": 0,
+          "call": 0,
+          "raise": 1
+        },
+        "flop:button:reraised:small": {
+          "fold": 0,
+          "call": 1,
+          "raise": 0
+        },
+        "preflop:bb:first:medium": {
+          "fold": 64,
+          "call": 163,
+          "raise": 16
+        },
+        "preflop:bb:reraised:medium": {
+          "fold": 0,
+          "call": 0,
+          "raise": 1
+        },
+        "preflop:button:reraised:medium": {
+          "fold": 1,
+          "call": 6,
+          "raise": 0
+        },
+        "river:bb:first:medium": {
+          "fold": 7,
+          "call": 10,
+          "raise": 0
+        },
+        "river:bb:first:small": {
+          "fold": 0,
+          "call": 2,
+          "raise": 0
+        },
+        "river:bb:reraised:medium": {
+          "fold": 0,
+          "call": 1,
+          "raise": 3
+        },
+        "river:button:first:medium": {
+          "fold": 5,
+          "call": 7,
+          "raise": 6
+        },
+        "river:button:reraised:medium": {
+          "fold": 0,
+          "call": 0,
+          "raise": 1
+        },
+        "turn:bb:first:medium": {
+          "fold": 13,
+          "call": 9,
+          "raise": 3
+        },
+        "turn:bb:reraised:medium": {
+          "fold": 0,
+          "call": 3,
+          "raise": 4
+        },
+        "turn:button:first:medium": {
+          "fold": 8,
+          "call": 12,
+          "raise": 5
+        },
+        "turn:button:reraised:medium": {
+          "fold": 0,
+          "call": 1,
+          "raise": 2
+        }
+      }
+    },
+    "heldout_loose": {
+      "schema_version": 1,
+      "hands_observed": 600,
+      "responses": {
+        "flop:bb:first:medium": {
+          "fold": 28,
+          "call": 39,
+          "raise": 0
+        },
+        "flop:button:first:medium": {
+          "fold": 21,
+          "call": 37,
+          "raise": 1
+        },
+        "preflop:bb:first:medium": {
+          "fold": 17,
+          "call": 193,
+          "raise": 6
+        },
+        "preflop:button:first:medium": {
+          "fold": 4,
+          "call": 39,
+          "raise": 0
+        },
+        "river:bb:first:medium": {
+          "fold": 5,
+          "call": 51,
+          "raise": 1
+        },
+        "river:bb:reraised:medium": {
+          "fold": 0,
+          "call": 0,
+          "raise": 3
+        },
+        "river:bb:reraised:small": {
+          "fold": 0,
+          "call": 1,
+          "raise": 0
+        },
+        "river:button:first:medium": {
+          "fold": 6,
+          "call": 59,
+          "raise": 7
+        },
+        "river:button:reraised:medium": {
+          "fold": 0,
+          "call": 0,
+          "raise": 1
+        },
+        "turn:bb:first:medium": {
+          "fold": 11,
+          "call": 46,
+          "raise": 0
+        },
+        "turn:bb:reraised:medium": {
+          "fold": 0,
+          "call": 0,
+          "raise": 1
+        },
+        "turn:bb:reraised:small": {
+          "fold": 0,
+          "call": 1,
+          "raise": 0
+        },
+        "turn:button:first:medium": {
+          "fold": 10,
+          "call": 41,
+          "raise": 7
+        }
+      }
+    }
+  },
+  "20261107103": {
+    "tight": {
+      "schema_version": 1,
+      "hands_observed": 600,
+      "responses": {
+        "flop:bb:first:medium": {
+          "fold": 11,
+          "call": 9,
+          "raise": 1
+        },
+        "flop:button:first:medium": {
+          "fold": 11,
+          "call": 4,
+          "raise": 0
+        },
+        "preflop:bb:first:medium": {
+          "fold": 187,
+          "call": 53,
+          "raise": 7
+        },
+        "preflop:bb:reraised:medium": {
+          "fold": 0,
+          "call": 1,
+          "raise": 1
+        },
+        "preflop:button:reraised:medium": {
+          "fold": 0,
+          "call": 3,
+          "raise": 0
+        },
+        "river:bb:first:medium": {
+          "fold": 4,
+          "call": 18,
+          "raise": 0
+        },
+        "river:bb:reraised:medium": {
+          "fold": 0,
+          "call": 0,
+          "raise": 2
+        },
+        "river:button:first:medium": {
+          "fold": 5,
+          "call": 11,
+          "raise": 0
+        },
+        "turn:bb:first:medium": {
+          "fold": 2,
+          "call": 7,
+          "raise": 1
+        },
+        "turn:bb:first:small": {
+          "fold": 0,
+          "call": 1,
+          "raise": 0
+        },
+        "turn:button:first:medium": {
+          "fold": 4,
+          "call": 10,
+          "raise": 0
+        }
+      }
+    },
+    "heldout_fit_fold": {
+      "schema_version": 1,
+      "hands_observed": 600,
+      "responses": {
+        "flop:bb:first:medium": {
+          "fold": 17,
+          "call": 5,
+          "raise": 0
+        },
+        "flop:button:first:medium": {
+          "fold": 21,
+          "call": 2,
+          "raise": 4
+        },
+        "flop:button:reraised:medium": {
+          "fold": 0,
+          "call": 0,
+          "raise": 1
+        },
+        "preflop:bb:first:medium": {
+          "fold": 142,
+          "call": 77,
+          "raise": 11
+        },
+        "preflop:button:reraised:medium": {
+          "fold": 1,
+          "call": 3,
+          "raise": 0
+        },
+        "river:bb:first:medium": {
+          "fold": 4,
+          "call": 2,
+          "raise": 3
+        },
+        "river:bb:reraised:medium": {
+          "fold": 0,
+          "call": 1,
+          "raise": 0
+        },
+        "river:bb:reraised:small": {
+          "fold": 0,
+          "call": 1,
+          "raise": 0
+        },
+        "river:button:first:medium": {
+          "fold": 8,
+          "call": 3,
+          "raise": 5
+        },
+        "river:button:first:small": {
+          "fold": 0,
+          "call": 1,
+          "raise": 0
+        },
+        "turn:bb:first:medium": {
+          "fold": 12,
+          "call": 3,
+          "raise": 1
+        },
+        "turn:bb:reraised:medium": {
+          "fold": 0,
+          "call": 1,
+          "raise": 0
+        },
+        "turn:button:first:medium": {
+          "fold": 16,
+          "call": 3,
+          "raise": 3
+        },
+        "turn:button:first:small": {
+          "fold": 0,
+          "call": 1,
+          "raise": 0
+        },
+        "turn:button:reraised:medium": {
+          "fold": 0,
+          "call": 0,
+          "raise": 1
+        }
+      }
+    },
+    "heldout_pressure": {
+      "schema_version": 1,
+      "hands_observed": 600,
+      "responses": {
+        "flop:bb:first:medium": {
+          "fold": 31,
+          "call": 13,
+          "raise": 0
+        },
+        "flop:bb:reraised:medium": {
+          "fold": 0,
+          "call": 2,
+          "raise": 0
+        },
+        "flop:button:first:medium": {
+          "fold": 19,
+          "call": 13,
+          "raise": 3
+        },
+        "flop:button:reraised:medium": {
+          "fold": 2,
+          "call": 0,
+          "raise": 0
+        },
+        "preflop:bb:first:medium": {
+          "fold": 70,
+          "call": 151,
+          "raise": 20
+        },
+        "preflop:button:reraised:medium": {
+          "fold": 2,
+          "call": 13,
+          "raise": 2
+        },
+        "river:bb:first:medium": {
+          "fold": 3,
+          "call": 6,
+          "raise": 2
+        },
+        "river:bb:first:small": {
+          "fold": 0,
+          "call": 1,
+          "raise": 0
+        },
+        "river:bb:reraised:medium": {
+          "fold": 0,
+          "call": 0,
+          "raise": 2
+        },
+        "river:bb:reraised:small": {
+          "fold": 0,
+          "call": 1,
+          "raise": 0
+        },
+        "river:button:first:medium": {
+          "fold": 7,
+          "call": 11,
+          "raise": 6
+        },
+        "turn:bb:first:medium": {
+          "fold": 7,
+          "call": 10,
+          "raise": 3
+        },
+        "turn:button:first:medium": {
+          "fold": 13,
+          "call": 18,
+          "raise": 1
+        }
+      }
+    },
+    "aggressive": {
+      "schema_version": 1,
+      "hands_observed": 600,
+      "responses": {
+        "flop:bb:first:medium": {
+          "fold": 21,
+          "call": 9,
+          "raise": 2
+        },
+        "flop:bb:reraised:medium": {
+          "fold": 1,
+          "call": 1,
+          "raise": 1
+        },
+        "flop:button:first:medium": {
+          "fold": 19,
+          "call": 16,
+          "raise": 7
+        },
+        "preflop:bb:first:medium": {
+          "fold": 72,
+          "call": 148,
+          "raise": 16
+        },
+        "preflop:bb:reraised:medium": {
+          "fold": 0,
+          "call": 1,
+          "raise": 1
+        },
+        "preflop:button:reraised:medium": {
+          "fold": 1,
+          "call": 7,
+          "raise": 0
+        },
+        "river:bb:first:medium": {
+          "fold": 4,
+          "call": 4,
+          "raise": 1
+        },
+        "river:bb:reraised:medium": {
+          "fold": 0,
+          "call": 0,
+          "raise": 1
+        },
+        "river:bb:reraised:small": {
+          "fold": 0,
+          "call": 1,
+          "raise": 0
+        },
+        "river:button:first:medium": {
+          "fold": 1,
+          "call": 18,
+          "raise": 9
+        },
+        "river:button:reraised:medium": {
+          "fold": 0,
+          "call": 0,
+          "raise": 1
+        },
+        "river:button:reraised:small": {
+          "fold": 0,
+          "call": 1,
+          "raise": 0
+        },
+        "turn:bb:first:medium": {
+          "fold": 7,
+          "call": 7,
+          "raise": 0
+        },
+        "turn:bb:reraised:medium": {
+          "fold": 2,
+          "call": 2,
+          "raise": 1
+        },
+        "turn:bb:reraised:small": {
+          "fold": 0,
+          "call": 1,
+          "raise": 0
+        },
+        "turn:button:first:medium": {
+          "fold": 5,
+          "call": 17,
+          "raise": 6
+        },
+        "turn:button:reraised:small": {
+          "fold": 0,
+          "call": 1,
+          "raise": 0
+        }
+      }
+    },
+    "heldout_loose": {
+      "schema_version": 1,
+      "hands_observed": 600,
+      "responses": {
+        "flop:bb:first:medium": {
+          "fold": 27,
+          "call": 35,
+          "raise": 0
+        },
+        "flop:bb:reraised:medium": {
+          "fold": 1,
+          "call": 0,
+          "raise": 0
+        },
+        "flop:button:first:medium": {
+          "fold": 18,
+          "call": 34,
+          "raise": 1
+        },
+        "preflop:bb:first:medium": {
+          "fold": 15,
+          "call": 201,
+          "raise": 9
+        },
+        "preflop:bb:reraised:medium": {
+          "fold": 0,
+          "call": 0,
+          "raise": 2
+        },
+        "preflop:button:first:medium": {
+          "fold": 2,
+          "call": 25,
+          "raise": 0
+        },
+        "river:bb:first:medium": {
+          "fold": 7,
+          "call": 44,
+          "raise": 2
+        },
+        "river:bb:first:small": {
+          "fold": 0,
+          "call": 1,
+          "raise": 0
+        },
+        "river:bb:reraised:medium": {
+          "fold": 0,
+          "call": 1,
+          "raise": 0
+        },
+        "river:button:first:medium": {
+          "fold": 12,
+          "call": 58,
+          "raise": 6
+        },
+        "river:button:reraised:medium": {
+          "fold": 0,
+          "call": 1,
+          "raise": 0
+        },
+        "turn:bb:first:medium": {
+          "fold": 7,
+          "call": 48,
+          "raise": 0
+        },
+        "turn:bb:reraised:medium": {
+          "fold": 0,
+          "call": 0,
+          "raise": 1
+        },
+        "turn:button:first:medium": {
+          "fold": 8,
+          "call": 37,
+          "raise": 5
+        },
+        "turn:button:reraised:medium": {
+          "fold": 0,
+          "call": 0,
+          "raise": 2
+        },
+        "turn:button:reraised:small": {
+          "fold": 0,
+          "call": 1,
+          "raise": 0
+        }
+      }
+    },
+    "calling": {
+      "schema_version": 1,
+      "hands_observed": 600,
+      "responses": {
+        "flop:bb:first:medium": {
+          "fold": 0,
+          "call": 72,
+          "raise": 0
+        },
+        "flop:button:first:medium": {
+          "fold": 0,
+          "call": 67,
+          "raise": 0
+        },
+        "preflop:bb:first:medium": {
+          "fold": 0,
+          "call": 228,
+          "raise": 0
+        },
+        "preflop:button:first:medium": {
+          "fold": 0,
+          "call": 40,
+          "raise": 0
+        },
+        "river:bb:first:medium": {
+          "fold": 0,
+          "call": 106,
+          "raise": 0
+        },
+        "river:button:first:medium": {
+          "fold": 0,
+          "call": 101,
+          "raise": 0
+        },
+        "turn:bb:first:medium": {
+          "fold": 0,
+          "call": 81,
+          "raise": 0
+        },
+        "turn:button:first:medium": {
+          "fold": 0,
+          "call": 80,
+          "raise": 0
+        }
+      }
+    }
+  }
+}

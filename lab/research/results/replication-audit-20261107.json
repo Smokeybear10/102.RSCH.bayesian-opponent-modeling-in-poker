@@ -1,0 +1,138 @@
+{
+  "status": "passed",
+  "replayed_hands": 20016,
+  "replayed_actions": 97731,
+  "policy_verified_hands": 89,
+  "strata": [
+    {
+      "seed": 20261107101,
+      "style": "calling",
+      "status": "passed",
+      "hands": 1112,
+      "profile_sha256": "f31d45d817796a6f0f16b02bbc5b89fe0ae11756276fb1dba77bc85a4fac3950"
+    },
+    {
+      "seed": 20261107101,
+      "style": "tight",
+      "status": "passed",
+      "hands": 1112,
+      "profile_sha256": "7c76120077c836ad2ba751e6846b33f99bb92d6b24e3943a15b42ac1f1a336cb"
+    },
+    {
+      "seed": 20261107101,
+      "style": "aggressive",
+      "status": "passed",
+      "hands": 1112,
+      "profile_sha256": "cd2627e3a384b6a074439d085722ece1651905d3b2ea3ec9e91e3d484b94bbd9"
+    },
+    {
+      "seed": 20261107101,
+      "style": "heldout_fit_fold",
+      "status": "passed",
+      "hands": 1112,
+      "profile_sha256": "0d78fe6535d96b8aa8ad1cf6c1f20a0587a01478025b367af6becb5c4cb517a6"
+    },
+    {
+      "seed": 20261107101,
+      "style": "heldout_pressure",
+      "status": "passed",
+      "hands": 1112,
+      "profile_sha256": "9f1a83ae04e73fa64e4c0fd9f3a4f5fec20e66d421323538cc3e1672186a20d1"
+    },
+    {
+      "seed": 20261107101,
+      "style": "heldout_loose",
+      "status": "passed",
+      "hands": 1112,
+      "profile_sha256": "f7c1cf125cc94062857d0db8976d682ba1c92a4205cde46e66585b0e9b239a02"
+    },
+    {
+      "seed": 20261107102,
+      "style": "calling",
+      "status": "passed",
+      "hands": 1112,
+      "profile_sha256": "407147d33e1ed64f0a92d21fda11dc9fc0fb25335e801bc651232e8e52166475"
+    },
+    {
+      "seed": 20261107102,
+      "style": "tight",
+      "status": "passed",
+      "hands": 1112,
+      "profile_sha256": "7f607f42bf738e6d5f73365c3a4dc2a0b2df88f84dfc43aa9265a7412408cc78"
+    },
+    {
+      "seed": 20261107102,
+      "style": "aggressive",
+      "status": "passed",
+      "hands": 1112,
+      "profile_sha256": "b2febcd140edd7ab6c1e08c0fd3eac9ca1229199a02f0b5d82aab4d314ec85e1"
+    },
+    {
+      "seed": 20261107102,
+      "style": "heldout_fit_fold",
+      "status": "passed",
+      "hands": 1112,
+      "profile_sha256": "e1f03870881ee7d09afb9dff1b1e5860969978a44c9196c491811b42c1f3065f"
+    },
+    {
+      "seed": 20261107102,
+      "style": "heldout_pressure",
+      "status": "passed",
+      "hands": 1112,
+      "profile_sha256": "40d31aba6389cc6871a93709ddb50222f9c0dae692cdb03ba1fd01a51de11cae"
+    },
+    {
+      "seed": 20261107102,
+      "style": "heldout_loose",
+      "status": "passed",
+      "hands": 1112,
+      "profile_sha256": "4dac08aae9c12eb630bef94a7226aa53c3601924aa6f72fa42d5f58117fb1e0a"
+    },
+    {
+      "seed": 20261107103,
+      "style": "calling",
+      "status": "passed",
+      "hands": 1112,
+      "profile_sha256": "9393b4cd09fb2fe9ba03a25cc72a62040875e3a658a514b60aa53e30ea0e11c3"
+    },
+    {
+      "seed": 20261107103,
+      "style": "tight",
+      "status": "passed",
+      "hands": 1112,
+      "profile_sha256": "2be7e0bdc7ecf828312da738d1f3d35ffc28695346eaf0d84f6e4dc1fa60197c"
+    },
+    {
+      "seed": 20261107103,
+      "style": "aggressive",
+      "status": "passed",
+      "hands": 1112,
+      "profile_sha256": "8c234ba01f23ba5a38f8300d728862bb9b4bb2e5331ce333e736c3b8eb4aa8d3"
+    },
+    {
+      "seed": 20261107103,
+      "style": "heldout_fit_fold",
+      "status": "passed",
+      "hands": 1112,
+      "profile_sha256": "36f5eaed2d0b1e40c0f1e6164eba9b005993f910604cb8d04aca5ad073b0f36e"
+    },
+    {
+      "seed": 20261107103,
+      "style": "heldout_pressure",
+      "status": "passed",
+      "hands": 1112,
+      "profile_sha256": "47c94ab130074de0ebb24a128d52ea1dcad3881f8d9f477090851a91fc97c565"
+    },
+    {
+      "seed": 20261107103,
+      "style": "heldout_loose",
+      "status": "passed",
+      "hands": 1112,
+      "profile_sha256": "11cd375ce1c1179bd06be2a182b562f83d14eb6f02bb040e6e06bd484b41d494"
+    }
+  ],
+  "scope": "Every hand replays legal actions and exact settlement; selected hands also reproduce policy choices and profile fingerprints. All learning profiles reconstructed from public action journals; all matched evaluation units and returns verified.",
+  "auditor_sha256": "a4025de00ec17ca444a3e201ef12fdc4c87aae65bc4e6a0b437e94e35429afda",
+  "campaign_manifest_sha256": "77505fb501c0d716ec684aae583d3a0071459597ee031d8f4652422fb404e05b",
+  "policy_assignment_verified": true
+}
