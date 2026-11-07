@@ -1,0 +1,335 @@
+{
+  "status": "event_day_workflow_built_and_rehearsed",
+  "official_starter_integrated": false,
+  "official_submission_created": false,
+  "toolkit_archive": "artifacts/event-day-kit.zip",
+  "toolkit_sha256": "e969d66471b65124b6df4d5ffdf48d3bd91acc6fa621ec873c2ad24069c0f28f",
+  "toolkit_bytes": 40362,
+  "source_repository": "https://github.com/Smokeybear10/210.PROJ.shove",
+  "source_manifest": [
+    {
+      "file": "competition/.gitignore",
+      "bytes": 26,
+      "sha256": "4cad133d4f0a6cf4bba15f1b8bbae48d6a55f20b94f75487c51a93cc6a5af59f"
+    },
+    {
+      "file": "competition/__init__.py",
+      "bytes": 84,
+      "sha256": "137ddb6c8dd9a45cc8ca6d85d79041359c65c87f2c46b88bfeb3476a66658a3f"
+    },
+    {
+      "file": "competition/__main__.py",
+      "bytes": 3102,
+      "sha256": "ae3788d3d2d196bd5b3835fe939278905044705ccf205d842ebe46983ec6dc1c"
+    },
+    {
+      "file": "competition/arena.py",
+      "bytes": 11555,
+      "sha256": "f47e29c897306a259115058ba8028f723dd4d042095603e86fa751ce564f70d1"
+    },
+    {
+      "file": "competition/benchmark.py",
+      "bytes": 5381,
+      "sha256": "3e186a2488fc7584d9f4f60d4525714cd543dfb57f5e7d79482dc888548a0b96"
+    },
+    {
+      "file": "competition/bridge.py",
+      "bytes": 8411,
+      "sha256": "815a4b49433f4904c449ad2a2816dee39cad42a3725e0c5f9782421aa9f94eea"
+    },
+    {
+      "file": "competition/cards.py",
+      "bytes": 1301,
+      "sha256": "16b501ae08efa4174b7165436dab0164544d72f25f7bd4048ee1cabdd2fef7a3"
+    },
+    {
+      "file": "competition/equity.py",
+      "bytes": 585,
+      "sha256": "476dde14efd74e323fb9d65c0eddddfabe6a55dce073929f52c630e4c50a60e6"
+    },
+    {
+      "file": "competition/eventday.py",
+      "bytes": 21594,
+      "sha256": "76994581fe4568acc639ffb898db5a37a06dbca8dbcf2da54963c3db8da6ce30"
+    },
+    {
+      "file": "competition/holdem.py",
+      "bytes": 362,
+      "sha256": "5e183f3fd2c8b08fb1a435b52b18965f97e4ce92a8fe520fe1c1d5d3ff1b3a96"
+    },
+    {
+      "file": "competition/icm.py",
+      "bytes": 2076,
+      "sha256": "46688e208f5795ae235be6ec1deb4550e0f126f1a5af0ccd59ec52858dfa68a9"
+    },
+    {
+      "file": "competition/model.py",
+      "bytes": 3118,
+      "sha256": "ff8cfbbf00b71d5c7629f8ce98d82637b5b842dc7e507b4e0fe67d1159b5c30e"
+    },
+    {
+      "file": "competition/opponents.py",
+      "bytes": 3975,
+      "sha256": "20f960e057868c8035da04bd52662b9f87c53c54b4d987a24d0231e240afe4b0"
+    },
+    {
+      "file": "competition/policy.py",
+      "bytes": 8895,
+      "sha256": "e11b2fe00611a0952b1e9ad39602f0245ceddbdbf2f53d6077aec9c4ecc44d03"
+    },
+    {
+      "file": "competition/rehearsal/adapter.py",
+      "bytes": 2737,
+      "sha256": "036da543ac9fcde6979b3a577c01f7c2ce4822845b955f853b3173de7518b18f"
+    },
+    {
+      "file": "competition/rehearsal/agent.py",
+      "bytes": 483,
+      "sha256": "6306f0a12be7869f85a85fa95993e0c8b81a8ffaad48c81f6581167a1172379f"
+    },
+    {
+      "file": "competition/rehearsal/sdk.py",
+      "bytes": 2434,
+      "sha256": "f2c1e80d18fa45fc11ad48325b32c0c22a199216bc647cbda7eb8d2d26bf7fd5"
+    },
+    {
+      "file": "competition/rehearsal/smoke.py",
+      "bytes": 2487,
+      "sha256": "e52d72cf7f889749aa10a97918e25768ed961bb1aabd89169402a4fa6e5911c5"
+    },
+    {
+      "file": "competition/requirements.txt",
+      "bytes": 30,
+      "sha256": "10f82f9d8b310e11babf5c291535352b086c74837b62019ee7fec8709e52ec52"
+    },
+    {
+      "file": "competition/sampling.py",
+      "bytes": 8157,
+      "sha256": "f4748f5e24cc47a2a15f8acbdff78e66ffb63ab1ee6bc0e3f969cee5f511b176"
+    },
+    {
+      "file": "competition/search.py",
+      "bytes": 4343,
+      "sha256": "e413cdee421fc2ac3f69f0a9ef8c0a70969421c775ce171d17df28df8ea0ae59"
+    },
+    {
+      "file": "competition/test_eventday.py",
+      "bytes": 11981,
+      "sha256": "d0ecc91faa37473954087507068b82bf3df30e531ef7c2b60cc973f138fd04c1"
+    },
+    {
+      "file": "competition/tests.py",
+      "bytes": 13380,
+      "sha256": "2f11d4673b61df934e69e277ba4dd3e01f5ece717396914619ef368460b893ee"
+    },
+    {
+      "file": "competition/wirecheck.py",
+      "bytes": 5173,
+      "sha256": "1fe29a6333c7ba95cedb4463afdf32adf9c7d894019c57de7f28750cb15627b3"
+    }
+  ],
+  "commands_run_from_repository_root": {
+    "rehearse": "uv run --no-project --python 3.12 python -S -m competition.eventday rehearse --output day/rehearsal",
+    "intake": "uv run --no-project --python 3.12 python -S -m competition.eventday intake /path/to/starter --output day/intake.json",
+    "build_template": "uv run --no-project --python 3.12 python -S -m competition.eventday build /path/to/starter --entry agent.py --include adapter.py --backend provided --output day/candidate.zip --check <actual simulator command referencing {entry} or {candidate}>",
+    "native_wire_rehearsal": "uv run --no-project --python 3.12 --with-requirements competition/requirements.txt python -m competition.wirecheck --tables 8 --output day/native-wire.json"
+  },
+  "user_action_on_event_day": "Provide the actual starter folder or archive and any separate technical instructions in this chat. Extract an archive into a working directory before intake.",
+  "workflow": [
+    "Run the supplied baseline unchanged using the provided runtime; confirm that it can produce an accepted bot.",
+    "Inspect the revealed game rules, scoring, Agent signatures, dependencies and timing boundaries using intake plus direct source review.",
+    "Implement the actual SDK adapter and Agent entry. Use the SDK hand-ranker through SampledEquity if eval7 is unavailable; use actual payouts and blind values.",
+    "Write or connect the official simulator check so it rejects invalid actions, errors and deadline failures rather than merely returning a score.",
+    "Run complete games and measure input decode, history replay, policy and output encode together. Inspect cold import and initialization separately.",
+    "Build a candidate: check staged source, verify it is unchanged, package it, extract it, repeat the check, then promote the archive. Preserve the prior working candidate on any failure.",
+    "Use the official upload format and submission procedure. Continue improving between scoring rounds while retaining the accepted version until its replacement passes."
+  ],
+  "target_timeline": {
+    "0_to_10_minutes": "Working starter baseline, variant and interface understood",
+    "10_to_25_minutes": "Actual adapter and evaluator connected; first working bot accepted",
+    "25_to_45_minutes": "Variant-specific strategy and actual payout improvements tested",
+    "45_to_60_minutes": "Freeze validated candidate, benchmark, package and submit with a correction buffer",
+    "between_rounds": "Improve and validate replacements; keep the accepted bot available"
+  },
+  "two_person_split": {
+    "you_and_coding_assistant": "Runtime, SDK mapping, legality, latency, artifact versions and submission",
+    "teammate": "Revealed game mechanics, payout incentives and strategy experiments"
+  },
+  "prepared": [
+    "Standard-library runtime with injectable equity backend or SDK hand-ranker",
+    "Adapter bridge with explicit raise-to, increment and additional-chip conventions",
+    "Card, seat, chip, payout and legal-action contract validation",
+    "Current-hand event cursors with duplicate prevention and new-table state reset",
+    "One shared callback budget covering decode, history, policy and encode",
+    "Local starter intake without executing starter source",
+    "Checked packaging, extracted-archive verification, source hashes, dependency inventory and previous-candidate retention"
+  ],
+  "verification": {
+    "full_tests_passed": 43,
+    "dependency_free_sdk_tests_passed": {
+      "python3.10": 19,
+      "python3.11": 19,
+      "python3.12": 19
+    },
+    "synthetic_sdk_archive": {
+      "integration_rehearsal": "passed",
+      "official_sdk": false,
+      "strategy_strength_evaluated": false,
+      "native_or_simulator_dependencies_required": false,
+      "intake_interfaces_found": 3,
+      "archive_bytes": 14402,
+      "extracted_archive_verified": true,
+      "details": {
+        "integration": "passed",
+        "official_sdk": false,
+        "raise_conventions": [
+          {
+            "type": "raise",
+            "amount": 348
+          },
+          {
+            "type": "raise",
+            "amount": 288
+          },
+          {
+            "type": "raise",
+            "amount": 328
+          }
+        ],
+        "table_resets": 2,
+        "history_deduplicated": true,
+        "third_party_runtime_imports": [],
+        "cold_import_us": 23684.958,
+        "agent_initialization_us": 22.208,
+        "callback_us": [
+          54.042,
+          39.042,
+          25.5
+        ],
+        "timing_note": "Synthetic provided-equity SDK; separate import, initialization and callback timing. This does not certify the event's timing semantics or native poker policy."
+      }
+    },
+    "native_wire_games": {
+      "official_sdk": false,
+      "purpose": "Full eight-player Hold'em games through raw SDK-shaped observations, history replay, adapter normalization, native equity policy, output encoding and PokerKit legality checks",
+      "configuration": {
+        "stacks": [
+          2000,
+          2000,
+          2000,
+          2000,
+          2000,
+          2000,
+          2000,
+          2000
+        ],
+        "payouts": [
+          50,
+          30,
+          20,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "blinds": [
+          20,
+          40,
+          80,
+          160,
+          320,
+          640,
+          1280,
+          2560
+        ],
+        "hands_per_level": 25,
+        "max_hands": 200,
+        "enforce_deadline": true
+      },
+      "seed": 20261107,
+      "tables": 24,
+      "illegal_action_or_accounting_failures": 0,
+      "timing_note": "Wall times include serializing SDK-shaped input, decode, validation, history, policy, encode, and applying wire amount conventions. Desktop timings do not certify the official runtime.",
+      "modes": {
+        "to": {
+          "tables": 8,
+          "mean_points": 40,
+          "95pct_interval": [
+            26.64485118016276,
+            53.35514881983724
+          ],
+          "decisions": 1334,
+          "overruns": 0,
+          "latency_us": {
+            "p50": 164.375,
+            "p95": 343.625,
+            "p99": 423.375,
+            "max": 460.167
+          },
+          "mean_hands": 136.25,
+          "bridge_budget_fallbacks": 0
+        },
+        "increment": {
+          "tables": 8,
+          "mean_points": 28.75,
+          "95pct_interval": [
+            14.196563979595746,
+            43.303436020404256
+          ],
+          "decisions": 1310,
+          "overruns": 0,
+          "latency_us": {
+            "p50": 173.667,
+            "p95": 357.291,
+            "p99": 427.792,
+            "max": 454.75
+          },
+          "mean_hands": 131.375,
+          "bridge_budget_fallbacks": 0
+        },
+        "additional": {
+          "tables": 8,
+          "mean_points": 31.25,
+          "95pct_interval": [
+            15.782534144210956,
+            46.717465855789044
+          ],
+          "decisions": 1318,
+          "overruns": 0,
+          "latency_us": {
+            "p50": 169.709,
+            "p95": 351.792,
+            "p99": 413.0,
+            "max": 447.667
+          },
+          "mean_hands": 125.875,
+          "bridge_budget_fallbacks": 0
+        }
+      }
+    },
+    "cli_intake_and_build_verified": true,
+    "extracted_toolkit_standard_library_tests_passed": 19
+  },
+  "remaining_event_specific_work": [
+    "The exact SDK adapter, actual Agent signature and official simulator-check command are unknown until the starter is provided.",
+    "The prepared poker strategy is standard no-limit Holdem. Another variant requires strategy and evaluator changes beyond the adapter.",
+    "Confirm allowed prewritten code and dependencies, target interpreter and hardware, timing semantics including initialization, and upload format.",
+    "A passing local rehearsal does not certify official compatibility or tournament strength."
+  ],
+  "handoff_prompt": "Continue No Limit Boston/Cambridge preparation in the current checkout of https://github.com/Smokeybear10/210.PROJ.shove. Use repository-relative paths, not paths from the original machine. The actual starter is at <PATH>. Read the local AGENTS instructions and competition/eventday.py, bridge.py, policy.py and sampling.py. Run the supplied starter baseline before changing it. Inspect the revealed variant and provided Agent interface. Map SDK observations/actions in a small adapter and preserve exact call/raise semantics, table resets and public-history cursors. Inject the supplied fast hand evaluator if native eval7 is unavailable; normalize its ranks so larger is stronger. Use actual payouts and blinds. If the variant differs from standard Holdem, adapt the strategy and validation instead of forcing the existing assumptions. Validate in the official simulator and benchmark the complete callback. Build and recheck the extracted candidate; keep the last accepted bot intact on failed checks. Do not commit, push or submit externally without the user instruction required for that action.",
+  "rules_source": "https://pokerbot.sequoiacap.com/rules.html",
+  "github_publication_verification": {
+    "full_tests_passed": 43,
+    "dependency_free_sdk_tests": {
+      "python3.10": 19,
+      "python3.11": 19,
+      "python3.12": 19
+    },
+    "private_repository": true,
+    "intended_owner": "Smokeybear10",
+    "copied_checkout_rehearsal_passed": true,
+    "independent_python_review": "no findings",
+    "independent_publication_review": "no blockers after archive assembly"
+  }
+}

@@ -1,0 +1,238 @@
+{
+  "practice_only": true,
+  "variant": "No-Limit Texas Hold'em",
+  "parameters": {
+    "equity_only": {
+      "open_scale": 1.0,
+      "call_edge": 0.025,
+      "value_edge": 0.14,
+      "bet_fraction": 0.6,
+      "bluff_frequency": 0.08,
+      "samples": 40,
+      "equity_budget_us": 400,
+      "use_icm": false,
+      "adapt": false,
+      "learn_continuation": true
+    },
+    "fixed_call_model": {
+      "open_scale": 1.0,
+      "call_edge": 0.025,
+      "value_edge": 0.14,
+      "bet_fraction": 0.6,
+      "bluff_frequency": 0.08,
+      "samples": 40,
+      "equity_budget_us": 400,
+      "use_icm": true,
+      "adapt": true,
+      "learn_continuation": false
+    },
+    "tournament": {
+      "open_scale": 1.0,
+      "call_edge": 0.025,
+      "value_edge": 0.14,
+      "bet_fraction": 0.6,
+      "bluff_frequency": 0.08,
+      "samples": 40,
+      "equity_budget_us": 400,
+      "use_icm": true,
+      "adapt": true,
+      "learn_continuation": true
+    }
+  },
+  "configuration": {
+    "stacks": [
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000
+    ],
+    "payouts": [
+      8.0,
+      7.0,
+      6.0,
+      5.0,
+      4.0,
+      3.0,
+      2.0,
+      1.0
+    ],
+    "blinds": [
+      20,
+      40,
+      80,
+      160,
+      320,
+      640,
+      1280,
+      2560
+    ],
+    "hands_per_level": 25,
+    "max_hands": 200,
+    "enforce_deadline": true
+  },
+  "seed": 130261101,
+  "paired_design": "Shared per-hand deck seeds and rotating hero seats; differing actions and eliminations can change subsequent card assignments. Table-level paired intervals are descriptive and do not establish performance against actual entrants.",
+  "fields": {
+    "mixed": {
+      "equity_only": {
+        "tables": 64,
+        "mean_points": 5.453125,
+        "95pct_interval": [
+          5.040891026438464,
+          5.865358973561536
+        ],
+        "decisions": 5979,
+        "overruns": 21,
+        "latency_us": {
+          "p50": 214.875,
+          "p95": 416.208,
+          "p99": 494.084,
+          "max": 3628.25
+        },
+        "mean_hands": 123.015625
+      },
+      "fixed_call_model": {
+        "tables": 64,
+        "mean_points": 6.7578125,
+        "95pct_interval": [
+          6.389346610744103,
+          7.126278389255897
+        ],
+        "decisions": 9575,
+        "overruns": 57,
+        "latency_us": {
+          "p50": 193.5,
+          "p95": 416.166,
+          "p99": 592.833,
+          "max": 19468.709
+        },
+        "mean_hands": 131.890625,
+        "paired_delta_vs_equity_only": {
+          "mean": 1.3046875,
+          "95pct_interval": [
+            0.7855981594336738,
+            1.8237768405663262
+          ]
+        }
+      },
+      "tournament": {
+        "tables": 64,
+        "mean_points": 6.53125,
+        "95pct_interval": [
+          6.168725814983024,
+          6.893774185016976
+        ],
+        "decisions": 9673,
+        "overruns": 16,
+        "latency_us": {
+          "p50": 228.666,
+          "p95": 417.083,
+          "p99": 448.291,
+          "max": 28754.458
+        },
+        "mean_hands": 125.953125,
+        "paired_delta_vs_equity_only": {
+          "mean": 1.078125,
+          "95pct_interval": [
+            0.5689494255416409,
+            1.587300574458359
+          ]
+        },
+        "paired_delta_vs_fixed_call_model": {
+          "mean": -0.2265625,
+          "95pct_interval": [
+            -0.6336863598259543,
+            0.18056135982595434
+          ]
+        }
+      }
+    },
+    "selfplay": {
+      "equity_only": {
+        "tables": 64,
+        "mean_points": 2.328125,
+        "95pct_interval": [
+          1.9002961283669864,
+          2.7559538716330136
+        ],
+        "decisions": 4415,
+        "overruns": 8,
+        "latency_us": {
+          "p50": 241.458,
+          "p95": 413.667,
+          "p99": 422.5,
+          "max": 9496.5
+        },
+        "mean_hands": 134.046875
+      },
+      "fixed_call_model": {
+        "tables": 64,
+        "mean_points": 4.453125,
+        "95pct_interval": [
+          3.9312433466824643,
+          4.975006653317536
+        ],
+        "decisions": 8675,
+        "overruns": 6,
+        "latency_us": {
+          "p50": 201.5,
+          "p95": 411.834,
+          "p99": 418.291,
+          "max": 6920.792
+        },
+        "mean_hands": 140.4375,
+        "paired_delta_vs_equity_only": {
+          "mean": 2.125,
+          "95pct_interval": [
+            1.4636944730308086,
+            2.7863055269691914
+          ]
+        }
+      },
+      "tournament": {
+        "tables": 64,
+        "mean_points": 4.25,
+        "95pct_interval": [
+          3.6961097180447697,
+          4.80389028195523
+        ],
+        "decisions": 8541,
+        "overruns": 0,
+        "latency_us": {
+          "p50": 210.375,
+          "p95": 415.25,
+          "p99": 427.084,
+          "max": 927.25
+        },
+        "mean_hands": 139.6875,
+        "paired_delta_vs_equity_only": {
+          "mean": 1.921875,
+          "95pct_interval": [
+            1.2551103913090635,
+            2.5886396086909365
+          ]
+        },
+        "paired_delta_vs_fixed_call_model": {
+          "mean": -0.203125,
+          "95pct_interval": [
+            -0.892201002954117,
+            0.485951002954117
+          ]
+        }
+      }
+    }
+  },
+  "elapsed_seconds": 29.64064187509939,
+  "limitations": [
+    "The event variant, Agent interface, runtime, dependency availability, and permission to bring prewritten code remain unresolved.",
+    "The policy is a heuristic, not a solved or trained equilibrium strategy.",
+    "Equity uses bounded Monte Carlo and approximate opponent ranges; nonterminal decisions omit future betting and use a realization discount.",
+    "ICM is applied directly only to heads-up terminal all-in calls; other decisions use chip-value heuristics.",
+    "Local timing includes act() but excludes simulator-to-observation conversion; host scheduling and multiprocessing affect tail latency.",
+    "PokerKit and eval7 are preparation dependencies, not confirmed event dependencies."
+  ]
+}

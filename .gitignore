@@ -24,6 +24,8 @@ __pycache__/
 *.pyc
 runs/
 state/
+/day/
+/starter/
 dist/
 *.sqlite3
 *.sqlite3-*

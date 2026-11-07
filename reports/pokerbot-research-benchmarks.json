@@ -1,0 +1,145 @@
+{
+  "purpose": "Bounded local feasibility probes for Sequoia/OpenAI/Citadel Securities No Limit preparation",
+  "research_date": "2026-11-01",
+  "target_regional": "Boston / Cambridge, 2026-11-09",
+  "team_size": 2,
+  "environment": {
+    "cpu": "Apple M4 Pro",
+    "memory_bytes": 25769803776,
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python": "3.9.6"
+  },
+  "icm": {
+    "validation": "exhaustive finish-order oracle for n=2..6, 100 player values",
+    "python": "3.9.6",
+    "latency_us": {
+      "2": {
+        "median_us": 1.458,
+        "p99_us": 1.959,
+        "max_us": 18.5
+      },
+      "4": {
+        "median_us": 5.708,
+        "p99_us": 7.084,
+        "max_us": 33.125
+      },
+      "8": {
+        "median_us": 114.625,
+        "p99_us": 182.5,
+        "max_us": 561.916
+      }
+    }
+  },
+  "hand_evaluation": {
+    "versions": {
+      "eval7": "0.1.11",
+      "treys": "0.1.8"
+    },
+    "eval7_seven_card": {
+      "median_us": 0.333,
+      "p99_us": 0.459,
+      "max_us": 6.417
+    },
+    "treys_seven_card": {
+      "median_us": 9.584,
+      "p99_us": 16.084,
+      "max_us": 56.084
+    },
+    "heads_up_flop_mc_100": {
+      "median_us": 119.7295,
+      "p99_us": 204.292,
+      "max_us": 235.209
+    },
+    "heads_up_flop_mc_1000": {
+      "median_us": 147.375,
+      "p99_us": 195.5,
+      "max_us": 265.833
+    },
+    "heads_up_flop_mc_10000": {
+      "median_us": 410.41700000000003,
+      "p99_us": 507.375,
+      "max_us": 718.208
+    },
+    "python_multiway_3p_25_trials": {
+      "median_us": 85.75,
+      "p99_us": 133.792,
+      "max_us": 212.916
+    },
+    "python_multiway_3p_100_trials": {
+      "median_us": 347.45799999999997,
+      "p99_us": 514.542,
+      "max_us": 682.875
+    },
+    "python_multiway_8p_25_trials": {
+      "median_us": 176.0,
+      "p99_us": 290.958,
+      "max_us": 1125.75
+    },
+    "python_multiway_8p_100_trials": {
+      "median_us": 664.9375,
+      "p99_us": 782.625,
+      "max_us": 812.083
+    }
+  },
+  "range_example": {
+    "hero": "AsQh",
+    "board": "AhKd7s4c2d",
+    "equity": {
+      "uniform_random": 0.8888888955116272,
+      "illustrative_strong_range": 0.4523809552192688
+    }
+  },
+  "icm_gamble_example": {
+    "fictional_payouts": [
+      50,
+      30,
+      20,
+      0
+    ],
+    "fold_icm": 25.000000000000004,
+    "win_icm": 38.333333333333336,
+    "lose_icm": 0,
+    "break_even_equity_no_ties_or_dead_money": 0.6521739130434783,
+    "note": "Illustrative static ICM gamble, not an event payout prediction or a full hand decision"
+  },
+  "methodology": {
+    "timer": "time.perf_counter_ns; individual call durations in microseconds; default interpreter/OS scheduling",
+    "icm_fixtures": "100 random positive stack vectors per table size, repeated20 times; warmups excluded; pure Python hero-only subset dynamic program",
+    "hand_evaluation_fixtures": "1000 random seven-card hands, repeated5 times; card parsing excluded",
+    "equity_fixtures": "100 random hero/flop combinations; native heads-up against1326 uniformly weighted legal combinations, repeated5 times; Python multiway against uniformly random opponents, repeated3 times",
+    "validation": "ICM outputs compared to exhaustive finish-order enumeration for2..6 players and payout conservation; equity examples computed exactly with eval7",
+    "caveats": [
+      "Not the official runtime, Agent interface, or a complete decision loop",
+      "Native modules and prewritten artifacts require organizer clarification",
+      "Equity functions are Holdem-specific; no hidden variant assumption",
+      "Noisy tail latencies and observed maxima are not worst-case guarantees",
+      "Raw equity versus random hands does not model action-conditioned ranges or future betting",
+      "These are feasibility measurements, not bot strength, win-rate, or tournament-score measurements"
+    ]
+  },
+  "sources": [
+    "https://pokerbot.sequoiacap.com/rules.html",
+    "https://pokerbot.sequoiacap.com/",
+    "https://noambrown.github.io/papers/19-Science-Superhuman.pdf",
+    "https://arxiv.org/html/2506.00180v1",
+    "https://poker.cs.ualberta.ca/publications/aaai18-burch-aivat.pdf",
+    "https://arxiv.org/abs/1711.00832",
+    "https://github.com/JulianAndrews/pyeval7",
+    "https://github.com/ihendley/treys",
+    "https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/",
+    "https://arxiv.org/html/2602.00528v1",
+    "https://arxiv.org/html/2608.06362v1",
+    "https://github.com/uoftcprg/pokerkit",
+    "https://poker.cs.ualberta.ca/publications/UAI05.pdf",
+    "https://www.cs.cmu.edu/~sandholm/opponentModeling.aamas11.pdf",
+    "https://www.cs.cmu.edu/~./sandholm/stochgames.ijcai09.pdf",
+    "https://arxiv.org/abs/1511.06295"
+  ],
+  "unresolved_public_rule_details": [
+    "Whether personal prewritten code, trained policies, and precomputed tables may be brought",
+    "Official Python version, dependencies, native extensions, and CPU architecture",
+    "Whether1ms is wall or CPU time and which stages, initialization, and serialization it covers",
+    "Whether the starter kit or practice runtime is available before build time",
+    "Which observations, per-table persistence, logs, and intermediate results are exposed"
+  ]
+}
