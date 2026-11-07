@@ -19,8 +19,6 @@
 # whitelist architecture diagrams
 !docs/architecture/*.png
 
-web/.next/
-web/node_modules/
 .gstack/
 .vercel
 supabase/.temp/

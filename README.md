@@ -2,7 +2,9 @@
 
 A Rust research implementation of card abstraction and Monte Carlo counterfactual regret minimization (MCCFR) for heads-up No-Limit Texas Hold'em. It groups card situations and samples game trees to make strategy training smaller than the full game.
 
-The website presents the project. Its explorer and strategy pages need a running solver API; the repository also includes the Next.js frontend for local use.
+The browser interface has been retired. The Rust solver, command-line tools, and local query API remain available. Architecture diagrams preserve the earlier system design.
+
+![Retired River interface](assets/screenshots/retired-interface.jpg)
 
 ## Start Here
 
@@ -82,16 +84,6 @@ curl http://127.0.0.1:3002/health
 ```
 
 The health endpoint checks the abstraction queries for each street. Strategy queries use `POST /blueprint` with `turn`, `seen`, and `past`, as defined in [the request types](src/analysis/request.rs). They require a trained and published blueprint; publishing abstractions alone does not supply a strategy.
-
-For the optional browser interface, install Node.js 20.9 or newer, then run:
-
-```bash
-cd web
-npm ci
-npm run dev
-```
-
-Open `http://localhost:2002`. The frontend uses `http://localhost:3002` by default; `NEXT_PUBLIC_API_URL` can point it to another API.
 
 ## Background
 
